@@ -32,7 +32,7 @@
     .page{display:none !important}
     .page.active{display:block !important}
     #page-home.active{display:block !important}
-    #home{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden}
+    #home{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden;width:100vw;margin-left:calc(-50vw + 50%);}
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
     .hero-slide.active{opacity:0.2;transform:scale(1)}
@@ -194,64 +194,8 @@
         <div class="stat" style="grid-column:1/-1;padding:20px 24px;overflow:hidden;position:relative;">
           <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">Tools &amp; Software</div>
           <div style="overflow:hidden;position:relative;">
-            <div style="display:flex;align-items:center;gap:32px;animation:ticker 22s linear infinite;width:max-content;">
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Illustrator">
-                <span class="tk">Adobe Illustrator</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Photoshop">
-                <span class="tk">Adobe Photoshop</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeindesign/FF3366" style="width:18px;height:18px;opacity:0.85;" alt="Adobe InDesign">
-                <span class="tk">Adobe InDesign</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe After Effects">
-                <span class="tk">Adobe After Effects</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Premiere Pro">
-                <span class="tk">Adobe Premiere Pro</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/anthropic/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="Claude">
-                <span class="tk">Claude</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/openai/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="ChatGPT">
-                <span class="tk">ChatGPT</span>
-              </span>
-              <span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Illustrator">
-                <span class="tk">Adobe Illustrator</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Photoshop">
-                <span class="tk">Adobe Photoshop</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeindesign/FF3366" style="width:18px;height:18px;opacity:0.85;" alt="Adobe InDesign">
-                <span class="tk">Adobe InDesign</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe After Effects">
-                <span class="tk">Adobe After Effects</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Premiere Pro">
-                <span class="tk">Adobe Premiere Pro</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/anthropic/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="Claude">
-                <span class="tk">Claude</span>
-              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
-              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
-                <img src="https://cdn.simpleicons.org/openai/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="ChatGPT">
-                <span class="tk">ChatGPT</span>
-              </span>
+            <div style="display:flex;align-items:center;gap:0;animation:ticker 24s linear infinite;width:max-content;">
+              <span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span>
             </div>
           </div>
         </div>
