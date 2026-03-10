@@ -127,20 +127,49 @@
     .tk{font-family:"DM Mono",monospace;font-size:13px;color:var(--white);letter-spacing:.08em;white-space:nowrap;}
     .tks{font-family:"DM Mono",monospace;font-size:13px;color:var(--blue);opacity:0.5;}
     @media(max-width:768px){
+      /* Hide custom cursor on touch devices */
+      .cursor,.cursor-ring{display:none}
+      body{cursor:auto}
+
       nav{padding:20px 24px}
       section{padding:80px 24px}
-      #home{padding:0 24px 60px}
+
+      /* Hero */
+      #home{min-height:100svh}
+      .hero-inner{padding:0 24px 60px}
+      .scroll-hint{display:none}
+
+      /* About */
       #about .ag{grid-template-columns:1fr;gap:48px}
-      #apmp-s .ag2{grid-template-columns:1fr;gap:48px}
+
+      /* APMP section */
+      #apmp-s .ag2{grid-template-columns:1fr;gap:32px}
       #apmp-s .inner{padding:80px 24px}
+
+      /* Projects */
       .pg{grid-template-columns:1fr 1fr}
-      .ph{padding:0 24px 60px}
+
+      /* Experience — stack to single column */
+      .stat-grid{grid-template-columns:1fr !important}
+
+      /* Contact form */
+      #contact{padding:80px 24px}
+      #contact form{max-width:100%}
+
+      /* Project pages */
+      .ph{min-height:50vh;padding:0}
+      .phc{padding:80px 24px 0}
       .pbody{padding:60px 24px 80px}
       .ig.c2{grid-template-columns:1fr}
-      .pnav{padding:40px 24px}
-      footer{flex-direction:column;gap:12px;text-align:center}
+      .pnav{padding:40px 24px;flex-direction:column;gap:32px}
+      .pnb.r{text-align:left}
+
+      footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}
     }
-    @media(max-width:480px){.pg{grid-template-columns:1fr}}
+    @media(max-width:480px){
+      .pg{grid-template-columns:1fr}
+      .hero-title{font-size:clamp(60px,18vw,90px)}
+    }
     .infog-thumb{position:relative !important}
     .infog-thumb:hover img{transform:scale(1.04)}
     .infog-thumb:hover .infog-overlay{background:rgba(10,10,10,0.5) !important}
@@ -260,7 +289,7 @@
   <section id="experience">
     <div class="sl">Experience</div>
     <h2 class="sh">Where I've worked.</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+    <div class="stat-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
       <div class="stat" style="padding:36px 32px;">
         <div class="ed" style="margin-bottom:12px;">2023 &mdash; Present</div>
         <div class="er" style="font-size:22px;margin-bottom:4px;">Multimedia Designer</div>
@@ -296,9 +325,9 @@
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <input type="text" name="name" placeholder="Your Name" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
-        <input type="email" name="email" placeholder="Your Email" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
-        <textarea name="message" placeholder="Your Message" rows="5" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;resize:vertical;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        <input type="text" name="name" placeholder="Your Name" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:16px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;-webkit-appearance:none;border-radius:0;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
+        <input type="email" name="email" placeholder="Your Email" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:16px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;-webkit-appearance:none;border-radius:0;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:16px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;resize:vertical;-webkit-appearance:none;border-radius:0;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         <button type="submit" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--blue);color:var(--blue);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;cursor:pointer;transition:background .2s,color .2s;" onmouseover="this.style.background='rgba(31,168,242,0.1)'" onmouseout="this.style.background='none'">Send Message &rarr;</button>
       </div>
     </form>
