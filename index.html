@@ -9,7 +9,6 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0a0a0a;--surface:#111;--blue:#1FA8F2;--white:#fff;--muted:rgba(255,255,255,0.4);--border:rgba(255,255,255,0.08)}
     html{scroll-behavior:auto}
-    
     body{background:var(--bg);color:var(--white);font-family:"Poppins",sans-serif;overflow-x:hidden;cursor:none}
     .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(31,168,242,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
@@ -32,7 +31,28 @@
     .page{display:none !important}
     .page.active{display:block !important}
     #page-home.active{display:block !important}
-    #home{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden;width:100vw;margin-left:calc(-50vw + 50%);}
+
+    /* Hero — slideshow is full browser width, text is contained */
+    #home{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:0;
+      position:relative;
+      overflow:hidden;
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:1100px;
+      width:100%;
+      margin:0 auto;
+      padding:0 40px 80px;
+    }
+
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
     .hero-slide.active{opacity:0.2;transform:scale(1)}
@@ -61,8 +81,13 @@
     .slb{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
     #apmp-s{background:var(--surface);max-width:100%;padding:120px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     #apmp-s .inner{max-width:1100px;margin:0 auto}
-    #apmp-s .ag2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    #apmp-s p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:20px}
+
+    /* FIX 2: APMP homepage section — ensure columns align at top */
+    #apmp-s .ag2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+
+    /* FIX 3: APMP homepage section — body text full width */
+    #apmp-s p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:20px;width:100%;max-width:100%}
+
     .badge{display:inline-flex;align-items:center;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);padding:10px 20px;border-radius:100px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:32px}
     .acard{background:var(--bg);border:1px solid var(--border);padding:32px;border-radius:2px;transition:border-color .2s,transform .2s}
     .acard:hover{border-color:var(--blue);transform:translateY(-4px)}
@@ -77,10 +102,6 @@
     .pc:hover .pco{opacity:1}
     .pct{font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px}
     .pcl{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase}
-    .timeline{position:relative;padding-left:32px}
-    .timeline::before{content:"";position:absolute;left:0;top:8px;bottom:0;width:1px;background:var(--border)}
-    .ei{position:relative;margin-bottom:56px}
-    .ei::before{content:"";position:absolute;left:-36px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
     .ed{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:8px}
     .er{font-size:20px;font-weight:700;margin-bottom:4px}
     .ec{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
@@ -104,6 +125,10 @@
     .pdesc p{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:16px;max-width:100%}
     .pdesc p em{color:rgba(255,255,255,0.85);font-style:italic}
     .pbody{max-width:1100px;margin:0 auto;padding:80px 40px 120px}
+
+    /* FIX 3 continued: all body text inside APMP project page pbody spans full width */
+    .pbody p{width:100%;max-width:100%}
+
     .ig{display:grid;gap:3px;margin-bottom:3px}
     .ig.c1{grid-template-columns:1fr}
     .ig.c2{grid-template-columns:1fr 1fr}
@@ -134,7 +159,6 @@
       footer{flex-direction:column;gap:12px;text-align:center}
     }
     @media(max-width:480px){.pg{grid-template-columns:1fr}}
-
     .infog-thumb{position:relative !important}
     .infog-thumb:hover img{transform:scale(1.04)}
     .infog-thumb:hover .infog-overlay{background:rgba(10,10,10,0.5) !important}
@@ -173,9 +197,11 @@
       <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg')"></div>
     </div>
     <div class="hero-overlay"></div>
-    <div class="hero-tag">Creating Since 2013</div>
-    <h1 class="hero-title"><span>JOSHUA</span><span>DEAKIN</span></h1>
-    <p class="hero-sub">A multimedia designer with over 12 years in the profession and a few awards under my belt.</p>
+    <div class="hero-content">
+      <div class="hero-tag">Creating Since 2013</div>
+      <h1 class="hero-title"><span>JOSHUA</span><span>DEAKIN</span></h1>
+      <p class="hero-sub">A multimedia designer with over 12 years in the profession and a few awards under my belt.</p>
+    </div>
     <div class="scroll-hint">SCROLL</div>
   </section>
   <div class="divider"></div>
@@ -306,7 +332,7 @@
     <!-- SECTION: Podcast -->
     <div style="margin-bottom:100px">
       <div class="sl">On The Record Podcast</div>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:100%;margin-bottom:40px;">An episode from APMP's On The Record podcast. I edited the episodes, branded the series, and grew the YouTube channel by over 100% in new subscribers.</p>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">An episode from APMP's On The Record podcast. I edited the episodes, branded the series, and grew the YouTube channel by over 100% in new subscribers.</p>
       <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;">
         <iframe src="https://www.youtube.com/embed/JGLDMUn6ilY" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allowfullscreen allow="autoplay; encrypted-media"></iframe>
       </div>
@@ -315,7 +341,7 @@
     <!-- SECTION: BPC Event -->
     <div style="margin-bottom:100px">
       <div class="sl">BPC &mdash; Annual Event</div>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:100%;margin-bottom:16px;">A selection of images from APMP's two and a half day in-person event, BPC.</p>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:16px;">A selection of images from APMP's two and a half day in-person event, BPC.</p>
       <ul style="font-size:13px;line-height:2;color:rgba(255,255,255,0.45);margin-bottom:40px;padding-left:0;list-style:none;font-family:'DM Mono',monospace;letter-spacing:.06em;">
         <li>&mdash; 1,200 attendees</li>
         <li>&mdash; Created the branding, signage, and promotional materials</li>
@@ -334,11 +360,8 @@
     <!-- SECTION: Membership Welcome Guide -->
     <div style="margin-bottom:100px">
       <div class="sl">Membership Welcome Guide</div>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:100%;margin-bottom:48px;">Designed to bridge the gap between joining the association and discovering all the benefits unlocked as a new member.</p>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:48px;">Designed to bridge the gap between joining the association and discovering all the benefits unlocked as a new member.</p>
 
-
-
-      <!-- Award cards stacked vertically with embed below each -->
       <div style="display:flex;flex-direction:column;gap:48px;">
 
         <!-- Gold Award -->
@@ -350,7 +373,7 @@
               <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; Mar 2025</div>
             </div>
           </div>
-          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP &mdash; winning a Gold award from Association Trends.</p>
+          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);width:100%;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP &mdash; winning a Gold award from Association Trends.</p>
           <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
         </div>
 
@@ -363,7 +386,7 @@
               <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; 2025</div>
             </div>
           </div>
-          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
+          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);width:100%;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
           <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
         </div>
 
@@ -373,7 +396,7 @@
     <!-- SECTION: Infographics -->
     <div style="margin-bottom:100px">
       <div class="sl">Infographics</div>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:100%;margin-bottom:12px;">A handful of the infographics created over the years. Used to reinforce that APMP is the profession leader and boost engagement on LinkedIn.</p>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:12px;">A handful of the infographics created over the years. Used to reinforce that APMP is the profession leader and boost engagement on LinkedIn.</p>
       <p style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:.1em;margin-bottom:32px;width:100%;">CLICK TO VIEW FULL SIZE</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;width:100%;margin-bottom:0;">
         <div onclick="openLightbox('infographic2.png')" style="aspect-ratio:2/3;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);" class="infog-thumb">
@@ -393,7 +416,7 @@
 
     <!-- Disclaimer -->
     <div style="border-top:1px solid var(--border);padding-top:40px;">
-      <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;;font-family:'DM Mono',monospace;letter-spacing:.04em;">Disclaimer: The work presented in this section was created by me or in collaboration with the APMP marketing team as part of my role as Multimedia Designer. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
+      <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;font-family:'DM Mono',monospace;letter-spacing:.04em;width:100%;">Disclaimer: The work presented in this section was created by me or in collaboration with the APMP marketing team as part of my role as Multimedia Designer. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
     </div>
 
   </div>
