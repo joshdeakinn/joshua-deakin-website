@@ -84,7 +84,7 @@
     .ed{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:8px}
     .er{font-size:20px;font-weight:700;margin-bottom:4px}
     .ec{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
-    .edesc{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);max-width:600px}
+    .edesc{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);}
     #contact{text-align:center;padding:140px 40px}
     #contact .sl{justify-content:center}
     #contact .sl::after{display:none}
@@ -116,6 +116,9 @@
     .pnl{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;transition:color .2s}
     .pnt{font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--white);transition:color .2s}
     .pnb:hover .pnl,.pnb:hover .pnt{color:var(--blue)}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .tk{font-family:"DM Mono",monospace;font-size:13px;color:var(--white);letter-spacing:.08em;white-space:nowrap;}
+    .tks{font-family:"DM Mono",monospace;font-size:13px;color:var(--blue);opacity:0.5;}
     @media(max-width:768px){
       nav{padding:20px 24px}
       section{padding:80px 24px}
@@ -162,12 +165,12 @@
 <div id="page-home" class="page active">
   <section id="home">
     <div class="hero-bg" id="heroBg">
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1600&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=1600&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1600&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/uUtib9T1TiO35WXqMWKFuzxfQM.webp')"></div>
+      <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg')"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-tag">Creating Since 2013</div>
@@ -188,8 +191,70 @@
       <div class="stats">
         <div class="stat"><div class="sn">12+</div><div class="slb">Years Experience</div></div>
         <div class="stat"><div class="sn">27</div><div class="slb">Brands Served</div></div>
-        <div class="stat"><div class="sn">2</div><div class="slb">Awards Won</div></div>
-        <div class="stat"><div class="sn">HND</div><div class="slb">Graphic Design</div></div>
+        <div class="stat" style="grid-column:1/-1;padding:20px 24px;overflow:hidden;position:relative;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">Tools &amp; Software</div>
+          <div style="overflow:hidden;position:relative;">
+            <div style="display:flex;align-items:center;gap:32px;animation:ticker 22s linear infinite;width:max-content;">
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Illustrator">
+                <span class="tk">Adobe Illustrator</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Photoshop">
+                <span class="tk">Adobe Photoshop</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeindesign/FF3366" style="width:18px;height:18px;opacity:0.85;" alt="Adobe InDesign">
+                <span class="tk">Adobe InDesign</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe After Effects">
+                <span class="tk">Adobe After Effects</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Premiere Pro">
+                <span class="tk">Adobe Premiere Pro</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/anthropic/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="Claude">
+                <span class="tk">Claude</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/openai/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="ChatGPT">
+                <span class="tk">ChatGPT</span>
+              </span>
+              <span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Illustrator">
+                <span class="tk">Adobe Illustrator</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Photoshop">
+                <span class="tk">Adobe Photoshop</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeindesign/FF3366" style="width:18px;height:18px;opacity:0.85;" alt="Adobe InDesign">
+                <span class="tk">Adobe InDesign</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe After Effects">
+                <span class="tk">Adobe After Effects</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" style="width:18px;height:18px;opacity:0.85;" alt="Adobe Premiere Pro">
+                <span class="tk">Adobe Premiere Pro</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/anthropic/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="Claude">
+                <span class="tk">Claude</span>
+              </span><span class="tks" style="opacity:0.3;font-size:18px;">&#8212;</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;">
+                <img src="https://cdn.simpleicons.org/openai/ffffff" style="width:18px;height:18px;opacity:0.85;" alt="ChatGPT">
+                <span class="tk">ChatGPT</span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -197,7 +262,7 @@
   <div id="apmp-s">
     <div class="inner">
       <div class="sl">APMP</div>
-      <div class="ag2">
+      <div class="ag2" style="align-items:start;">
         <div>
           <div class="badge">Current Role &middot; 2023 &mdash; Present</div>
           <h2 class="sh">Multimedia Designer at APMP</h2>
@@ -239,11 +304,31 @@
   <section id="experience">
     <div class="sl">Experience</div>
     <h2 class="sh">Where I've worked.</h2>
-    <div class="timeline">
-      <div class="ei"><div class="ed">2023 &mdash; Present</div><div class="er">Multimedia Designer</div><div class="ec">APMP</div><div class="edesc">At APMP, when it comes to design, it all comes from me. From event logos, promotional assets, to in-person signage. I am also responsible for strengthening the member experience through how-to videos and the APMP Knowledge Centre.</div></div>
-      <div class="ei"><div class="ed">2019 &mdash; 2023</div><div class="er">Graphic Designer</div><div class="ec">Park's Motor Group</div><div class="edesc">Created digital marketing assets for 27 brands, ensuring brand consistency while exploring creative possibilities. Specialised in web design, motion graphics, and branding using Adobe software.</div></div>
-      <div class="ei"><div class="ed">2017 &mdash; 2019</div><div class="er">Graphic Designer</div><div class="ec">David Urquhart Travel</div><div class="edesc">Created brochures, flyers, and social media graphics that engaged thousands of customers, supporting the company's marketing strategy and strengthening its visual identity in the travel industry.</div></div>
-      <div class="ei"><div class="ed">2015 &mdash; 2016</div><div class="er">Freelance Graphic Designer</div><div class="ec">eSports</div><div class="edesc">Specialised in illustration and branding, creating innovative and trend-focused designs for the eSports industry.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+      <div class="stat" style="padding:36px 32px;">
+        <div class="ed" style="margin-bottom:12px;">2023 &mdash; Present</div>
+        <div class="er" style="font-size:22px;margin-bottom:4px;">Multimedia Designer</div>
+        <div class="ec" style="margin-bottom:16px;">APMP</div>
+        <div class="edesc">At APMP, when it comes to design, it all comes from me. From event logos, promotional assets, to in-person signage. I am also responsible for strengthening the member experience through how-to videos and the APMP Knowledge Centre.</div>
+      </div>
+      <div class="stat" style="padding:36px 32px;">
+        <div class="ed" style="margin-bottom:12px;">2019 &mdash; 2023</div>
+        <div class="er" style="font-size:22px;margin-bottom:4px;">Graphic Designer</div>
+        <div class="ec" style="margin-bottom:16px;">Park's Motor Group</div>
+        <div class="edesc">Created digital marketing assets for 27 brands, ensuring brand consistency while exploring creative possibilities. Specialised in web design, motion graphics, and branding using Adobe software.</div>
+      </div>
+      <div class="stat" style="padding:36px 32px;">
+        <div class="ed" style="margin-bottom:12px;">2017 &mdash; 2019</div>
+        <div class="er" style="font-size:22px;margin-bottom:4px;">Graphic Designer</div>
+        <div class="ec" style="margin-bottom:16px;">David Urquhart Travel</div>
+        <div class="edesc">Created brochures, flyers, and social media graphics that engaged thousands of customers, supporting the company's marketing strategy and strengthening its visual identity in the travel industry.</div>
+      </div>
+      <div class="stat" style="padding:36px 32px;">
+        <div class="ed" style="margin-bottom:12px;">2015 &mdash; 2016</div>
+        <div class="er" style="font-size:22px;margin-bottom:4px;">Freelance Graphic Designer</div>
+        <div class="ec" style="margin-bottom:16px;">eSports</div>
+        <div class="edesc">Specialised in illustration and branding, creating innovative and trend-focused designs for the eSports industry.</div>
+      </div>
     </div>
   </section>
   <div class="divider"></div>
@@ -321,7 +406,7 @@
               <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; Mar 2025</div>
             </div>
           </div>
-          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);max-width:600px;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP &mdash; winning a Gold award from Association Trends.</p>
+          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP &mdash; winning a Gold award from Association Trends.</p>
           <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
         </div>
 
@@ -334,7 +419,7 @@
               <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; 2025</div>
             </div>
           </div>
-          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);max-width:600px;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
+          <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
           <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
         </div>
 
@@ -364,7 +449,7 @@
 
     <!-- Disclaimer -->
     <div style="border-top:1px solid var(--border);padding-top:40px;">
-      <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;max-width:780px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Disclaimer: The work presented in this section was created by me or in collaboration with the APMP marketing team as part of my role as Multimedia Designer. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
+      <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;;font-family:'DM Mono',monospace;letter-spacing:.04em;">Disclaimer: The work presented in this section was created by me or in collaboration with the APMP marketing team as part of my role as Multimedia Designer. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
     </div>
 
   </div>
