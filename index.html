@@ -32,25 +32,8 @@
     .page.active{display:block !important}
     #page-home.active{display:block !important}
 
-    #home{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:0;
-      position:relative;
-      overflow:hidden;
-      width:100vw;
-      margin-left:calc(50% - 50vw);
-    }
-    .hero-content{
-      position:relative;
-      z-index:2;
-      max-width:1100px;
-      width:100%;
-      margin:0 auto;
-      padding:120px 40px 80px;
-    }
+    #home{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0;position:relative;overflow:hidden;}
+    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 40px 80px;width:100%;}
 
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
@@ -186,7 +169,7 @@
 
 <!-- HOME PAGE -->
 <div id="page-home" class="page active">
-  <section id="home">
+  <div id="home">
     <div class="hero-bg" id="heroBg">
       <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg')"></div>
       <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png')"></div>
@@ -196,13 +179,13 @@
       <div class="hero-slide" style="background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg')"></div>
     </div>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
+    <div class="hero-inner">
       <div class="hero-tag">Creating Since 2013</div>
       <h1 class="hero-title"><span>JOSHUA</span><span>DEAKIN</span></h1>
       <p class="hero-sub">A multimedia designer with over 12 years in the profession and a few awards under my belt.</p>
     </div>
     <div class="scroll-hint">SCROLL</div>
-  </section>
+  </div>
   <div class="divider"></div>
   <section id="about">
     <div class="sl">About</div>
