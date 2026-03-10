@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishikigoi with Oliver | Joshua Deakin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --surface: #111111; --blue: #1FA8F2;
+  --white: #ffffff; --muted: rgba(255,255,255,0.4); --border: rgba(255,255,255,0.08);
+  --font-display: 'Poppins', sans-serif; --font-mono: 'DM Mono', monospace;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: var(--font-display); overflow-x: hidden; cursor: none; }
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--blue); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s; mix-blend-mode: screen; }
+.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(31,168,242,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .2s, height .2s; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent); }
+.nav-logo { font-family: var(--font-mono); font-size: 13px; letter-spacing: .12em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.nav-logo:hover { color: var(--white); }
+.nav-back { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s, gap .2s; }
+.nav-back:hover { color: var(--blue); gap: 12px; }
+.nav-back svg { transition: transform .2s; }
+.nav-back:hover svg { transform: translateX(-3px); }
+.project-hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 40px 80px; position: relative; overflow: hidden; }
+.project-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.22; filter: grayscale(20%); transform: scale(1.02); }
+.project-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, transparent 30%, var(--bg) 100%); }
+.project-hero-content { position: relative; z-index: 1; }
+.project-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; color: var(--blue); text-transform: uppercase; margin-bottom: 16px; }
+.project-title { font-size: clamp(48px, 9vw, 120px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 32px; opacity: 0; transform: translateY(40px); animation: slideUp .8s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+.project-intro { max-width: 680px; }
+.project-intro p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.65); margin-bottom: 16px; opacity: 0; animation: fadeIn .8s ease .3s forwards; }
+.project-intro p em { color: rgba(255,255,255,0.85); font-style: italic; }
+@keyframes fadeIn { to { opacity: 1; } }
+.project-body { max-width: 1100px; margin: 0 auto; padding: 80px 40px 120px; }
+.images-grid { display: grid; gap: 3px; }
+.images-grid.cols-1 { grid-template-columns: 1fr; }
+.images-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.images-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.images-grid img, .images-grid .img-wrap { width: 100%; display: block; }
+.img-wrap { overflow: hidden; }
+.img-wrap img { width: 100%; display: block; transition: transform .5s ease; }
+.img-wrap:hover img { transform: scale(1.03); }
+.project-next { border-top: 1px solid var(--border); padding: 60px 40px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.project-next a { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; display: flex; align-items: center; gap: 8px; }
+.project-next a:hover { color: var(--blue); }
+.project-next .next-title { font-size: clamp(18px, 3vw, 28px); font-weight: 700; color: var(--white); margin-top: 8px; }
+footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; }
+footer span { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: .1em; }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .project-hero { padding: 0 24px 60px; }
+  .project-body { padding: 60px 24px 80px; }
+  .images-grid.cols-2, .images-grid.cols-3 { grid-template-columns: 1fr; }
+  .project-next { padding: 40px 24px; flex-direction: column; gap: 24px; }
+  footer { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <nav>
+    <a href="index.html" class="nav-logo">Joshua Deakin</a>
+    <a href="index.html#projects" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      All Projects
+    </a>
+  </nav>
+
+  <div class="project-hero">
+    <div class="project-hero-bg" style="background-image: url('https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg')"></div>
+    <div class="project-hero-content">
+      <div class="project-tag">Personal Project · YouTube Branding</div>
+      <h1 class="project-title">Nishikigoi with Oliver</h1>
+      <div class="project-intro"><p>This project began when Oliver reached out to me through a shared Discord server originally set up for discussions about motorbikes. During our conversations, we discovered a shared appreciation for fish keeping, which eventually led to Oliver telling me about his plans to build a koi pond.</p><p>Oliver wanted to document the entire process on YouTube, from the construction of the pond to the ongoing care of the fish. As the idea developed, he asked me to create the visual identity for the channel — developing branding that would help establish a recognisable and engaging presence for his content.</p></div>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <div class="images-grid cols-1 fade-in">
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+</div>
+<div style="height:3px"></div>
+<div class="images-grid cols-1 fade-in">
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/D5tGTJqdkqDIMfmvnYDWhJIecE.jpg" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+</div>
+<div style="height:3px"></div>
+<div class="images-grid cols-2 fade-in">
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/liUrZcBnofj72oqZ6rbNVyXGbfM.jpg" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/EWbxF6nz4P2u6SYOaHg66bwlkU.jpg" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+</div>
+<div style="height:3px"></div>
+<div class="images-grid cols-2 fade-in">
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/7DRUo9PbFBbfFBzmWbEguK4aj8.jpg" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/QrvTUwHi5enlZQOPqajUNYyWfHY.png" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+</div>
+<div style="height:3px"></div>
+<div class="images-grid cols-1 fade-in">
+  <div class="img-wrap"><img src="https://framerusercontent.com/images/WcvecpUFZaRaUd12ecEq9hQHOQ.png" alt="Nishikigoi with Oliver" loading="lazy" /></div>
+</div>
+<div style="height:3px"></div>
+
+  </div>
+
+  <div class="project-next">
+    <a href="freshbite.html">← Previous<div class="next-title">Freshbite</div></a>
+    <a href="rizen.html">Next →<div class="next-title">Rizen</div></a>
+  </div>
+
+  <footer>
+    <span>© 2025 Joshua Deakin</span>
+    <span>Multimedia Designer · Glasgow</span>
+  </footer>
+
+  <script>
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let mouseX=0,mouseY=0,ringX=0,ringY=0;
+  document.addEventListener('mousemove',(e)=>{ mouseX=e.clientX; mouseY=e.clientY; cursor.style.left=mouseX+'px'; cursor.style.top=mouseY+'px'; });
+  function animateRing(){ ringX+=(mouseX-ringX)*.12; ringY+=(mouseY-ringY)*.12; cursorRing.style.left=ringX+'px'; cursorRing.style.top=ringY+'px'; requestAnimationFrame(animateRing); }
+  animateRing();
+  document.querySelectorAll('a,button').forEach(el=>{ el.addEventListener('mouseenter',()=>{ cursor.style.width='20px'; cursor.style.height='20px'; cursorRing.style.width='52px'; cursorRing.style.height='52px'; }); el.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; }); });
+  const observer = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); }); },{threshold:0.1});
+  document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
