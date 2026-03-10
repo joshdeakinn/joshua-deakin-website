@@ -23,7 +23,7 @@
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent); }
-    .nav-logo { font-family: var(--font-mono); font-size: 13px; letter-spacing: .12em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; cursor: none; }
+    .nav-logo { font-family: var(--font-mono); font-size: 13px; letter-spacing: .12em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; cursor: none; background: none; border: none; }
     .nav-logo:hover { color: var(--white); }
     .hamburger { width: 48px; height: 48px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: none; z-index: 1001; position: relative; transition: border-color .2s, background .2s; }
     .hamburger:hover { border-color: var(--blue); background: rgba(31,168,242,0.08); }
@@ -169,7 +169,7 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <nav>
-    <a href="#" class="nav-logo" id="navLogo">Joshua Deakin</a>
+    <button class="nav-logo" id="navLogo">Joshua Deakin</button>
     <button class="nav-back-btn" id="navBackBtn" style="display:none">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       All Projects
@@ -255,30 +255,30 @@
       <div class="section-label">Projects</div>
       <h2 class="section-heading">Selected Work</h2>
       <div class="projects-grid">
-        <a class="project-card" href="#" data-project="adrian-frutiger">
+        <button class="project-card" data-project="adrian-frutiger">
           <img src="https://framerusercontent.com/images/J4xsSzmZ0myxfHfM5VivaotjwLk.webp" alt="Adrian Frutiger" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Adrian Frutiger</div><div class="project-card-label">Personal Project</div></div></div>
-        </a>
-        <a class="project-card" href="#" data-project="rodger-casement">
+        </button>
+        <button class="project-card" data-project="rodger-casement">
           <img src="https://framerusercontent.com/images/uUtib9T1TiO35WXqMWKFuzxfQM.webp" alt="Rodger Casement" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Rodger Casement</div><div class="project-card-label">Personal Project</div></div></div>
-        </a>
-        <a class="project-card" href="#" data-project="freshbite">
+        </button>
+        <button class="project-card" data-project="freshbite">
           <img src="https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png" alt="Freshbite" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Freshbite</div><div class="project-card-label">Brand Identity</div></div></div>
-        </a>
-        <a class="project-card" href="#" data-project="nishikigoi">
+        </button>
+        <button class="project-card" data-project="nishikigoi">
           <img src="https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg" alt="Nishikigoi with Oliver" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Nishikigoi with Oliver</div><div class="project-card-label">YouTube Branding</div></div></div>
-        </a>
-        <a class="project-card" href="#" data-project="rizen">
+        </button>
+        <button class="project-card" data-project="rizen">
           <img src="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg" alt="Rizen" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Rizen</div><div class="project-card-label">eSports Logo</div></div></div>
-        </a>
-        <a class="project-card" href="#" data-project="midgard">
+        </button>
+        <button class="project-card" data-project="midgard">
           <img src="https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png" alt="Midgard Greenhouse" loading="lazy" />
           <div class="project-card-overlay"><div><div class="project-card-title">Midgard Greenhouse &amp; Nursery</div><div class="project-card-label">Brand Identity</div></div></div>
-        </a>
+        </button>
       </div>
     </section>
 
@@ -321,7 +321,7 @@
       <div class="section-label">Contact</div>
       <h2 class="section-heading">Let's work together.</h2>
       <p class="contact-sub">Looking to start a project or need consultation? Feel free to reach out.</p>
-      <a href="mailto:joshdeakinn@gmail.com" class="contact-email">joshdeakinn@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#fd97928e9599989c96949393bd9a909c9491d39e9290" class="contact-email"><span class="__cf_email__" data-cfemail="2f45405c474b4a4e444641416f48424e4643014c4042">[email&#160;protected]</span></a>
       <div class="contact-location">Glasgow, Scotland</div>
     </section>
 
@@ -542,7 +542,7 @@
     <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Cursor
     const cursor = document.getElementById("cursor");
     const cursorRing = document.getElementById("cursorRing");
@@ -626,9 +626,4 @@
     });
 
     // Slideshow
-    const slides = document.querySelectorAll(".hero-slide");
-    let cur=0;
-    if(slides.length){ slides[cur].classList.add("active"); setInterval(()=>{ slides[cur].classList.remove("active"); cur=(cur+1)%slides.length; slides[cur].classList.add("active"); },4000); }
-  </script>
-</body>
-</html>
+    const slides = document.querySelectorAll(".he
