@@ -61,8 +61,8 @@
     .stat:hover{border-color:var(--blue)}
     .sn{font-size:40px;font-weight:900;color:var(--blue);letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
     .slb{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
-    #apmp-s{background:var(--surface);max-width:100%;padding:120px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    #apmp-s .inner{max-width:1100px;margin:0 auto}
+    #apmp-s{background:var(--surface);max-width:100%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    #apmp-s .inner{max-width:1100px;margin:0 auto;padding:120px 40px}
 
     /* FIX 2: APMP homepage section — ensure columns align at top */
     #apmp-s .ag2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
@@ -132,7 +132,7 @@
       #home{padding:0 24px 60px}
       #about .ag{grid-template-columns:1fr;gap:48px}
       #apmp-s .ag2{grid-template-columns:1fr;gap:48px}
-      #apmp-s{padding:80px 24px}
+      #apmp-s .inner{padding:80px 24px}
       .pg{grid-template-columns:1fr 1fr}
       .ph{padding:0 24px 60px}
       .pbody{padding:60px 24px 80px}
@@ -291,9 +291,18 @@
   <section id="contact">
     <div class="sl">Contact</div>
     <h2 class="sh">Let's work together.</h2>
-    <p class="csub">Looking to start a project or need consultation? Feel free to reach out.</p>
-    <a href="mailto:joshdeakinn@gmail.com" class="cemail">joshdeakinn@gmail.com</a>
-    <div class="cloc">Glasgow, Scotland</div>
+    <p class="csub">Looking to start a project or need a consultation? Fill out the form and I'll be in touch.</p>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width:560px;margin:0 auto;text-align:left;">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><input name="bot-field"></p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <input type="text" name="name" placeholder="Your Name" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
+        <input type="email" name="email" placeholder="Your Email" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'Poppins',sans-serif;font-size:14px;padding:16px 20px;outline:none;transition:border-color .2s;width:100%;resize:vertical;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        <button type="submit" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--blue);color:var(--blue);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;cursor:pointer;transition:background .2s,color .2s;" onmouseover="this.style.background='rgba(31,168,242,0.1)'" onmouseout="this.style.background='none'">Send Message &rarr;</button>
+      </div>
+    </form>
+    <div class="cloc" style="margin-top:48px;">Glasgow, Scotland</div>
   </section>
   <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
