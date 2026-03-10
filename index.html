@@ -29,9 +29,9 @@
     .mnl{display:block;font-size:clamp(36px,7vw,80px);font-weight:900;color:rgba(255,255,255,0.18);text-decoration:none;line-height:1.1;transition:color .2s,transform .2s;background:none;border:none;cursor:pointer;text-align:left;font-family:"Poppins",sans-serif}
     .mnl:hover{color:var(--blue);transform:translateX(12px)}
     .menu-footer{position:absolute;bottom:40px;left:10vw;font-family:"DM Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.1em}
-    .page{display:none}
-    .page.active{display:block}
-    #page-home{display:block}
+    .page{display:none !important}
+    .page.active{display:block !important}
+    #page-home.active{display:block !important}
     #home{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden}
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
@@ -321,7 +321,6 @@
 </div>
 
 <script>
-  // Project ID to title mapping for page titles
   const projTitles = {
     p1: 'Adrian Frutiger',
     p2: 'Rodger Casement',
@@ -332,42 +331,29 @@
   };
 
   function showProj(id, pushState) {
-    // Disable smooth scroll so scrollTo(0,0) is instant
-    document.documentElement.classList.add('no-smooth');
-
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
-
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     document.getElementById('navBack').style.display = 'flex';
     document.getElementById('burger').style.display = 'none';
-
-    // Update URL and browser history
     if (pushState !== false) {
-      history.pushState({ page: id }, '', '#' + id);
+      history.pushState({ page: id }, '', '?p=' + id);
     }
     document.title = projTitles[id] + ' | Joshua Deakin';
-
-    // Re-enable smooth scroll after the jump
-    setTimeout(() => document.documentElement.classList.remove('no-smooth'), 50);
   }
 
   function goHome(pushState) {
-    document.documentElement.classList.add('no-smooth');
-
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-home').classList.add('active');
-    window.scrollTo(0, 0);
-
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     document.getElementById('navBack').style.display = 'none';
     document.getElementById('burger').style.display = 'flex';
-
     if (pushState !== false) {
       history.pushState({ page: 'home' }, '', window.location.pathname);
     }
     document.title = 'Joshua Deakin | Graphic Designer';
-
-    setTimeout(() => document.documentElement.classList.remove('no-smooth'), 50);
   }
 
   function goSection(id) {
@@ -376,7 +362,6 @@
     closeMenu();
   }
 
-  // Handle browser back/forward buttons
   window.addEventListener('popstate', function(e) {
     if (e.state && e.state.page && e.state.page !== 'home') {
       showProj(e.state.page, false);
@@ -385,11 +370,11 @@
     }
   });
 
-  // Handle direct URL with hash on page load
   window.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && document.getElementById(hash)) {
-      showProj(hash, false);
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    if (p && document.getElementById(p)) {
+      showProj(p, false);
     }
   });
 
