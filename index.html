@@ -54,8 +54,10 @@
     .menu-social a:hover{color:var(--white)}
     @media(max-width:768px){
       .menu-overlay{grid-template-columns:1fr}
-      .menu-left{padding:0 24px;border-right:none;justify-content:center}
+      .menu-left{padding:0 40px;border-right:none;justify-content:center;align-items:center;text-align:center}
       .menu-right{display:none}
+      .mnl{font-size:clamp(36px,10vw,56px);justify-content:center;gap:12px;padding:6px 0}
+      .mn-num{font-size:10px}
     }
     .page{display:none !important}
     .page.active{display:block !important}
@@ -108,7 +110,9 @@
     .ai{font-family:"DM Mono",monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
     .ad{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55)}
     .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-    .pc{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--surface);cursor:pointer}
+    /* Project card individual reveals */
+    .pc{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--surface);cursor:pointer;opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+    .pc.visible{opacity:1;transform:translateY(0)}
     .pc img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;filter:grayscale(20%);pointer-events:none}
     .pc:hover img{transform:scale(1.06);filter:grayscale(0%)}
     .pco{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.92) 0%,transparent 65%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:24px;pointer-events:none}
@@ -265,9 +269,9 @@
     <button class="mnl" onclick="goSection('contact')"><span class="mn-num">06</span>Contact</button>
   </div>
   <div class="menu-right">
-    <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg');background-size:cover;background-position:center;opacity:0.06;pointer-events:none;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,168,242,0.04) 0%,transparent 60%);pointer-events:none;"></div>
-    <div style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;">
+    <div id="menu-bg" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;pointer-events:none;transition:opacity .6s ease,background-image .01s;"></div>
+    <div id="menu-bg-overlay" style="position:absolute;inset:0;pointer-events:none;transition:background .6s ease;"></div>
+    <div id="menu-right-content" style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;transition:color .4s ease;">
       <div>
         <div style="width:48px;height:1px;background:var(--blue);opacity:0.5;margin-bottom:40px;"></div>
         <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;margin-bottom:16px;">Currently</div>
@@ -761,6 +765,19 @@
     const p = params.get('p');
     if (p && document.getElementById(p)) { showProj(p, false); setTimeout(() => animateCounters(p), 400); }
 
+    // Staggered project card reveals
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const cards = Array.from(document.querySelectorAll('.pc'));
+          const idx = cards.indexOf(e.target);
+          setTimeout(() => e.target.classList.add('visible'), idx * 80);
+          cardObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.pc').forEach(el => cardObserver.observe(el));
+
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
@@ -773,10 +790,47 @@
     });
   });
 
+  // Menu background image rotation
+  const menuImages = [
+    { src: 'https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg', light: false },
+    { src: 'https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png', light: true },
+    { src: 'https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg', light: false },
+    { src: 'https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png', light: true },
+    { src: 'https://framerusercontent.com/images/uUtib9T1TiO35WXqMWKFuzxfQM.webp', light: false },
+    { src: 'https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg', light: false },
+    { src: 'https://framerusercontent.com/images/J4xsSzmZ0myxfHfM5VivaotjwLk.webp', light: true },
+    { src: 'https://framerusercontent.com/images/hPfYZHtowiXln9jSywhyneQi9Ro.webp', light: false },
+  ];
+  let lastMenuImg = -1;
+  function rotateMenuBg() {
+    let idx;
+    do { idx = Math.floor(Math.random() * menuImages.length); } while (idx === lastMenuImg);
+    lastMenuImg = idx;
+    const img = menuImages[idx];
+    const bg = document.getElementById('menu-bg');
+    const overlay = document.getElementById('menu-bg-overlay');
+    const content = document.getElementById('menu-right-content');
+    // Fade out, swap, fade in
+    bg.style.opacity = '0';
+    setTimeout(() => {
+      bg.style.backgroundImage = `url('${img.src}')`;
+      bg.style.opacity = img.light ? '0.18' : '0.12';
+      if (img.light) {
+        overlay.style.background = 'linear-gradient(135deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.35) 100%)';
+        content.style.color = '#fff';
+      } else {
+        overlay.style.background = 'linear-gradient(135deg,rgba(31,168,242,0.04) 0%,transparent 60%)';
+        content.style.color = '';
+      }
+    }, 200);
+  }
+
   function toggleMenu() {
+    const isOpening = !document.getElementById('menu').classList.contains('open');
     document.getElementById('burger').classList.toggle('open');
     document.getElementById('menu').classList.toggle('open');
     document.body.style.overflow = document.getElementById('menu').classList.contains('open') ? 'hidden' : '';
+    if (isOpening) rotateMenuBg();
   }
 
   function closeMenu() {
