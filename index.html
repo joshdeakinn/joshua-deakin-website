@@ -838,25 +838,33 @@
     const p = params.get('p');
     if (p && document.getElementById(p)) { showProj(p, false); setTimeout(() => animateCounters(p), 400); }
 
-    // iOS edge swipe back gesture
-  let swipeStartX = 0;
-  let swipeStartY = 0;
-  let swipeEdge = false;
-  document.addEventListener('touchstart', e => {
-    swipeStartX = e.touches[0].clientX;
-    swipeStartY = e.touches[0].clientY;
-    swipeEdge = swipeStartX < 30; // only trigger from left edge
-  }, { passive: true });
-  document.addEventListener('touchend', e => {
-    if (!swipeEdge) return;
-    const dx = e.changedTouches[0].clientX - swipeStartX;
-    const dy = Math.abs(e.changedTouches[0].clientY - swipeStartY);
-    const onProjPage = document.querySelector('.proj-page.active');
-    if (dx > 60 && dy < 80 && onProjPage) {
-      goHome();
-    }
-    swipeEdge = false;
-  }, { passive: true });
+  // iOS edge swipe back gesture
+  (function() {
+    let t0, x0, y0, edgeSwipe = false, triggered = false;
+    document.addEventListener('touchstart', e => {
+      const touch = e.touches[0];
+      x0 = touch.clientX;
+      y0 = touch.clientY;
+      t0 = Date.now();
+      edgeSwipe = x0 < 32;
+      triggered = false;
+    }, { passive: true });
+    document.addEventListener('touchend', e => {
+      if (!edgeSwipe || triggered) return;
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - x0;
+      const dy = Math.abs(touch.clientY - y0);
+      const dt = Date.now() - t0;
+      const velocity = dx / dt; // px/ms
+      const onProjPage = document.querySelector('.proj-page.active');
+      // Must be: rightward, mostly horizontal, fast enough, on a project page
+      if (onProjPage && dx > 50 && dy < dx * 0.6 && velocity > 0.3) {
+        triggered = true;
+        goHome();
+      }
+    }, { passive: true });
+  })();
+
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
