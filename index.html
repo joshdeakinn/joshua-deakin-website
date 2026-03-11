@@ -161,11 +161,10 @@
     .pc::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(31,168,242,0);transition:box-shadow .3s;pointer-events:none;z-index:2}
     .pc:hover::after{box-shadow:inset 0 0 0 1px rgba(31,168,242,0.4)}
     /* Back to top button */
-    #btt{position:fixed;bottom:32px;right:32px;width:44px;height:44px;background:var(--surface);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s,transform .2s}
+    #btt{position:fixed;bottom:32px;right:32px;width:44px;height:44px;background:var(--blue);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .3s,transform .2s;mix-blend-mode:difference}
     #btt.show{opacity:1;pointer-events:all}
-    #btt:hover{border-color:var(--blue);transform:translateY(-3px)}
-    #btt svg{width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
-    #btt:hover svg{stroke:var(--blue)}
+    #btt:hover{transform:translateY(-3px)}
+    #btt svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     @media(max-width:768px){
       #btt{display:none}
       .nav-avail{display:none !important}
@@ -277,9 +276,10 @@
     <div class="ag">
       <div class="reveal">
         <h2 class="sh">Designing with purpose since day one.</h2>
-        <p>My passion for design stems from a gaming background. When I was 13 years old, I took an interest in the designs of the cases that games were packaged in — and that birthed my interest in the design world.</p>
-        <p>I hold a Higher National Diploma (HND) in Graphic Design, where I developed skills in branding, digital media, and visual communication. Through hands-on projects, I gained experience with industry-standard software like Adobe Creative Suite.</p>
-        <p>Today I'm working as a Multimedia Designer at APMP, applying my creativity across various digital and visual projects.</p>
+        <p>It started with a game case. I was 14 when Saints Row caught my eye — not the game, the cover. A skyline built from firearms that told you exactly what you were in for before you'd even opened the box. That moment of realising design could do that — communicate a whole world in a single image — never really left me.</p>
+        <p>I studied Graphic Design at City of Glasgow College, and while most students were building hypothetical portfolios, I was already working with real clients — designing mascot logos for eSports teams, learning that deadlines and difficult briefs are where you actually grow.</p>
+        <p>Outside the studio I'm the kind of person who watches a show and then immediately falls down four hours of theory breakdowns about it. I pick things apart to see what makes them work — whether that's a film edit, a typeface choice, or whatever's new in VR. When I need to switch off completely, I get out on my Kawasaki and let Scotland do the rest.</p>
+        <p>That same curiosity is what I bring to every brief. I'm genuinely interested in why things look the way they do — and obsessed with making them look better.</p>
         <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;">
         <a href="https://www.linkedin.com/in/joshdeakin/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='#1FA8F2'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/></svg>
@@ -295,14 +295,31 @@
         </a>
         </div>
       </div>
-      <div class="stats reveal" style="transition-delay:.15s">
-        <div class="stat"><div class="sn">12+</div><div class="slb">Years Experience</div></div>
-        <div class="stat"><div class="sn">27</div><div class="slb">Brands Served</div></div>
-        <div class="stat" style="grid-column:1/-1;padding:20px 24px;overflow:hidden;position:relative;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">Tools &amp; Software</div>
-          <div style="overflow:hidden;position:relative;">
-            <div style="display:flex;align-items:center;gap:0;animation:ticker 24s linear infinite;width:max-content;">
-              <span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span>
+      <div class="reveal" style="transition-delay:.15s">
+        <!-- About slideshow -->
+        <div id="about-slideshow" style="position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--surface);border:1px solid var(--border);margin-bottom:2px;">
+          <div class="ab-slide" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;"></div>
+          <div class="ab-slide" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;"></div>
+          <div class="ab-slide" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;"></div>
+          <div class="ab-slide" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.4) 0%,transparent 50%);pointer-events:none;z-index:1;"></div>
+          <!-- Placeholder shown until images are added -->
+          <div id="about-slide-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:2;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,0.15);text-transform:uppercase;">Photos coming soon</span>
+          </div>
+          <!-- Slide dots -->
+          <div id="about-dots" style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:none;gap:6px;z-index:3;"></div>
+        </div>
+        <div class="stats" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+          <div class="stat"><div class="sn">12+</div><div class="slb">Years Experience</div></div>
+          <div class="stat"><div class="sn">27</div><div class="slb">Brands Served</div></div>
+          <div class="stat" style="grid-column:1/-1;padding:20px 24px;overflow:hidden;position:relative;">
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">Tools &amp; Software</div>
+            <div style="overflow:hidden;position:relative;">
+              <div style="display:flex;align-items:center;gap:0;animation:ticker 24s linear infinite;width:max-content;">
+                <span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Illustrator</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Photoshop</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe InDesign</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe After Effects</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Adobe Premiere Pro</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">Claude</span></span><span class="tks" style="opacity:0.25;font-size:16px;padding:0 8px;">—</span><span style="display:inline-flex;align-items:center;white-space:nowrap;"><span class="tk">ChatGPT</span></span>
+              </div>
             </div>
           </div>
         </div>
@@ -740,6 +757,38 @@
     el.addEventListener('mouseenter', () => { cur.style.width = '20px'; cur.style.height = '20px'; curR.style.width = '52px'; curR.style.height = '52px'; });
     el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; curR.style.width = '36px'; curR.style.height = '36px'; });
   });
+
+  // About slideshow — add image paths here when ready
+  const aboutImages = [
+    '4ADE5D6B-64F3-4318-8C7D-959AA099F67E.jpg',
+    '1000001088.jpg',
+    '1000001087.jpg',
+    '1000000840.jpg',
+  ];
+  if (aboutImages.length > 0) {
+    const abSlides = document.querySelectorAll('.ab-slide');
+    const dotsEl = document.getElementById('about-dots');
+    const placeholder = document.getElementById('about-slide-placeholder');
+    placeholder.style.display = 'none';
+    dotsEl.style.display = 'flex';
+    aboutImages.forEach((src, i) => {
+      if (abSlides[i]) abSlides[i].style.backgroundImage = `url('${src}')`;
+      const dot = document.createElement('div');
+      dot.style.cssText = `width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,${i===0?'0.9':'0.3'});transition:background .3s;cursor:pointer;`;
+      dot.addEventListener('click', () => goToAbSlide(i));
+      dotsEl.appendChild(dot);
+    });
+    let abIdx = 0;
+    function goToAbSlide(n) {
+      abSlides[abIdx].style.opacity = '0';
+      dotsEl.children[abIdx].style.background = 'rgba(255,255,255,0.3)';
+      abIdx = n;
+      abSlides[abIdx].style.opacity = '1';
+      dotsEl.children[abIdx].style.background = 'rgba(255,255,255,0.9)';
+    }
+    abSlides[0].style.opacity = '1';
+    setInterval(() => goToAbSlide((abIdx + 1) % aboutImages.length), 4000);
+  }
 
   // Slideshow
   const slides = document.querySelectorAll('.hero-slide');
