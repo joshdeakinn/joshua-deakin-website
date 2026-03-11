@@ -781,7 +781,10 @@
     });
   }
 
+  let savedScrollY = 0;
+
   function showProj(id, pushState) {
+    savedScrollY = window.scrollY || document.documentElement.scrollTop;
     transitionTo(() => {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(id).classList.add('active');
@@ -789,22 +792,25 @@
       document.body.scrollTop = 0;
       document.getElementById('navBack').style.display = 'flex';
       document.getElementById('burger').style.display = 'none';
-      if (pushState !== false) history.pushState({ page: id }, '', '?p=' + id);
+      if (pushState !== false) history.pushState({ page: id, scrollY: savedScrollY }, '', '?p=' + id);
       document.title = projTitles[id] + ' | Joshua Deakin';
       setTimeout(() => animateCounters(id), 100);
     });
   }
 
   function goHome(pushState) {
+    const restoreY = savedScrollY;
     transitionTo(() => {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-home').classList.add('active');
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
       document.getElementById('navBack').style.display = 'none';
       document.getElementById('burger').style.display = 'flex';
       if (pushState !== false) history.pushState({ page: 'home' }, '', window.location.pathname);
       document.title = 'Joshua Deakin | Multimedia Designer';
+      requestAnimationFrame(() => {
+        document.documentElement.scrollTop = restoreY;
+        document.body.scrollTop = restoreY;
+      });
     });
   }
 
@@ -822,6 +828,7 @@
     if (e.state && e.state.page && e.state.page !== 'home') {
       showProj(e.state.page, false);
     } else {
+      if (e.state && e.state.scrollY) savedScrollY = e.state.scrollY;
       goHome(false);
     }
   });
