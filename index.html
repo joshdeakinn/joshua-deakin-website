@@ -110,7 +110,14 @@
     .ai{font-family:"DM Mono",monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
     .ad{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55)}
     .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-    /* Project card individual reveals */
+    /* Integrated video player */
+    .proj-video-wrap{position:relative;background:#000;cursor:pointer}
+    .proj-video-wrap:hover .pvid-ui{opacity:1}
+    .pvid-ui{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%);display:flex;align-items:center;gap:14px;opacity:0;transition:opacity .3s}
+    .pvid-btn{background:none;border:none;color:#fff;cursor:pointer;padding:4px;display:flex;align-items:center;flex-shrink:0;opacity:0.85;transition:opacity .2s}
+    .pvid-btn:hover{opacity:1}
+    .pvid-progress{flex:1;height:3px;background:rgba(255,255,255,0.25);cursor:pointer;border-radius:2px;position:relative}
+    .pvid-bar{height:100%;background:var(--blue);border-radius:2px;width:0%;transition:width .1s linear;pointer-events:none}
     .pc{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--surface);cursor:pointer;opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
     .pc.visible{opacity:1;transform:translateY(0)}
     .pc img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;filter:grayscale(20%);pointer-events:none}
@@ -149,12 +156,12 @@
     .ig{display:grid;gap:3px;margin-bottom:3px}
     .ig.c1{grid-template-columns:1fr}
     .ig.c2{grid-template-columns:1fr 1fr}
-    .iw{overflow:hidden;aspect-ratio:4/3}
-    .iw img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s}
+    .iw{overflow:hidden}
+    .iw img{width:100%;display:block;height:auto;transition:transform .5s}
     .iw:hover img{transform:scale(1.03)}
-    .iw.tall{aspect-ratio:3/4}
     .iw.wide{aspect-ratio:16/9}
-    .iw video{width:100%;height:100%;display:block;object-fit:cover}
+    .iw.wide video{width:100%;height:100%;display:block;object-fit:cover}
+    .iw video{width:100%;display:block}
     .pnav{border-top:1px solid var(--border);padding:60px 40px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start}
     .pnb{background:none;border:none;cursor:pointer;text-align:left}
     .pnb.r{text-align:right}
@@ -612,7 +619,26 @@
       <div class="proj-stat"><div class="proj-stat-n" data-target="2" data-suffix=" sources">0 sources</div><div class="proj-stat-l">Tartan & pie lattice fused into one mark</div></div>
       <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Locally inspired — from Stirling to shelf</div></div>
     </div>
-    <div class="ig c1"><div class="iw wide"><video autoplay muted loop playsinline><source src="applewise-video.mp4" type="video/mp4"></video></div></div>
+    <div class="ig c1">
+      <div class="proj-video-wrap" id="apw-wrap">
+        <video id="apw-vid" loop playsinline style="width:100%;display:block;">
+          <source src="applewise-video.mp4" type="video/mp4">
+        </video>
+        <div class="pvid-ui">
+          <button class="pvid-btn" id="apw-play" onclick="apwTogglePlay()">
+            <svg id="apw-play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg id="apw-pause-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <div class="pvid-progress" onclick="apwSeek(event)">
+            <div class="pvid-bar" id="apw-bar"></div>
+          </div>
+          <button class="pvid-btn" id="apw-mute" onclick="apwToggleMute()">
+            <svg id="apw-sound-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <svg id="apw-mute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/7vNDUzbrfopnDHf2KrhNBcIjFVs.jpg" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/BXfHsHGXofbU2z2xJzE2MxBgWuM.jpg" loading="lazy"></div></div>
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/nHaroksfEgS986LsvYAcTjUeyQ.jpg" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/6nESDu3a3NTMbPFVigq5n6cVYlY.jpg" loading="lazy"></div></div>
@@ -621,7 +647,6 @@
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/vLrq1CYGi5tknHbriU9cwCWB4s.jpg" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/NqFEpQCHJSsOAZ2IVqUF20VWoc.jpg" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/3BDBKgUbvdfSwFh8PFGvZ2VRh1Q.jpg" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/modules/iZzbvuOgImdAjKy2dnTK/Si0Nc0VxZgYlBpVB9Xt3/assets/6ROo1JxtoLXn6LTqCy9mm1yf9Q.jpg" loading="lazy"></div></div>
-    <div class="ig c1"><div class="iw wide"><img src="applewise-iterations.webp" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p1')"><div class="pnl">&larr; Previous</div><div class="pnt">Murray's Plant Hire</div></button><button class="pnb r" onclick="showProj('p3')"><div class="pnl">Next &rarr;</div><div class="pnt">Freshbite</div></button></div>
   <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
@@ -879,6 +904,44 @@
     el.addEventListener('mouseenter', () => { cur.style.width = '20px'; cur.style.height = '20px'; curR.style.width = '52px'; curR.style.height = '52px'; });
     el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; curR.style.width = '36px'; curR.style.height = '36px'; });
   });
+
+  // Applewise video player
+  const apwVid = document.getElementById('apw-vid');
+  if (apwVid) {
+    apwVid.addEventListener('timeupdate', () => {
+      const pct = (apwVid.currentTime / apwVid.duration) * 100;
+      document.getElementById('apw-bar').style.width = pct + '%';
+    });
+    apwVid.addEventListener('click', apwTogglePlay);
+    // Show UI on load
+    document.getElementById('apw-wrap').addEventListener('mouseenter', () => {
+      document.querySelector('.pvid-ui').style.opacity = '1';
+    });
+  }
+  function apwTogglePlay() {
+    if (!apwVid) return;
+    if (apwVid.paused) {
+      apwVid.play();
+      document.getElementById('apw-play-icon').style.display = 'none';
+      document.getElementById('apw-pause-icon').style.display = '';
+    } else {
+      apwVid.pause();
+      document.getElementById('apw-play-icon').style.display = '';
+      document.getElementById('apw-pause-icon').style.display = 'none';
+    }
+  }
+  function apwToggleMute() {
+    if (!apwVid) return;
+    apwVid.muted = !apwVid.muted;
+    document.getElementById('apw-sound-icon').style.display = apwVid.muted ? 'none' : '';
+    document.getElementById('apw-mute-icon').style.display = apwVid.muted ? '' : 'none';
+  }
+  function apwSeek(e) {
+    if (!apwVid) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    apwVid.currentTime = pct * apwVid.duration;
+  }
 
   // About slideshow — add image paths here when ready
   const aboutImages = [
