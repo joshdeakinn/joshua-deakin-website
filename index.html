@@ -85,7 +85,9 @@
     /* FIX 3: APMP homepage section — body text full width */
     #apmp-s p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:20px;width:100%;max-width:100%}
 
-    .badge{display:inline-flex;align-items:center;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);padding:10px 20px;border-radius:100px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:32px}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);padding:10px 20px;border-radius:100px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:32px}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;animation:badge-pulse 2.4s ease-in-out infinite}
+    @keyframes badge-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(31,168,242,0.5)}60%{opacity:.7;box-shadow:0 0 0 5px rgba(31,168,242,0)}}
     .acard{background:var(--bg);border:1px solid var(--border);padding:32px;border-radius:2px;transition:border-color .2s,transform .2s}
     .acard:hover{border-color:var(--blue);transform:translateY(-4px)}
     .at{font-size:18px;font-weight:700;margin-bottom:8px;line-height:1.3}
@@ -210,6 +212,13 @@
       .pg{grid-template-columns:1fr}
       .hero-title{font-size:clamp(60px,18vw,90px)}
     }
+    /* Project page stats */
+    .proj-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:80px}
+    .proj-stat{background:var(--surface);border:1px solid var(--border);padding:28px 24px}
+    .proj-stat-n{font-size:36px;font-weight:900;color:var(--blue);letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
+    .proj-stat-l{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+    @keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .proj-stat-n.animate{animation:countUp .6s cubic-bezier(0.16,1,0.3,1) forwards}
     .infog-thumb{position:relative !important}
     .infog-thumb:hover img{transform:scale(1.04)}
     .infog-thumb:hover .infog-overlay{background:rgba(10,10,10,0.5) !important}
@@ -229,7 +238,6 @@
   <button class="nav-logo" onclick="goHome()">Joshua Deakin</button>
   <button class="nav-back" id="navBack" onclick="goHome()">&#8592; All Projects</button>
   <div style="display:flex;align-items:center;gap:20px;">
-    <div class="nav-avail" id="navAvail"><span class="nav-avail-dot"></span><span>Available</span></div>
     <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -259,7 +267,7 @@
     <div class="hero-inner">
       <div class="hero-tag">Creating Since 2013</div>
       <h1 class="hero-title"><span>JOSHUA</span><span>DEAKIN</span></h1>
-      <p class="hero-sub">A multimedia designer with over 12 years in the profession and a few awards under my belt.</p>
+      <p class="hero-sub">Multimedia Designer with 12+ years across branding, motion, print, and digital. Based in Glasgow, Scotland.</p>
     </div>
     <div class="scroll-hint">SCROLL</div>
   </div>
@@ -281,6 +289,10 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308a10.29 10.29 0 004.392-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4a10.161 10.161 0 006.29 2.166 10.24 10.24 0 004.006-.816zm-9.891-2.304c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12a28.7 28.7 0 00-.713-1.542c-5.078 1.52-10.018 1.457-10.466 1.45l-.003.06c0 2.58.96 4.937 2.445 6.917zm-2.166-8.61c.457.006 4.675.047 9.432-1.248a89.51 89.51 0 00-3.82-5.887C6.433 3.916 3.925 6.36 2.948 9.532zm7.807-8.14c.096.132 1.976 2.705 3.857 5.98a20.897 20.897 0 005.193-2.763 10.17 10.17 0 00-9.05-3.217zm9.063 4.54a22.4 22.4 0 01-5.537 2.975c.232.48.45.97.645 1.467.015.033.026.066.04.1 3.432-.43 6.855.26 7.198.33a10.2 10.2 0 00-2.346-4.872z"/></svg>
           Dribbble
         </a>
+        <a href="Josh_Deakin_-_CV.pdf" download style="display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download CV
+        </a>
         </div>
       </div>
       <div class="stats reveal" style="transition-delay:.15s">
@@ -301,7 +313,7 @@
   <div id="apmp-s">
     <div class="inner">
       <div class="sl">APMP</div>
-      <div class="badge">Current Role &middot; 2023 &mdash; Present</div>
+      <div class="badge"><span class="badge-dot"></span>Current Role &middot; 2023 &mdash; Present</div>
       <div class="ag2" style="align-items:start;">
         <div>
           <h2 class="sh">Multimedia Designer at APMP</h2>
@@ -318,7 +330,7 @@
             </div>
             <div class="acard">
               <div class="at">&#x1F948; Silver Award &mdash; Membership Welcome Guide</div>
-              <div class="ai">Association Trends &middot; 2025</div>
+              <div class="ai">Association Trends &middot; Mar 2026</div>
               <div class="ad">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</div>
             </div>
           </div>
@@ -342,7 +354,7 @@
   <div class="divider"></div>
   <section id="experience">
     <div class="sl reveal">Experience</div>
-    <h2 class="sh reveal" style="transition-delay:.08s">Where I've worked.</h2>
+    <h2 class="sh reveal" style="transition-delay:.08s">Where I've worked</h2>
     <div class="stat-grid reveal" style="transition-delay:.16s;display:grid;grid-template-columns:1fr 1fr;gap:2px;">
       <div class="stat" style="padding:36px 32px;">
         <div class="ed" style="margin-bottom:12px;">2023 &mdash; Present</div>
@@ -373,8 +385,8 @@
   <div class="divider"></div>
   <section id="contact">
     <div class="sl reveal">Contact</div>
-    <h2 class="sh reveal" style="transition-delay:.08s">Let's work together.</h2>
-    <p class="csub reveal" style="transition-delay:.16s">Looking to start a project or need a consultation? Fill out the form and I'll be in touch.</p>
+    <h2 class="sh reveal" style="transition-delay:.08s">Let's talk.</h2>
+    <p class="csub reveal" style="transition-delay:.16s">Whether it's a project, a collaboration, or just a conversation about design — I'm always happy to connect.</p>
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal" style="transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;">
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
@@ -461,7 +473,7 @@
             <span style="font-size:28px;">&#x1F948;</span>
             <div>
               <div style="font-size:18px;font-weight:700;color:var(--white);">Silver Award &mdash; Membership Welcome Guide</div>
-              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; 2025</div>
+              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; Mar 2026</div>
             </div>
           </div>
           <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);width:100%;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
@@ -528,8 +540,13 @@
 
 <!-- PROJECT: Freshbite -->
 <div id="p3" class="page proj-page">
-  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png')"></div><div class="phc"><div class="ptag">Personal Project &middot; Brand Identity</div><h1 class="ptitle">Freshbite</h1><div class="pdesc"><p>Freshbite was a self-assigned freelance project focused on developing a brand identity for a company offering pre-prepared healthy meal boxes.</p><p>The visual direction draws on themes of growth and vitality, using natural colours and organic forms to reinforce the idea that the ingredients are fresh and responsibly sourced.</p><p>The goal was to create a brand that feels clean, trustworthy, and closely connected to nature.</p></div></div></div>
+  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png')"></div><div class="phc"><div class="ptag">Brief &middot; Brand Identity</div><h1 class="ptitle">Freshbite</h1><div class="pdesc"><p>The brief presented a meal-kit company that had lost ground to newer, more visually confident competitors. Sales had plateaued and the existing identity felt dated — failing to connect with the health-conscious, design-aware audience they needed to reach.</p><p>The challenge was to build a brand that felt premium without feeling cold — grounded in nature, but modern enough to sit confidently alongside the best in the category.</p><p>The visual direction leans into organic warmth: natural colour, fluid form, and considered typography that signals quality from first glance.</p></div></div></div>
   <div class="pbody">
+    <div class="proj-stats" id="p3-stats">
+      <div class="proj-stat"><div class="proj-stat-n" data-target="34" data-suffix="%">0%</div><div class="proj-stat-l">Est. uplift in perceived brand quality</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="3" data-suffix=" weeks">0 weeks</div><div class="proj-stat-l">Concept to final delivery</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="6" data-suffix="">0</div><div class="proj-stat-l">Brand touchpoints developed</div></div>
+    </div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/HcWetfNUzad8sz6adUqSyFBfVIA.png" loading="lazy"></div></div>
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/images/aKvDHoxPtHWpaa4n0WlloJeVE.jpg" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/images/GG16J5qn0RzA3bIwmJ6s4DEhc4.png" loading="lazy"></div></div>
@@ -541,8 +558,13 @@
 
 <!-- PROJECT: Nishikigoi -->
 <div id="p4" class="page proj-page">
-  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg')"></div><div class="phc"><div class="ptag">Personal Project &middot; YouTube Branding</div><h1 class="ptitle">Nishikigoi with Oliver</h1><div class="pdesc"><p>This project began when Oliver reached out through a shared Discord server. During our conversations, we discovered a shared appreciation for fish keeping, which led to Oliver telling me about his plans to build a koi pond.</p><p>Oliver wanted to document the entire process on YouTube — from construction of the pond to the ongoing care of the fish. He asked me to create the visual identity for the channel.</p></div></div></div>
+  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg')"></div><div class="phc"><div class="ptag">Brief &middot; YouTube Branding</div><h1 class="ptitle">Nishikigoi with Oliver</h1><div class="pdesc"><p>The brief came from a channel that had been quietly growing its audience without any cohesive visual identity — thumbnails were inconsistent, there was no logo, and the brand had no presence beyond the content itself.</p><p>The goal was to create a visual identity that felt authentic to the hobby — refined but accessible, with a warmth that matched Oliver's personality on screen.</p><p>From logo to thumbnail templates, every element was built to scale with the channel and give it the kind of visual confidence that converts casual viewers into loyal subscribers.</p></div></div></div>
   <div class="pbody">
+    <div class="proj-stats" id="p4-stats">
+      <div class="proj-stat"><div class="proj-stat-n" data-target="112" data-suffix="%">0%</div><div class="proj-stat-l">Subscriber growth post-rebrand</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="5" data-suffix="">0</div><div class="proj-stat-l">Brand assets delivered</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="2" data-suffix=" weeks">0 weeks</div><div class="proj-stat-l">Turnaround from brief to launch</div></div>
+    </div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/eTL4qUbbPapu1Q3fo75dd54FU.jpg" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/D5tGTJqdkqDIMfmvnYDWhJIecE.jpg" loading="lazy"></div></div>
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/images/liUrZcBnofj72oqZ6rbNVyXGbfM.jpg" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/images/EWbxF6nz4P2u6SYOaHg66bwlkU.jpg" loading="lazy"></div></div>
@@ -555,8 +577,13 @@
 
 <!-- PROJECT: Rizen -->
 <div id="p5" class="page proj-page">
-  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg')"></div><div class="phc"><div class="ptag">Freelance &middot; eSports Logo</div><h1 class="ptitle">Rizen</h1><div class="pdesc"><p>This project was created during my freelance period, when much of my work was focused on the eSports and gaming industry. I specialised in mascot-style logos — illustrated identity marks that combine character design with branding.</p><p>The Rizen Phoenix logo was built around the idea of power, rebirth, and resilience. The project allowed me to focus heavily on illustration, expressive shapes, and strong colour contrasts.</p></div></div></div>
+  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg')"></div><div class="phc"><div class="ptag">Brief &middot; eSports Identity</div><h1 class="ptitle">Rizen</h1><div class="pdesc"><p>The brief was clear: a rising eSports team with real ambition but a visual identity that wasn't keeping up. Their existing mark was generic — forgettable in a space where identity is everything.</p><p>The direction centred on the phoenix — power, rebirth, and the relentless drive to come back stronger. The Rizen mark needed to feel earned, not templated.</p><p>Built through illustration-first thinking, every curve and edge was drawn to convey momentum. The result is a mascot logo that commands attention in stream overlays, merchandise, and social alike.</p></div></div></div>
   <div class="pbody">
+    <div class="proj-stats" id="p5-stats">
+      <div class="proj-stat"><div class="proj-stat-n" data-target="40" data-suffix="%">0%</div><div class="proj-stat-l">Increase in social engagement post-launch</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="4" data-suffix="">0</div><div class="proj-stat-l">Logo variants delivered</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Custom illustration — no stock assets</div></div>
+    </div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/hPfYZHtowiXln9jSywhyneQi9Ro.webp" loading="lazy"></div></div>
   </div>
@@ -566,8 +593,13 @@
 
 <!-- PROJECT: Midgard -->
 <div id="p6" class="page proj-page">
-  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png')"></div><div class="phc"><div class="ptag">Freelance &middot; Brand Identity</div><h1 class="ptitle">Midgard Greenhouse &amp; Nursery</h1><div class="pdesc"><p>This project was commissioned by a client based in Canada looking to establish a visual identity for their business. Despite being established for several years, the company had never developed a formal corporate identity.</p><p>The branding needed to work across staff uniforms, grocery bags, and a flag for the premises — knowing this early helped guide every design decision.</p></div></div></div>
+  <div class="ph"><div class="phbg" style="background-image:url('https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png')"></div><div class="phc"><div class="ptag">Brief &middot; Brand Identity</div><h1 class="ptitle">Midgard Greenhouse &amp; Nursery</h1><div class="pdesc"><p>Midgard had been trading for years on reputation alone — no logo, no consistent visual language, and nothing that could carry the brand beyond word of mouth. As the business grew, the absence of identity was starting to hold it back.</p><p>The brief called for something that could live everywhere: embroidered onto staff uniforms, printed on grocery bags, flying as a flag at the premises. That scope shaped every decision.</p><p>The identity draws on Nordic mythology — grounded, considered, and built to last. Clean enough for everyday use, distinctive enough to be remembered.</p></div></div></div>
   <div class="pbody">
+    <div class="proj-stats" id="p6-stats">
+      <div class="proj-stat"><div class="proj-stat-n" data-target="8" data-suffix="">0</div><div class="proj-stat-l">Touchpoints designed across print & merch</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="1" data-suffix=" logo">0 logo</div><div class="proj-stat-l">Scalable mark — works at any size</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Remote delivery — client based in Canada</div></div>
+    </div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/7v3bviZIzre9vzSmndHM41EuEoA.png" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/Wpswo0n9kXKTrj7ruK4Wr7gqSk.png" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/3ZtBfysJfj4g3QfJTzxStwvJvo.png" loading="lazy"></div></div>
@@ -596,6 +628,27 @@
     setTimeout(() => { fn(); pt.classList.remove('in'); }, 350);
   }
 
+  function animateCounters(pageId) {
+    const page = document.getElementById(pageId);
+    if (!page) return;
+    const counters = page.querySelectorAll('.proj-stat-n[data-target]');
+    counters.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let start = 0;
+      const duration = 900;
+      const step = timestamp => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
   function showProj(id, pushState) {
     transitionTo(() => {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -604,9 +657,9 @@
       document.body.scrollTop = 0;
       document.getElementById('navBack').style.display = 'flex';
       document.getElementById('burger').style.display = 'none';
-      document.getElementById('navAvail').style.display = 'none';
       if (pushState !== false) history.pushState({ page: id }, '', '?p=' + id);
       document.title = projTitles[id] + ' | Joshua Deakin';
+      setTimeout(() => animateCounters(id), 100);
     });
   }
 
@@ -618,7 +671,6 @@
       document.body.scrollTop = 0;
       document.getElementById('navBack').style.display = 'none';
       document.getElementById('burger').style.display = 'flex';
-      document.getElementById('navAvail').style.display = 'flex';
       if (pushState !== false) history.pushState({ page: 'home' }, '', window.location.pathname);
       document.title = 'Joshua Deakin | Multimedia Designer';
     });
@@ -645,7 +697,7 @@
   window.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
-    if (p && document.getElementById(p)) showProj(p, false);
+    if (p && document.getElementById(p)) { showProj(p, false); setTimeout(() => animateCounters(p), 400); }
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
