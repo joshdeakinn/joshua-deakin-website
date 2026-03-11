@@ -6,7 +6,19 @@
   <link rel="icon" href="JD_-_White.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="JD_-_Dark.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="JD_-_White.png">
-  <title>Joshua Deakin | Graphic Designer</title>
+  <title>Joshua Deakin | Multimedia Designer</title>
+  <meta name="description" content="Joshua Deakin is a Multimedia Designer based in Glasgow, Scotland. 12+ years experience in branding, digital media, motion, and visual communication.">
+  <meta name="author" content="Joshua Deakin">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="Joshua Deakin | Multimedia Designer">
+  <meta property="og:description" content="A multimedia designer with over 12 years in the profession and a few awards under my belt.">
+  <meta property="og:image" content="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://joshuadeakin.co.uk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Joshua Deakin | Multimedia Designer">
+  <meta name="twitter:description" content="A multimedia designer with over 12 years in the profession and a few awards under my belt.">
+  <meta name="twitter:image" content="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -129,7 +141,32 @@
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .tk{font-family:"DM Mono",monospace;font-size:13px;color:var(--white);letter-spacing:.08em;white-space:nowrap;}
     .tks{font-family:"DM Mono",monospace;font-size:13px;color:var(--blue);opacity:0.5;}
+    /* Page transition */
+    #page-transition{position:fixed;inset:0;background:var(--bg);z-index:9990;pointer-events:none;opacity:0;transition:opacity .35s ease}
+    #page-transition.in{opacity:1;pointer-events:all}
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    /* Selection */
+    ::selection{background:var(--blue);color:#000}
+    /* Nav availability indicator */
+    .nav-avail{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+    .nav-avail-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:pulse-green 2.5s ease-in-out infinite}
+    @keyframes pulse-green{0%,100%{opacity:1;box-shadow:0 0 8px #4ade80}50%{opacity:.6;box-shadow:0 0 3px #4ade80}}
+    /* Improved form placeholder */
+    ::placeholder{color:rgba(255,255,255,0.22);font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.06em}
+    /* Image hover overlay glow on project cards */
+    .pc::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(31,168,242,0);transition:box-shadow .3s;pointer-events:none;z-index:2}
+    .pc:hover::after{box-shadow:inset 0 0 0 1px rgba(31,168,242,0.4)}
+    /* Back to top button */
+    #btt{position:fixed;bottom:32px;right:32px;width:44px;height:44px;background:var(--surface);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s,transform .2s}
+    #btt.show{opacity:1;pointer-events:all}
+    #btt:hover{border-color:var(--blue);transform:translateY(-3px)}
+    #btt svg{width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+    #btt:hover svg{stroke:var(--blue)}
     @media(max-width:768px){
+      #btt{display:none}
+      .nav-avail{display:none !important}
       /* Hide custom cursor on touch devices */
       .cursor,.cursor-ring{display:none}
       body{cursor:auto}
@@ -180,13 +217,21 @@
   </style>
 </head>
 <body>
+<div id="page-transition"></div>
 <div class="cursor" id="cur"></div>
 <div class="cursor-ring" id="curR"></div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
 
 <nav>
   <button class="nav-logo" onclick="goHome()">Joshua Deakin</button>
   <button class="nav-back" id="navBack" onclick="goHome()">&#8592; All Projects</button>
-  <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="nav-avail" id="navAvail"><span class="nav-avail-dot"></span><span>Available</span></div>
+    <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <div class="menu-overlay" id="menu">
@@ -220,9 +265,9 @@
   </div>
   <div class="divider"></div>
   <section id="about">
-    <div class="sl">About</div>
+    <div class="sl reveal">About</div>
     <div class="ag">
-      <div>
+      <div class="reveal">
         <h2 class="sh">Designing with purpose since day one.</h2>
         <p>My passion for design stems from a gaming background. When I was 13 years old, I took an interest in the designs of the cases that games were packaged in — and that birthed my interest in the design world.</p>
         <p>I hold a Higher National Diploma (HND) in Graphic Design, where I developed skills in branding, digital media, and visual communication. Through hands-on projects, I gained experience with industry-standard software like Adobe Creative Suite.</p>
@@ -238,7 +283,7 @@
         </a>
         </div>
       </div>
-      <div class="stats">
+      <div class="stats reveal" style="transition-delay:.15s">
         <div class="stat"><div class="sn">12+</div><div class="slb">Years Experience</div></div>
         <div class="stat"><div class="sn">27</div><div class="slb">Brands Served</div></div>
         <div class="stat" style="grid-column:1/-1;padding:20px 24px;overflow:hidden;position:relative;">
@@ -283,9 +328,9 @@
   </div>
   <div class="divider"></div>
   <section id="projects">
-    <div class="sl">Projects</div>
-    <h2 class="sh">Selected Work</h2>
-    <div class="pg">
+    <div class="sl reveal">Projects</div>
+    <h2 class="sh reveal" style="transition-delay:.08s">Selected Work</h2>
+    <div class="pg reveal" style="transition-delay:.16s">
       <div class="pc" onclick="showProj('p1')"><img src="https://framerusercontent.com/images/J4xsSzmZ0myxfHfM5VivaotjwLk.webp" alt="Adrian Frutiger" loading="lazy"><div class="pco"><div><div class="pct">Adrian Frutiger</div><div class="pcl">Personal Project</div></div></div></div>
       <div class="pc" onclick="showProj('p2')"><img src="https://framerusercontent.com/images/uUtib9T1TiO35WXqMWKFuzxfQM.webp" alt="Rodger Casement" loading="lazy"><div class="pco"><div><div class="pct">Rodger Casement</div><div class="pcl">Personal Project</div></div></div></div>
       <div class="pc" onclick="showProj('p3')"><img src="https://framerusercontent.com/images/XGstjLfqQpuDsqzfDjogrGU6Q.png" alt="Freshbite" loading="lazy"><div class="pco"><div><div class="pct">Freshbite</div><div class="pcl">Brand Identity</div></div></div></div>
@@ -296,9 +341,9 @@
   </section>
   <div class="divider"></div>
   <section id="experience">
-    <div class="sl">Experience</div>
-    <h2 class="sh">Where I've worked.</h2>
-    <div class="stat-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+    <div class="sl reveal">Experience</div>
+    <h2 class="sh reveal" style="transition-delay:.08s">Where I've worked.</h2>
+    <div class="stat-grid reveal" style="transition-delay:.16s;display:grid;grid-template-columns:1fr 1fr;gap:2px;">
       <div class="stat" style="padding:36px 32px;">
         <div class="ed" style="margin-bottom:12px;">2023 &mdash; Present</div>
         <div class="er" style="font-size:22px;margin-bottom:4px;">Multimedia Designer</div>
@@ -327,10 +372,10 @@
   </section>
   <div class="divider"></div>
   <section id="contact">
-    <div class="sl">Contact</div>
-    <h2 class="sh">Let's work together.</h2>
-    <p class="csub">Looking to start a project or need a consultation? Fill out the form and I'll be in touch.</p>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width:560px;margin:0 auto;text-align:left;">
+    <div class="sl reveal">Contact</div>
+    <h2 class="sh reveal" style="transition-delay:.08s">Let's work together.</h2>
+    <p class="csub reveal" style="transition-delay:.16s">Looking to start a project or need a consultation? Fill out the form and I'll be in touch.</p>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal" style="transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;">
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
       <div style="display:flex;flex-direction:column;gap:12px;">
@@ -342,7 +387,7 @@
     </form>
     <div class="cloc" style="margin-top:48px;">Glasgow, Scotland</div>
   </section>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PAGE: APMP -->
@@ -454,7 +499,7 @@
 
   </div>
   <div class="pnav"><div></div><div></div></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Adrian Frutiger -->
@@ -466,7 +511,7 @@
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/images/2l63NCDwuVv8wMsK8KKHDAui8A.webp" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/images/TReX9lXOHEl3ui2duLoMKeYWFg.webp" loading="lazy"></div></div>
   </div>
   <div class="pnav"><div></div><button class="pnb r" onclick="showProj('p2')"><div class="pnl">Next &rarr;</div><div class="pnt">Rodger Casement</div></button></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Rodger Casement -->
@@ -478,7 +523,7 @@
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/images/ZuQz1tlHs9IPzfPEVjvz2VTLF3Y.png" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/images/EtDZul4QvSFQ1I0lLIaA6Z8o0k.png" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p1')"><div class="pnl">&larr; Previous</div><div class="pnt">Adrian Frutiger</div></button><button class="pnb r" onclick="showProj('p3')"><div class="pnl">Next &rarr;</div><div class="pnt">Freshbite</div></button></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Freshbite -->
@@ -491,7 +536,7 @@
     <div class="ig c2"><div class="iw"><img src="https://framerusercontent.com/images/1oSGimLNpNlHbUDgpitpg99P4.jpg" loading="lazy"></div><div class="iw"><img src="https://framerusercontent.com/images/mCTe8X64JSLf4CJBbHdKuFV4sM.jpg" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p2')"><div class="pnl">&larr; Previous</div><div class="pnt">Rodger Casement</div></button><button class="pnb r" onclick="showProj('p4')"><div class="pnl">Next &rarr;</div><div class="pnt">Nishikigoi with Oliver</div></button></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Nishikigoi -->
@@ -505,7 +550,7 @@
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/WcvecpUFZaRaUd12ecEq9hQHOQ.png" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p3')"><div class="pnl">&larr; Previous</div><div class="pnt">Freshbite</div></button><button class="pnb r" onclick="showProj('p5')"><div class="pnl">Next &rarr;</div><div class="pnt">Rizen</div></button></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Rizen -->
@@ -516,7 +561,7 @@
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/hPfYZHtowiXln9jSywhyneQi9Ro.webp" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p4')"><div class="pnl">&larr; Previous</div><div class="pnt">Nishikigoi with Oliver</div></button><button class="pnb r" onclick="showProj('p6')"><div class="pnl">Next &rarr;</div><div class="pnt">Midgard Greenhouse &amp; Nursery</div></button></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <!-- PROJECT: Midgard -->
@@ -530,7 +575,7 @@
     <div class="ig c1"><div class="iw"><img src="https://framerusercontent.com/images/tdFDQdqIKAvK1S2TKGORqplC1vs.png" loading="lazy"></div></div>
   </div>
   <div class="pnav"><button class="pnb" onclick="showProj('p5')"><div class="pnl">&larr; Previous</div><div class="pnt">Rizen</div></button><div></div></div>
-  <footer><span>&copy; 2025 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
 </div>
 
 <script>
@@ -544,35 +589,48 @@
     apmp: 'APMP — Multimedia Designer'
   };
 
+  const pt = document.getElementById('page-transition');
+
+  function transitionTo(fn) {
+    pt.classList.add('in');
+    setTimeout(() => { fn(); pt.classList.remove('in'); }, 350);
+  }
+
   function showProj(id, pushState) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    document.getElementById('navBack').style.display = 'flex';
-    document.getElementById('burger').style.display = 'none';
-    if (pushState !== false) {
-      history.pushState({ page: id }, '', '?p=' + id);
-    }
-    document.title = projTitles[id] + ' | Joshua Deakin';
+    transitionTo(() => {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      document.getElementById('navBack').style.display = 'flex';
+      document.getElementById('burger').style.display = 'none';
+      document.getElementById('navAvail').style.display = 'none';
+      if (pushState !== false) history.pushState({ page: id }, '', '?p=' + id);
+      document.title = projTitles[id] + ' | Joshua Deakin';
+    });
   }
 
   function goHome(pushState) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-home').classList.add('active');
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    document.getElementById('navBack').style.display = 'none';
-    document.getElementById('burger').style.display = 'flex';
-    if (pushState !== false) {
-      history.pushState({ page: 'home' }, '', window.location.pathname);
-    }
-    document.title = 'Joshua Deakin | Graphic Designer';
+    transitionTo(() => {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-home').classList.add('active');
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      document.getElementById('navBack').style.display = 'none';
+      document.getElementById('burger').style.display = 'flex';
+      document.getElementById('navAvail').style.display = 'flex';
+      if (pushState !== false) history.pushState({ page: 'home' }, '', window.location.pathname);
+      document.title = 'Joshua Deakin | Multimedia Designer';
+    });
   }
 
   function goSection(id) {
-    goHome();
-    setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }), 50);
+    if (!document.getElementById('page-home').classList.contains('active')) {
+      goHome();
+      setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }), 420);
+    } else {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
     closeMenu();
   }
 
@@ -587,9 +645,18 @@
   window.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const p = params.get('p');
-    if (p && document.getElementById(p)) {
-      showProj(p, false);
-    }
+    if (p && document.getElementById(p)) showProj(p, false);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Back to top
+    window.addEventListener('scroll', () => {
+      document.getElementById('btt').classList.toggle('show', window.scrollY > 600);
+    });
   });
 
   function toggleMenu() {
@@ -604,12 +671,20 @@
     document.body.style.overflow = '';
   }
 
+  // Keyboard: Escape closes menu or lightbox
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (document.getElementById('menu').classList.contains('open')) closeMenu();
+      else closeLightbox();
+    }
+  });
+
   // Cursor
   const cur = document.getElementById('cur'), curR = document.getElementById('curR');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
   (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop); })();
-  document.querySelectorAll('a,button,.pc').forEach(el => {
+  document.querySelectorAll('a,button,.pc,.infog-thumb').forEach(el => {
     el.addEventListener('mouseenter', () => { cur.style.width = '20px'; cur.style.height = '20px'; curR.style.width = '52px'; curR.style.height = '52px'; });
     el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; curR.style.width = '36px'; curR.style.height = '36px'; });
   });
