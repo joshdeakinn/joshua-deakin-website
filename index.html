@@ -831,7 +831,25 @@
     const p = params.get('p');
     if (p && document.getElementById(p)) { showProj(p, false); setTimeout(() => animateCounters(p), 400); }
 
-    // Staggered project card reveals
+    // iOS edge swipe back gesture
+  let swipeStartX = 0;
+  let swipeStartY = 0;
+  let swipeEdge = false;
+  document.addEventListener('touchstart', e => {
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+    swipeEdge = swipeStartX < 30; // only trigger from left edge
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (!swipeEdge) return;
+    const dx = e.changedTouches[0].clientX - swipeStartX;
+    const dy = Math.abs(e.changedTouches[0].clientY - swipeStartY);
+    const onProjPage = document.querySelector('.proj-page.active');
+    if (dx > 60 && dy < 80 && onProjPage) {
+      goHome();
+    }
+    swipeEdge = false;
+  }, { passive: true });
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
