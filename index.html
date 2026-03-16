@@ -65,6 +65,8 @@
     :root{--bg:#0a0a0a;--surface:#111;--blue:#1FA8F2;--white:#fff;--muted:rgba(255,255,255,0.4);--border:rgba(255,255,255,0.08)}
 :root.light{--bg:#ffffff;--surface:#f5f5f5;--blue:#1FA8F2;--white:#0a0a0a;--muted:rgba(0,0,0,0.4);--border:rgba(0,0,0,0.08)}
     html{scroll-behavior:auto}
+html, html *{transition:background-color .5s ease, color .4s ease, border-color .4s ease !important}
+html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, transform 9s ease-out !important}
     body{background:var(--bg);color:var(--white);font-family:"Poppins",sans-serif;overflow-x:hidden;cursor:none}
     .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(31,168,242,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
@@ -128,6 +130,40 @@
 :root.light .apmp-ep-title{color:var(--white)}
 :root.light footer{border-top-color:var(--border)}
 :root.light #page-transition{background:var(--bg)}
+:root.light body{color:#0a0a0a}
+:root.light #about p{color:rgba(0,0,0,0.65)}
+:root.light .pdesc p{color:rgba(0,0,0,0.65)}
+:root.light .pbody p{color:rgba(0,0,0,0.65)}
+:root.light .edesc{color:rgba(0,0,0,0.55)}
+:root.light .ad{color:rgba(0,0,0,0.55)}
+:root.light .hero-sub{color:rgba(0,0,0,0.6)}
+:root.light .csub{color:rgba(0,0,0,0.5)}
+:root.light #apmp-s p{color:rgba(0,0,0,0.65)}
+:root.light .hero-slide.active{opacity:0.08}
+:root.light .sl{color:#0d6eab}
+:root.light .sl::after{background:#0d6eab}
+:root.light .ed{color:#0d6eab}
+:root.light .ai{color:#0d6eab}
+:root.light .pcl{color:#0d6eab}
+:root.light .badge{background:rgba(13,110,171,0.1);border-color:rgba(13,110,171,0.3);color:#0d6eab}
+:root.light .nav-avail-dot{background:#22c55e;box-shadow:0 0 8px #22c55e}
+:root.light .ptag{color:#0d6eab}
+:root.light .proj-stat-n{color:#0d6eab}
+:root.light .sn{color:#0d6eab}
+:root.light .cemail{border-bottom-color:#0d6eab;color:#0a0a0a}
+:root.light .cemail:hover{color:#0d6eab}
+:root.light .cloc{color:rgba(0,0,0,0.4)}
+:root.light footer span{color:rgba(0,0,0,0.4)}
+:root.light .mn-num{color:rgba(0,0,0,0.2)}
+:root.light .pnt{color:#0a0a0a}
+:root.light .pnl{color:rgba(0,0,0,0.4)}
+:root.light .proj-stat-l{color:rgba(0,0,0,0.4)}
+:root.light .slb{color:rgba(0,0,0,0.4)}
+:root.light .ec{color:rgba(0,0,0,0.4)}
+:root.light .at{color:#0a0a0a}
+:root.light .er{color:#0a0a0a}
+:root.light .apmp-ep-status{color:rgba(0,0,0,0.4)}
+:root.light #apmp-active-title{color:#0a0a0a}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.3) 0%,transparent 40%,var(--bg) 100%);z-index:1;pointer-events:none}
     .hero-tag{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:16px;position:relative;z-index:2}
     .hero-title{font-size:clamp(72px,14vw,180px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;position:relative;z-index:2}
@@ -328,9 +364,12 @@
   <button class="nav-logo" onclick="goHome()">Joshua Deakin</button>
   <div style="display:flex;align-items:center;gap:20px;">
     <button class="nav-back" id="navBack" onclick="goHome()">&#8592; All Projects</button>
-    <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode" style="width:44px;height:44px;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
-      <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted);display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode" style="background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:8px;">
+      <svg id="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted);flex-shrink:0;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <div id="toggleTrack" style="width:40px;height:22px;border-radius:11px;background:var(--border);border:1px solid var(--border);position:relative;transition:background .4s ease;">
+        <div id="toggleThumb" style="position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:transform .4s cubic-bezier(0.16,1,0.3,1),background .4s ease;"></div>
+      </div>
+      <svg id="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted);flex-shrink:0;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
     <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
@@ -1219,17 +1258,27 @@ document.querySelectorAll('.pc').forEach(card => {
   }
 
   // Theme toggle
-  function toggleTheme() {
-    const isLight = document.documentElement.classList.toggle('light');
-    document.getElementById('icon-moon').style.display = isLight ? 'none' : '';
-    document.getElementById('icon-sun').style.display = isLight ? '' : 'none';
+  function setTheme(isLight) {
+    document.documentElement.classList.toggle('light', isLight);
+    const thumb = document.getElementById('toggleThumb');
+    const track = document.getElementById('toggleTrack');
+    if (isLight) {
+      thumb.style.transform = 'translateX(18px)';
+      thumb.style.background = '#1FA8F2';
+      track.style.background = 'rgba(31,168,242,0.2)';
+    } else {
+      thumb.style.transform = 'translateX(0)';
+      thumb.style.background = 'rgba(255,255,255,0.4)';
+      track.style.background = 'rgba(255,255,255,0.08)';
+    }
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+  function toggleTheme() {
+    setTheme(!document.documentElement.classList.contains('light'));
   }
   // Restore saved theme
   if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.classList.add('light');
-    document.getElementById('icon-moon').style.display = 'none';
-    document.getElementById('icon-sun').style.display = '';
+    setTheme(true);
   }
 
   // Slideshow
