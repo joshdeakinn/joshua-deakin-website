@@ -503,9 +503,64 @@
     <div style="margin-bottom:100px">
       <div class="sl">On The Record Podcast</div>
       <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">An episode from APMP's On The Record podcast. I edited the episodes, branded the series, and grew the YouTube channel by over 100% in new subscribers.</p>
-      <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;">
-        <iframe src="https://www.youtube.com/embed/JGLDMUn6ilY" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+
+      <div id="apmp-player-wrap" style="display:grid;grid-template-columns:1fr 300px;gap:3px;align-items:stretch;">
+
+        <!-- Main player -->
+        <div style="position:relative;background:#000;">
+          <div style="position:relative;width:100%;padding-bottom:56.25%;">
+            <iframe id="apmp-player" src="https://www.youtube.com/embed/JGLDMUn6ilY?rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+          </div>
+          <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-top:none;">
+            <div id="apmp-active-title" style="font-size:14px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:4px;">On The Record — Episode 1</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;">APMP · On The Record</div>
+          </div>
+        </div>
+
+        <!-- Sidebar playlist -->
+        <div style="display:flex;flex-direction:column;gap:3px;overflow-y:auto;max-height:calc(56.25% + 69px);" id="apmp-playlist">
+          <!-- Episode 1 - active -->
+          <div class="apmp-ep apmp-ep-active" onclick="apmpPlay(this,'JGLDMUn6ilY','On The Record — Episode 1')" style="display:flex;gap:12px;padding:14px;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);cursor:pointer;transition:background .2s;">
+            <div style="flex-shrink:0;width:80px;height:50px;background:#000;position:relative;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/JGLDMUn6ilY/mqdefault.jpg" style="width:100%;height:100%;object-fit:cover;">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:12px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Episode 1</div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;">Now Playing</div>
+            </div>
+          </div>
+          <!-- Add more episodes below — replace VIDEOID and title -->
+          <!-- <div class="apmp-ep" onclick="apmpPlay(this,'VIDEOID','Episode Title')" style="display:flex;gap:12px;padding:14px;background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:background .2s;">
+            <div style="flex-shrink:0;width:80px;height:50px;background:#000;position:relative;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/VIDEOID/mqdefault.jpg" style="width:100%;height:100%;object-fit:cover;">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:12px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Episode 2</div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;">On The Record</div>
+            </div>
+          </div> -->
+        </div>
+
       </div>
+
+      <!-- Mobile: stacks below -->
+      <style>
+        .apmp-ep:hover{background:rgba(255,255,255,0.05) !important;border-color:rgba(255,255,255,0.15) !important;}
+        .apmp-ep-active{background:rgba(31,168,242,0.1) !important;border-color:rgba(31,168,242,0.3) !important;}
+        @media(max-width:768px){
+          #apmp-playlist{flex-direction:row !important;overflow-x:auto;overflow-y:hidden !important;max-height:none !important;}
+          #apmp-playlist > div{flex-shrink:0;width:200px;}
+        }
+        @media(max-width:600px){
+          #apmp-player-wrap{grid-template-columns:1fr !important;}
+        }
+      </style>
     </div>
 
     <!-- SECTION: BPC Event -->
@@ -996,6 +1051,20 @@
     const rect = e.currentTarget.getBoundingClientRect();
     const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
     apwVid.currentTime = pct * apwVid.duration;
+  }
+
+  // APMP podcast playlist
+  function apmpPlay(el, videoId, title) {
+    document.getElementById('apmp-player').src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&modestbranding=1&autoplay=1';
+    document.getElementById('apmp-active-title').textContent = title;
+    document.querySelectorAll('.apmp-ep').forEach(e => {
+      e.classList.remove('apmp-ep-active');
+      e.querySelector('[style*="Now Playing"]') && (e.querySelector('[style*="Now Playing"]').textContent = 'On The Record');
+      e.querySelector('[style*="Now Playing"]') && (e.querySelector('[style*="Now Playing"]').style.color = 'var(--muted)');
+    });
+    el.classList.add('apmp-ep-active');
+    const label = el.querySelector('div[style*="text-transform"]');
+    if (label) { label.textContent = 'Now Playing'; label.style.color = 'var(--blue)'; }
   }
 
   // About slideshow — add image paths here when ready
