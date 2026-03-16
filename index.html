@@ -63,6 +63,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0a0a0a;--surface:#111;--blue:#1FA8F2;--white:#fff;--muted:rgba(255,255,255,0.4);--border:rgba(255,255,255,0.08)}
+:root.light{--bg:#ffffff;--surface:#f5f5f5;--blue:#1FA8F2;--white:#0a0a0a;--muted:rgba(0,0,0,0.4);--border:rgba(0,0,0,0.08)}
     html{scroll-behavior:auto}
     body{background:var(--bg);color:var(--white);font-family:"Poppins",sans-serif;overflow-x:hidden;cursor:none}
     .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
@@ -109,6 +110,24 @@
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
     .hero-slide.active{opacity:0.2;transform:scale(1)}
+:root.light .hero-slide.active{opacity:0.12}
+:root.light .hero-overlay{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 40%,var(--bg) 100%)}
+:root.light .phbg{opacity:0.1}
+:root.light .phbg::after{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 30%,var(--bg) 100%)}
+:root.light .menu-overlay{background:var(--bg)}
+:root.light .hamburger{background:var(--surface)}
+:root.light .hamburger span{background:var(--white)}
+:root.light nav{background:linear-gradient(to bottom,rgba(255,255,255,0.95),transparent)}
+:root.light .stat{background:var(--surface)}
+:root.light .acard{background:#ebebeb}
+:root.light #apmp-s{background:var(--surface)}
+:root.light .proj-stat{background:var(--surface)}
+:root.light #apmp-player-info{background:var(--surface)}
+:root.light #apmp-playlist{background:var(--surface)}
+:root.light .apmp-ep{border-bottom-color:var(--border)}
+:root.light .apmp-ep-title{color:var(--white)}
+:root.light footer{border-top-color:var(--border)}
+:root.light #page-transition{background:var(--bg)}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.3) 0%,transparent 40%,var(--bg) 100%);z-index:1;pointer-events:none}
     .hero-tag{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;margin-bottom:16px;position:relative;z-index:2}
     .hero-title{font-size:clamp(72px,14vw,180px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;position:relative;z-index:2}
@@ -309,6 +328,10 @@
   <button class="nav-logo" onclick="goHome()">Joshua Deakin</button>
   <div style="display:flex;align-items:center;gap:20px;">
     <button class="nav-back" id="navBack" onclick="goHome()">&#8592; All Projects</button>
+    <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode" style="width:44px;height:44px;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
+      <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--muted);display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
     <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1193,6 +1216,20 @@ document.querySelectorAll('.pc').forEach(card => {
     }
     abSlides[0].style.opacity = '1';
     setInterval(() => goToAbSlide((abIdx + 1) % aboutImages.length), 4000);
+  }
+
+  // Theme toggle
+  function toggleTheme() {
+    const isLight = document.documentElement.classList.toggle('light');
+    document.getElementById('icon-moon').style.display = isLight ? 'none' : '';
+    document.getElementById('icon-sun').style.display = isLight ? '' : 'none';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+  // Restore saved theme
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light');
+    document.getElementById('icon-moon').style.display = 'none';
+    document.getElementById('icon-sun').style.display = '';
   }
 
   // Slideshow
