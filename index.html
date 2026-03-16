@@ -504,7 +504,7 @@
       <div class="sl">On The Record Podcast</div>
       <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">An episode from APMP's On The Record podcast. I edited the episodes, branded the series, and grew the YouTube channel by over 100% in new subscribers.</p>
 
-      <div id="apmp-player-wrap" style="display:grid;grid-template-columns:1fr 300px;gap:3px;align-items:stretch;">
+      <div id="apmp-player-wrap" style="display:grid;grid-template-columns:1fr 260px;gap:3px;align-items:stretch;">
 
         <!-- Main player -->
         <div style="position:relative;background:#000;">
@@ -587,12 +587,10 @@
       <style>
         .apmp-ep:hover{background:rgba(255,255,255,0.05) !important;border-color:rgba(255,255,255,0.15) !important;}
         .apmp-ep-active{background:rgba(31,168,242,0.1) !important;border-color:rgba(31,168,242,0.3) !important;}
-        @media(max-width:768px){
-          #apmp-playlist{flex-direction:row !important;overflow-x:auto;overflow-y:hidden !important;max-height:none !important;}
-          #apmp-playlist > div{flex-shrink:0;width:200px;}
-        }
         @media(max-width:600px){
           #apmp-player-wrap{grid-template-columns:1fr !important;}
+          #apmp-playlist{flex-direction:row !important;overflow-x:auto;overflow-y:hidden !important;max-height:none !important;padding-bottom:4px;}
+          #apmp-playlist > div{flex-shrink:0;width:180px;}
         }
       </style>
     </div>
