@@ -68,7 +68,9 @@
 html, html *{transition:background-color .5s ease, color .4s ease, border-color .4s ease !important}
 html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, transform 9s ease-out !important}
     body{background:var(--bg);color:var(--white);font-family:"Poppins",sans-serif;overflow-x:hidden;cursor:none}
-    .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
+    .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:normal}
+:root.light .cursor{background:#1FA8F2;mix-blend-mode:normal}
+:root.light .cursor-ring{border-color:rgba(31,168,242,0.6)}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(31,168,242,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(10,10,10,0.95),transparent)}
     .nav-logo{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;color:var(--muted);background:none;border:none;cursor:pointer;text-transform:uppercase;transition:color .2s}
@@ -111,8 +113,8 @@ html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, tran
 
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
-    .hero-slide.active{opacity:0.2;transform:scale(1)}
-:root.light .hero-slide.active{opacity:0.12}
+    .hero-slide.active{opacity:0.35;transform:scale(1)}
+:root.light .hero-slide.active{opacity:0.25}
 :root.light .hero-overlay{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 40%,var(--bg) 100%)}
 :root.light .phbg{opacity:0.1}
 :root.light .phbg::after{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 30%,var(--bg) 100%)}
@@ -1104,7 +1106,7 @@ document.querySelectorAll('.pc').forEach(card => {
   const cur = document.getElementById('cur'), curR = document.getElementById('curR');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-  (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+  (function loop() { rx += (mx - rx) * .18; ry += (my - ry) * .18; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop); })();
   document.querySelectorAll('a,button,.pc,.infog-thumb').forEach(el => {
     el.addEventListener('mouseenter', () => { cur.style.width = '20px'; cur.style.height = '20px'; curR.style.width = '52px'; curR.style.height = '52px'; });
     el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px'; curR.style.width = '36px'; curR.style.height = '36px'; });
