@@ -115,12 +115,8 @@ html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, tran
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
     .hero-slide.active{opacity:0.35;transform:scale(1)}
 :root.light .hero-slide.active{opacity:0.55}
-:root.light .hero-slide{filter:grayscale(0%)}
-:root.light #home{background:#0a0a0a}
-:root.light .hero-inner .hero-tag{color:#1FA8F2}
-:root.light .hero-inner .hero-title{color:#fff}
-:root.light .hero-inner .hero-sub{color:rgba(255,255,255,0.6)}
-:root.light .scroll-hint{color:rgba(255,255,255,0.3)}
+:root.light .hero-slide{filter:grayscale(0%);opacity:1 !important}
+:root.light .hero-slide.active{opacity:1 !important}
 :root.light .hero-overlay{background:linear-gradient(to bottom,rgba(255,255,255,0.1) 0%,transparent 40%,var(--bg) 100%)}
 :root.light .phbg{opacity:0.1}
 :root.light .phbg::after{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 30%,var(--bg) 100%)}
