@@ -114,7 +114,8 @@ html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, tran
     .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:grayscale(35%);transform:scale(1.05);transition:opacity 1.8s ease-in-out,transform 9s ease-out}
     .hero-slide.active{opacity:0.35;transform:scale(1)}
-:root.light .hero-slide.active{opacity:0.45}
+:root.light .hero-slide.active{opacity:0.55}
+:root.light .hero-slide{filter:grayscale(0%)}
 :root.light .hero-overlay{background:linear-gradient(to bottom,rgba(255,255,255,0.1) 0%,transparent 40%,var(--bg) 100%)}
 :root.light .phbg{opacity:0.1}
 :root.light .phbg::after{background:linear-gradient(to bottom,rgba(255,255,255,0.3) 0%,transparent 30%,var(--bg) 100%)}
@@ -167,9 +168,11 @@ html .hero-slide, html img, html video{transition:opacity 1.8s ease-in-out, tran
 :root.light .apmp-ep-status{color:rgba(0,0,0,0.4)}
 :root.light #apmp-active-title{color:#0a0a0a}
 :root.light input,
-:root.light textarea{background:#fff !important;border-color:rgba(0,0,0,0.15) !important;color:#0a0a0a !important}
+:root.light textarea{background:#fff !important;border-color:rgba(0,0,0,0.35) !important;color:#0a0a0a !important;border-width:2px !important}
 :root.light input::placeholder,
-:root.light textarea::placeholder{color:rgba(0,0,0,0.35) !important}
+:root.light textarea::placeholder{color:rgba(0,0,0,0.4) !important;font-weight:600 !important}
+:root.light input:focus,
+:root.light textarea:focus{border-color:#1FA8F2 !important}
 :root.light .divider{background:rgba(0,0,0,0.08)}
 :root.light .hero-title{color:#0a0a0a}
 :root.light .hero-tag{color:#0d6eab}
