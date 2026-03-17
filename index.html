@@ -143,9 +143,10 @@
     /* FIX 3: APMP homepage section — body text full width */
     #apmp-s p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:20px;width:100%;max-width:100%}
 
-    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);padding:10px 20px;border-radius:100px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:32px}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(31,168,242,0.1);border:1px solid rgba(31,168,242,0.3);padding:10px 20px;border-radius:100px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:32px;animation:badge-ring 2.4s ease-out infinite}
     .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;animation:badge-pulse 2.4s ease-in-out infinite}
     @keyframes badge-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(31,168,242,0.5)}60%{opacity:.7;box-shadow:0 0 0 5px rgba(31,168,242,0)}}
+@keyframes badge-ring{0%{box-shadow:0 0 0 0 rgba(31,168,242,0.4),0 0 0 0 rgba(31,168,242,0.2)}100%{box-shadow:0 0 0 8px rgba(31,168,242,0),0 0 0 16px rgba(31,168,242,0)}}
     .acard{background:var(--bg);border:1px solid var(--border);padding:32px;border-radius:2px;transition:border-color .2s,transform .2s}
     .acard:hover{border-color:var(--blue);transform:translateY(-4px)}
     .at{font-size:18px;font-weight:700;margin-bottom:8px;line-height:1.3}
