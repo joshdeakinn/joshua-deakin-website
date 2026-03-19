@@ -240,6 +240,9 @@
     #btt:hover{transform:translateY(-3px)}
     #btt svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     @media(max-width:768px){
+      #navSigWrap{position:static;transform:none;order:-1;}
+      #navSig{height:36px;}
+      .nav-logo{display:flex;align-items:center;}
       #btt{display:none}
       .nav-avail{display:none !important}
       /* Hide custom cursor on touch devices */
@@ -310,7 +313,7 @@
 
 <nav>
   <button class="nav-logo" onclick="goHome()">Joshua Deakin</button>
-  <div style="position:absolute;left:50%;transform:translateX(-50%);">
+  <div id="navSigWrap" style="position:absolute;left:50%;transform:translateX(-50%);">
     <svg id="navSig" viewBox="0 0 1080 588" xmlns="http://www.w3.org/2000/svg" style="height:72px;width:auto;">
       <defs>
         <clipPath id="dClip">
