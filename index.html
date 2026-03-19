@@ -70,6 +70,11 @@
     .cursor{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:normal}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(31,168,242,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(10,10,10,0.98) 0%,rgba(10,10,10,0.7) 60%,transparent 100%)}
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  #navLogoText{display:block;font-size:10px;letter-spacing:.12em;}
+  .nav-logo{flex-direction:column;align-items:flex-start;gap:2px;}
+}
     .nav-logo{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;color:var(--muted);background:none;border:none;cursor:pointer;text-transform:uppercase;transition:color .2s}
     .nav-logo:hover{color:var(--white)}
     .nav-back{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--muted);background:none;border:none;cursor:pointer;text-transform:uppercase;display:none;align-items:center;gap:8px;transition:color .2s}
@@ -1050,8 +1055,8 @@
     const len = path.getTotalLength() || 2200;
     const rect = document.getElementById('dReveal');
     path.style.transition = 'none';
-    path.style.strokeDasharray = len;
-    path.style.strokeDashoffset = -len;
+    path.style.strokeDasharray = len + ' ' + len;
+    path.style.strokeDashoffset = len;
     rect.setAttribute('width', '0');
     requestAnimationFrame(() => requestAnimationFrame(() => {
       path.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(0.4,0,0.2,1)';
