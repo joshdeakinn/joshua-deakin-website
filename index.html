@@ -706,71 +706,101 @@
 
     <!-- ── PROCESS SECTIONS ── -->
     <style>
-      .proc-brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-      .proc-dir-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+      .proc-section{margin-bottom:96px}
+      /* Brief */
+      .proc-brief{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+      .proc-brief-card{padding:40px 36px;position:relative;overflow:hidden}
+      .proc-brief-card.asked{background:var(--surface);border:1px solid var(--border)}
+      .proc-brief-card.meant{background:var(--bg);border:1px solid rgba(31,168,242,0.2);border-top:2px solid var(--blue)}
+      .proc-brief-num{font-family:'DM Mono',monospace;font-size:80px;font-weight:900;color:rgba(255,255,255,0.03);position:absolute;top:-10px;right:16px;line-height:1;pointer-events:none;user-select:none}
+      .proc-brief-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+      .proc-brief-title{font-size:clamp(18px,2.2vw,24px);font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px;font-family:'Poppins',sans-serif}
+      .proc-brief-body{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55)}
+      /* Directions */
+      .proc-dirs{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+      .proc-dir{padding:36px;position:relative;overflow:hidden;transition:border-color .2s}
+      .proc-dir.rejected{background:var(--surface);border:1px solid var(--border)}
+      .proc-dir.chosen{background:var(--bg);border:1px solid rgba(31,168,242,0.25);border-left:3px solid var(--blue)}
+      .proc-dir-status{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;padding:6px 12px}
+      .proc-dir.rejected .proc-dir-status{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.25)}
+      .proc-dir.chosen .proc-dir-status{background:rgba(31,168,242,0.08);color:var(--blue)}
+      .proc-dir-indicator{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+      .proc-dir.rejected .proc-dir-indicator{background:rgba(255,255,255,0.2)}
+      .proc-dir.chosen .proc-dir-indicator{background:var(--blue);box-shadow:0 0 6px var(--blue)}
+      .proc-dir-title{font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.3}
+      .proc-dir.rejected .proc-dir-title{color:rgba(255,255,255,0.4)}
+      .proc-dir.chosen .proc-dir-title{color:var(--white)}
+      .proc-dir-body{font-size:14px;line-height:1.75}
+      .proc-dir.rejected .proc-dir-body{color:rgba(255,255,255,0.3)}
+      .proc-dir.chosen .proc-dir-body{color:rgba(255,255,255,0.65)}
+      .proc-dir-verdict{margin-top:24px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:20px;border-top:1px solid var(--border)}
+      .proc-dir.rejected .proc-dir-verdict{color:rgba(255,255,255,0.18)}
+      .proc-dir.chosen .proc-dir-verdict{color:var(--blue)}
+      .proc-dir-ghost{font-family:'DM Mono',monospace;font-size:100px;font-weight:900;position:absolute;bottom:-20px;right:16px;line-height:1;pointer-events:none;user-select:none;opacity:0.035}
+      /* The Call */
+      .proc-call{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--blue);padding:56px 48px;position:relative;overflow:hidden}
+      .proc-call-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:28px}
+      .proc-call-quote{font-size:clamp(24px,3.5vw,42px);font-weight:900;letter-spacing:-0.025em;line-height:1.2;font-family:'Poppins',sans-serif;color:var(--white);margin-bottom:24px}
+      .proc-call-quote em{color:var(--blue);font-style:normal}
+      .proc-call-body{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.45);max-width:560px}
+      .proc-call-bg{position:absolute;top:-40px;right:-20px;font-size:220px;font-weight:900;font-family:'Poppins',sans-serif;color:rgba(31,168,242,0.03);line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.05em}
       @media(max-width:768px){
-        .proc-brief-grid{grid-template-columns:1fr}
-        .proc-brief-grid .proc-card:first-child{border-bottom:none}
-        .proc-dir-grid{grid-template-columns:1fr}
-        .proc-dir-grid .proc-card{border-left:1px solid var(--border)!important;border-top:none!important}
-        .proc-dir-grid .proc-card:first-child{border-top:1px solid var(--border)!important}
+        .proc-brief{grid-template-columns:1fr}
+        .proc-dirs{grid-template-columns:1fr}
+        .proc-dir.chosen{border-left:3px solid var(--blue);border-top:1px solid rgba(31,168,242,0.25)}
+        .proc-call{padding:36px 28px}
+        .proc-call-bg{font-size:120px;top:-10px}
       }
-      .proc-card{background:var(--surface);border:1px solid var(--border);padding:36px 32px}
-      .proc-card+.proc-card{border-left:none}
-      .proc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-      .proc-label-num{color:var(--muted)}
-      .proc-card-title{font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.3}
-      .proc-card-body{font-size:14px;line-height:1.75}
-      .proc-card-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
     </style>
 
     <!-- The Brief -->
-    <div style="margin-bottom:80px">
+    <div class="proc-section">
       <div class="sl">The Brief</div>
-      <div class="proc-brief-grid">
-        <div class="proc-card">
-          <div class="proc-label"><span class="proc-label-num">What they asked for</span></div>
-          <div class="proc-card-title" style="color:rgba(255,255,255,0.9)">Stand out from the competition.</div>
-          <p class="proc-card-body" style="color:rgba(255,255,255,0.55)">Murray's wanted to stand out. In plant hire, that's a low bar — most competitors lean on literal tool iconography or simply don't invest in design at all. The brief was straightforward: look different.</p>
+      <div class="proc-brief">
+        <div class="proc-brief-card asked">
+          <div class="proc-brief-num">01</div>
+          <div class="proc-brief-tag" style="color:var(--muted)">What they asked for</div>
+          <div class="proc-brief-title" style="color:rgba(255,255,255,0.85)">Stand out from the competition.</div>
+          <p class="proc-brief-body">Murray's wanted to stand out. The plant hire sector tends toward the literal — tool iconography, trade-standard palettes, nothing that stays with you. The brief was clear: build something that commands attention.</p>
         </div>
-        <div class="proc-card" style="background:rgba(31,168,242,0.03);border-color:rgba(31,168,242,0.15)">
-          <div class="proc-label"><span style="color:var(--blue)">What it really meant</span></div>
-          <div class="proc-card-title">Don't just look different — be smarter.</div>
-          <p class="proc-card-body" style="color:rgba(255,255,255,0.65)">The industry default is to show what you do. The opportunity was to make people think about it instead.</p>
+        <div class="proc-brief-card meant">
+          <div class="proc-brief-num" style="color:rgba(31,168,242,0.06)">02</div>
+          <div class="proc-brief-tag" style="color:var(--blue)">What it really meant</div>
+          <div class="proc-brief-title">Don't just look different — be smarter.</div>
+          <p class="proc-brief-body" style="color:rgba(255,255,255,0.65)">The industry default is to show what you do. The opportunity was to make people think about it instead.</p>
         </div>
       </div>
     </div>
 
     <!-- Directions Explored -->
-    <div style="margin-bottom:80px">
+    <div class="proc-section">
       <div class="sl">Directions Explored</div>
-      <div class="proc-dir-grid">
-        <div class="proc-card" style="opacity:0.6;grid-column:span 2">
-          <div class="proc-label">
-            <span class="proc-label-num">01</span>
-            <span style="color:rgba(255,255,255,0.2)">— Considered</span>
-          </div>
-          <div class="proc-card-title" style="color:rgba(255,255,255,0.5)">Literal tool iconography</div>
-          <p class="proc-card-body" style="color:rgba(255,255,255,0.35)">The obvious route: tools. Drills, hammers, heavy machinery. It's what every competitor does, and for good reason — it's immediately legible. But legible isn't memorable, and memorable was the whole point. If Murray's used the same visual language as everyone else, they'd disappear into the same crowd they were trying to leave behind.</p>
-          <div class="proc-card-note" style="color:rgba(255,255,255,0.2)">↳ Abandoned — showing what you do is not the same as being remembered for it.</div>
+      <div class="proc-dirs">
+        <div class="proc-dir rejected">
+          <div class="proc-dir-ghost">✕</div>
+          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Considered &amp; Rejected</div>
+          <div class="proc-dir-title">Literal tool iconography</div>
+          <p class="proc-dir-body">The first instinct was tool-based iconography — drills, hammers, machinery. It's the industry shorthand for a reason; it communicates immediately. But immediate isn't the same as memorable, and if Murray's looked like every other operator, the brief was already lost.</p>
+          <div class="proc-dir-verdict">↳ Abandoned — showing what you do is not the same as being remembered for it.</div>
         </div>
-        <div class="proc-card" style="background:rgba(31,168,242,0.04);border-color:rgba(31,168,242,0.25)">
-          <div class="proc-label">
-            <span style="color:var(--blue)">02</span>
-            <span style="color:var(--blue)">— Chosen</span>
-          </div>
-          <div class="proc-card-title">A mark with a hidden second reading</div>
-          <p class="proc-card-body" style="color:rgba(255,255,255,0.65)">A mark built around the letter M — clean, geometric, ownable. But the real idea lives in the negative space: align it correctly and a bolt shape emerges, nodding directly to electrical plant hire without ever spelling it out. One mark, two readings. The kind of thing you only notice once — then can't unsee.</p>
-          <div class="proc-card-note" style="color:var(--blue)">↳ Chosen — because the best industry logos don't show what you do. They make you realise it.</div>
+        <div class="proc-dir chosen">
+          <div class="proc-dir-ghost" style="color:var(--blue)">✓</div>
+          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Chosen Direction</div>
+          <div class="proc-dir-title">A mark with a hidden second reading</div>
+          <p class="proc-dir-body">A mark built around the letter M — clean, geometric, ownable. But the real idea lives in the negative space: align it correctly and a bolt shape emerges, nodding directly to electrical plant hire without ever spelling it out. One mark, two readings. The kind of thing you only notice once — then can't unsee.</p>
+          <div class="proc-dir-verdict">↳ Chosen — because the best logos don't show what you do. They make you realise it.</div>
         </div>
       </div>
     </div>
 
     <!-- The Call -->
-    <div style="margin-bottom:80px;padding-left:32px;border-left:2px solid var(--blue)">
-      <div class="sl" style="margin-bottom:24px">The Call</div>
-      <blockquote style="font-size:clamp(20px,2.8vw,30px);font-weight:700;line-height:1.35;letter-spacing:-0.015em;color:var(--white);margin-bottom:20px;font-family:'Poppins',sans-serif">"The best industry logos don't show what you do. They make you realise it."</blockquote>
-      <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);max-width:640px">The bolt was never meant to hit you immediately. It's a reward for looking — which is exactly the kind of brand Murray's needed to become.</p>
+    <div class="proc-section">
+      <div class="proc-call">
+        <div class="proc-call-bg">"</div>
+        <div class="proc-call-tag">The Call</div>
+        <div class="proc-call-quote">The best industry logos don't show what you do. They make you <em>realise</em> it.</div>
+        <p class="proc-call-body">The bolt was never meant to hit you immediately. It's a reward for looking — which is exactly the kind of brand Murray's needed to become.</p>
+      </div>
     </div>
     <!-- ── END PROCESS ── -->
 
