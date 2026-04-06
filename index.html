@@ -328,7 +328,7 @@
           <rect id="dReveal" x="690" y="215" width="0" height="170"/>
         </clipPath>
       </defs>
-      <path id="sigPath" fill="none" stroke="#F7F7F7" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M576.17,250.09c0,0,21.86,55.05,109.25,91.91c0,0-21.86,55.05-337.29,44.23c-27.73-90.94,278.12-134.51,278.12-134.51c128.48-37.73,237.54-60.45,237.54-60.45c-480.78,7.35-698.93,159.63-722.42,178.01"/>
+      <path id="sigPath" fill="none" stroke="#F7F7F7" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M141.82,369.52c23.49-18.38,241.64-170.66,722.42-178.01c0,0-115.65,24.66-237.54,60.45c-128.48,37.73-263.89,87.84-278.12,134.51c-27.73,90.94,323.07,51.04,337.29-44.23c0,0,21.86-55.05-109.25-91.91"/>
       <g clip-path="url(#dClip)">
         <path fill="#F7F7F7" d="M719.8,304.17c11.94-4.28,24.14-2.58,37.69-1.69c12.12,0.8,25.04,0.54,36.51-3.89c12.83-4.96,22.66-13.95,28.69-26.36c2.71-5.59,4.86-11.44,7.11-17.22c0.54-1.38,1.07-2.78,1.64-4.14c-1.04,2.46,0.86-1.77,0.88-1.82c1.29-2.65,2.75-5.16,4.41-7.59c-9.14-1.19-18.28-2.39-27.42-3.58c5.14,14.36,8.84,29.13,11.08,44.22c0.9,6.05,8.52,11.43,14.46,11.01c20.03-1.41,39.93-4.6,59.34-9.76c7.83-2.08,12.61-10.69,10.48-18.45c-2.17-7.9-10.6-12.56-18.45-10.48c-17.13,4.55-33.93,7.45-51.37,8.68c4.82,3.67,9.64,7.34,14.46,11.01c-2.24-15.09-5.94-29.85-11.08-44.22c-4.46-12.47-19.93-14.52-27.42-3.58c-3.53,5.15-5.96,10.82-8.32,16.57c-0.94,2.29-1.82,4.61-2.71,6.92c-0.44,1.15-0.89,2.31-1.34,3.46c-0.31,0.78-1.31,3.09-0.46,1.18c-1.08,2.43-2.24,4.82-3.61,7.1c-0.61,1.02-1.24,2.04-1.95,3c1.58-2.16-1.21,1.23-1.34,1.37c-0.25,0.25-2.99,2.6-1.84,1.74c1.14-0.86-1.87,1.14-2.17,1.3c-0.13,0.07-4.19,1.95-1.76,0.99c-1.15,0.46-2.35,0.82-3.54,1.16c-1.21,0.34-2.42,0.64-3.65,0.9c-0.34,0.07-4.1,0.66-2.51,0.47c1.6-0.2-2.25,0.17-2.59,0.19c-1.54,0.1-3.08,0.16-4.63,0.18c-5.72,0.09-11.42-0.39-17.11-0.8c-13.22-0.96-26.82-1.33-39.49,3.21c-7.62,2.73-12.74,10.22-10.48,18.45C703.37,301.06,712.13,306.91,719.8,304.17L719.8,304.17z"/>
       </g>
@@ -534,7 +534,7 @@
     <div class="sl reveal">Contact</div>
     <h2 class="sh reveal" style="transition-delay:.08s">Let's talk.</h2>
     <p class="csub reveal" style="transition-delay:.16s">Whether it's a project, a collaboration, or just a conversation about design — I'm always happy to connect.</p>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal" style="transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;">
+    <form class='reveal' method='POST' name='contact' style='transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;'>
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
       <div style="display:flex;flex-direction:column;gap:12px;">
@@ -703,6 +703,79 @@
       <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Scalable across print, signage & digital</div></div>
       <div class="proj-stat"><div class="proj-stat-n" data-target="1" data-suffix=" mark">0 mark</div><div class="proj-stat-l">Icon system built from a single core mark</div></div>
     </div>
+
+    <!-- ── PROCESS SECTIONS ── -->
+    <style>
+      .proc-brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+      .proc-dir-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+      @media(max-width:768px){
+        .proc-brief-grid{grid-template-columns:1fr}
+        .proc-brief-grid .proc-card:first-child{border-bottom:none}
+        .proc-dir-grid{grid-template-columns:1fr}
+        .proc-dir-grid .proc-card{border-left:1px solid var(--border)!important;border-top:none!important}
+        .proc-dir-grid .proc-card:first-child{border-top:1px solid var(--border)!important}
+      }
+      .proc-card{background:var(--surface);border:1px solid var(--border);padding:36px 32px}
+      .proc-card+.proc-card{border-left:none}
+      .proc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+      .proc-label-num{color:var(--muted)}
+      .proc-card-title{font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.3}
+      .proc-card-body{font-size:14px;line-height:1.75}
+      .proc-card-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
+    </style>
+
+    <!-- The Brief -->
+    <div style="margin-bottom:80px">
+      <div class="sl">The Brief</div>
+      <div class="proc-brief-grid">
+        <div class="proc-card">
+          <div class="proc-label"><span class="proc-label-num">What they asked for</span></div>
+          <div class="proc-card-title" style="color:rgba(255,255,255,0.9)">Stand out from the competition.</div>
+          <p class="proc-card-body" style="color:rgba(255,255,255,0.55)">Murray's wanted to stand out. In plant hire, that's a low bar — most competitors lean on literal tool iconography or simply don't invest in design at all. The brief was straightforward: look different.</p>
+        </div>
+        <div class="proc-card" style="background:rgba(31,168,242,0.03);border-color:rgba(31,168,242,0.15)">
+          <div class="proc-label"><span style="color:var(--blue)">What it really meant</span></div>
+          <div class="proc-card-title">Don't just look different — be smarter.</div>
+          <p class="proc-card-body" style="color:rgba(255,255,255,0.65)">The industry default is to show what you do. The opportunity was to make people think about it instead.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directions Explored -->
+    <div style="margin-bottom:80px">
+      <div class="sl">Directions Explored</div>
+      <div class="proc-dir-grid">
+        <!-- Rejected -->
+        <div class="proc-card" style="opacity:0.6;grid-column:span 2">
+          <div class="proc-label">
+            <span class="proc-label-num">01</span>
+            <span style="color:rgba(255,255,255,0.2)">— Considered</span>
+          </div>
+          <div class="proc-card-title" style="color:rgba(255,255,255,0.5)">Literal tool iconography</div>
+          <p class="proc-card-body" style="color:rgba(255,255,255,0.35)">The obvious route: tools. Drills, hammers, heavy machinery. It's what every competitor does, and for good reason — it's immediately legible. But legible isn't memorable, and memorable was the whole point. If Murray's used the same visual language as everyone else, they'd disappear into the same crowd they were trying to leave behind.</p>
+          <div class="proc-card-note" style="color:rgba(255,255,255,0.2)">↳ Abandoned — showing what you do is not the same as being remembered for it.</div>
+        </div>
+        <!-- Chosen -->
+        <div class="proc-card" style="background:rgba(31,168,242,0.04);border-color:rgba(31,168,242,0.25)">
+          <div class="proc-label">
+            <span style="color:var(--blue)">02</span>
+            <span style="color:var(--blue)">— Chosen</span>
+          </div>
+          <div class="proc-card-title">A mark with a hidden second reading</div>
+          <p class="proc-card-body" style="color:rgba(255,255,255,0.65)">A mark built around the letter M — clean, geometric, ownable. But the real idea lives in the negative space: align it correctly and a bolt shape emerges, nodding directly to electrical plant hire without ever spelling it out. One mark, two readings. The kind of thing you only notice once — then can't unsee.</p>
+          <div class="proc-card-note" style="color:var(--blue)">↳ Chosen — because the best industry logos don't show what you do. They make you realise it.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Call -->
+    <div style="margin-bottom:80px;padding-left:32px;border-left:2px solid var(--blue)">
+      <div class="sl" style="margin-bottom:24px">The Call</div>
+      <blockquote style="font-size:clamp(20px,2.8vw,30px);font-weight:700;line-height:1.35;letter-spacing:-0.015em;color:var(--white);margin-bottom:20px;font-family:'Poppins',sans-serif">"The best industry logos don't show what you do. They make you realise it."</blockquote>
+      <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);max-width:640px">The bolt was never meant to hit you immediately. It's a reward for looking — which is exactly the kind of brand Murray's needed to become.</p>
+    </div>
+    <!-- ── END PROCESS ── -->
+
     <div class="ig c1"><div class="iw"><img src="murrays-4.webp" alt="Murray's Plant Hire brand identity design" loading="lazy"></div></div>
     <div class="ig c2"><div class="iw"><img src="murrays-2.webp" alt="Murray's Plant Hire logo design" loading="lazy"></div><div class="iw"><img src="murrays-3.webp" alt="Murray's Plant Hire brand assets" loading="lazy"></div></div>
     <div class="ig c1"><div class="iw"><img src="murrays-1.webp" alt="Murray's Plant Hire visual identity" loading="lazy"></div></div>
@@ -1302,5 +1375,6 @@ function closeLightbox(){
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
 </script>
-</body>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="9b278540-a53b-43d9-813f-e0a97ca7ae7a" data-netlify-deploy-branch="main" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiOWIyNzg1NDAtYTUzYi00M2Q5LTgxM2YtZTBhOTdjYTdhZTdhIiwiYWNjb3VudF9pZCI6IjY5YjA2Nzc4NDI2NGZlMDc0ZjQ3NjEwYSIsImRlcGxveV9pZCI6IjY5YmM1MThjYTZjNjQ2MDAwOTQ2YmViNSIsImlzc3VlciI6Im5mc2VydmVyIn0.qhtj5NqikR-8W9nAT4gJ3aNwrnTxPW9PhkYYtKLAXtU"></script></body>
 </html>
