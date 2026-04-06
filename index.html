@@ -718,23 +718,28 @@
       .proc-brief-body{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55)}
       /* Directions */
       .proc-dirs{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-      .proc-dir{padding:36px;position:relative;overflow:hidden;transition:border-color .2s}
-      .proc-dir.rejected{background:var(--surface);border:1px solid var(--border)}
-      .proc-dir.chosen{background:var(--bg);border:1px solid rgba(31,168,242,0.25);border-left:3px solid var(--blue)}
+      .proc-dir{padding:36px;position:relative;overflow:hidden;transition:opacity .35s ease,border-color .25s ease}
+      .proc-dir.rejected{background:var(--surface);border:1px solid var(--border);opacity:1}
+      .proc-dir.chosen{background:var(--bg);border:1px solid rgba(31,168,242,0.25);border-left:3px solid var(--blue);opacity:1}
+      /* Hover — hovering one dims the other */
+      .proc-dirs:has(.proc-dir.rejected:hover) .proc-dir.chosen{opacity:0.35}
+      .proc-dirs:has(.proc-dir.chosen:hover) .proc-dir.rejected{opacity:0.35}
+      .proc-dir.rejected:hover{border-color:rgba(255,255,255,0.15)}
+      .proc-dir.chosen:hover{border-color:rgba(31,168,242,0.5)}
       .proc-dir-status{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;padding:6px 12px}
-      .proc-dir.rejected .proc-dir-status{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.25)}
+      .proc-dir.rejected .proc-dir-status{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4)}
       .proc-dir.chosen .proc-dir-status{background:rgba(31,168,242,0.08);color:var(--blue)}
       .proc-dir-indicator{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-      .proc-dir.rejected .proc-dir-indicator{background:rgba(255,255,255,0.2)}
+      .proc-dir.rejected .proc-dir-indicator{background:rgba(255,255,255,0.3)}
       .proc-dir.chosen .proc-dir-indicator{background:var(--blue);box-shadow:0 0 6px var(--blue)}
       .proc-dir-title{font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.3}
-      .proc-dir.rejected .proc-dir-title{color:rgba(255,255,255,0.4)}
+      .proc-dir.rejected .proc-dir-title{color:rgba(255,255,255,0.7)}
       .proc-dir.chosen .proc-dir-title{color:var(--white)}
       .proc-dir-body{font-size:14px;line-height:1.75}
-      .proc-dir.rejected .proc-dir-body{color:rgba(255,255,255,0.3)}
+      .proc-dir.rejected .proc-dir-body{color:rgba(255,255,255,0.5)}
       .proc-dir.chosen .proc-dir-body{color:rgba(255,255,255,0.65)}
       .proc-dir-verdict{margin-top:24px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:20px;border-top:1px solid var(--border)}
-      .proc-dir.rejected .proc-dir-verdict{color:rgba(255,255,255,0.18)}
+      .proc-dir.rejected .proc-dir-verdict{color:rgba(255,255,255,0.3)}
       .proc-dir.chosen .proc-dir-verdict{color:var(--blue)}
       .proc-dir-ghost{font-family:'DM Mono',monospace;font-size:100px;font-weight:900;position:absolute;bottom:-20px;right:16px;line-height:1;pointer-events:none;user-select:none;opacity:0.035}
       /* The Call */
@@ -778,10 +783,10 @@
       <div class="proc-dirs">
         <div class="proc-dir rejected">
           <div class="proc-dir-ghost">✕</div>
-          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Considered &amp; Rejected</div>
-          <div class="proc-dir-title">Literal tool iconography</div>
-          <p class="proc-dir-body">The first instinct was tool-based iconography — drills, hammers, machinery. It's the industry shorthand for a reason; it communicates immediately. But immediate isn't the same as memorable, and if Murray's looked like every other operator, the brief was already lost.</p>
-          <div class="proc-dir-verdict">↳ Abandoned — showing what you do is not the same as being remembered for it.</div>
+          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Ruled Out</div>
+          <div class="proc-dir-title">Following the industry playbook</div>
+          <p class="proc-dir-body">The sector has a default visual language — tool-based marks, trade palettes, logos that describe a service rather than represent a business. It communicates, but it doesn't stick. Going down that road meant blending in, which was the opposite of the brief.</p>
+          <div class="proc-dir-verdict">↳ Ruled out — communicating what you do is not the same as being remembered for it.</div>
         </div>
         <div class="proc-dir chosen">
           <div class="proc-dir-ghost" style="color:var(--blue)">✓</div>
