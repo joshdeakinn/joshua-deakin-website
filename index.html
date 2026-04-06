@@ -706,6 +706,17 @@
 
     <!-- ── PROCESS SECTIONS ── -->
     <style>
+      /* Accordion toggle */
+      .proc-toggle{display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:1px solid var(--border);padding:16px 24px;margin-bottom:64px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);transition:border-color .25s,color .25s;position:relative}
+      .proc-toggle:hover{border-color:rgba(31,168,242,0.4);color:var(--white)}
+      .proc-toggle-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;position:relative}
+      .proc-toggle-dot::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:var(--blue);opacity:.35;animation:proc-pulse 2s ease-out infinite}
+      @keyframes proc-pulse{0%{transform:scale(1);opacity:.35}70%{transform:scale(2.2);opacity:0}100%{transform:scale(1);opacity:0}}
+      .proc-toggle-caret{margin-left:auto;font-size:14px;transition:transform .35s ease;display:inline-block}
+      .proc-toggle.open .proc-toggle-caret{transform:rotate(180deg)}
+      /* Accordion body */
+      .proc-body{overflow:hidden;max-height:0;transition:max-height .6s cubic-bezier(0.4,0,0.2,1)}
+      .proc-body.open{max-height:9999px}
       .proc-section{margin-bottom:96px}
       /* Brief */
       .proc-brief{display:grid;grid-template-columns:1fr 1fr;gap:3px}
@@ -758,6 +769,13 @@
       }
     </style>
 
+    <button class="proc-toggle" id="p1-proc-toggle" onclick="toggleProc('p1')" aria-expanded="false">
+      <span class="proc-toggle-dot"></span>
+      Behind the Design
+      <span class="proc-toggle-caret">↓</span>
+    </button>
+    <div class="proc-body" id="p1-proc-body">
+
     <!-- The Brief -->
     <div class="proc-section">
       <div class="sl">The Brief</div>
@@ -807,6 +825,7 @@
         <p class="proc-call-body">The bolt was never meant to hit you immediately. Neither was the screw thread. Both are rewards for looking — which is exactly the kind of brand Murray's needed to become.</p>
       </div>
     </div>
+    </div><!-- /.proc-body -->
     <!-- ── END PROCESS ── -->
 
     <div class="ig c1"><div class="iw"><img src="murrays-4.webp" alt="Murray's Plant Hire brand identity design" loading="lazy"></div></div>
@@ -988,6 +1007,14 @@
   }
 
   let savedScrollY = 0;
+
+  function toggleProc(projId) {
+    const btn = document.getElementById(projId + '-proc-toggle');
+    const body = document.getElementById(projId + '-proc-body');
+    const open = body.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  }
 
   function showProj(id, pushState) {
     savedScrollY = window.scrollY || document.documentElement.scrollTop;
