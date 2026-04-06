@@ -217,7 +217,7 @@
     .pnb{background:none;border:none;cursor:pointer;text-align:left}
     .pnb.r{text-align:right}
     .pnl{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;transition:color .2s}
-    .pnt{font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--white);transition:color .2s}
+    .pnt{font-size:clamp(18px,3vw,28px);font-weight:700;font-family:'Poppins',sans-serif;color:var(--white);transition:color .2s}
     .pnb:hover .pnl,.pnb:hover .pnt{color:var(--blue)}
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .tk{font-family:"DM Mono",monospace;font-size:13px;color:var(--white);letter-spacing:.08em;white-space:nowrap;}
@@ -848,6 +848,66 @@
       <div class="proj-stat"><div class="proj-stat-n" data-target="2" data-suffix=" sources">0 sources</div><div class="proj-stat-l">Tartan & pie lattice fused into one mark</div></div>
       <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Locally inspired — from Stirling to shelf</div></div>
     </div>
+
+    <button class="proc-toggle" id="p2-proc-toggle" onclick="toggleProc('p2')" aria-expanded="false">
+      <span class="proc-toggle-dot"></span>
+      Behind the Design
+      <span class="proc-toggle-caret">↓</span>
+    </button>
+    <div class="proc-body" id="p2-proc-body">
+
+    <!-- The Brief -->
+    <div class="proc-section">
+      <div class="sl">The Brief</div>
+      <div class="proc-brief">
+        <div class="proc-brief-card asked">
+          <div class="proc-brief-num">01</div>
+          <div class="proc-brief-tag" style="color:var(--muted)">What they asked for</div>
+          <div class="proc-brief-title" style="color:rgba(255,255,255,0.85)">A refreshed identity that told the whole story.</div>
+          <p class="proc-brief-body">Applewise had the heritage, the product, and the artisan values. The brief was to bring all of it forward — Scottish roots, handcrafted quality, the apple pies they were famous for. Everything, visible, in one place.</p>
+        </div>
+        <div class="proc-brief-card meant">
+          <div class="proc-brief-num" style="color:rgba(31,168,242,0.06)">02</div>
+          <div class="proc-brief-tag" style="color:var(--blue)">What it really meant</div>
+          <div class="proc-brief-title">Don't include everything. Find the one thing.</div>
+          <p class="proc-brief-body" style="color:rgba(255,255,255,0.65)">The real challenge wasn't how to show more — it was how to reduce. A stronger identity wouldn't come from accumulation. It would come from finding the single idea that contained everything else.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directions Explored -->
+    <div class="proc-section">
+      <div class="sl">Directions Explored</div>
+      <div class="proc-dirs">
+        <div class="proc-dir rejected">
+          <div class="proc-dir-ghost">✕</div>
+          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Ruled Out</div>
+          <div class="proc-dir-title">Five directions. Five dead ends.</div>
+          <p class="proc-dir-body">Five routes were explored in full. Heritage-led (tartan shield, Scottish crest) communicated origin but buried the product. Product-led (illustrated pie) was clear but flat — nothing to make it stick. Craft aesthetics (rolling pins, wheat, rustic type) felt borrowed. Combining everything — tartan, pie, thistle, apple — answered the brief literally and failed it creatively. A modern minimal mark was clean but had no story. Each direction worked on its own terms. None unified the brand.</p>
+          <div class="proc-dir-verdict">↳ Ruled out — the right answer wasn't in any single direction. It was between two of them.</div>
+        </div>
+        <div class="proc-dir chosen">
+          <div class="proc-dir-ghost" style="color:var(--blue)">✓</div>
+          <div class="proc-dir-status"><span class="proc-dir-indicator"></span>Chosen Direction</div>
+          <div class="proc-dir-title">Two ideas. One mark.</div>
+          <p class="proc-dir-body">The apple pie lattice and the MacLeod tartan share the same underlying geometry — a repeating grid of interlocking lines. Overlaid, they don't compete: they become one cohesive form. Product and heritage, resolved into a single mark that needs no explanation, but rewards the eye. The answer wasn't to include more. It was to find where two things were already the same thing.</p>
+          <div class="proc-dir-verdict">↳ Chosen — because the best solution doesn't add elements together. It finds where they already overlap.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Call -->
+    <div class="proc-section">
+      <div class="proc-call">
+        <div class="proc-call-bg">"</div>
+        <div class="proc-call-tag">The Call</div>
+        <div class="proc-call-quote">The brief asked for everything. The mark says it <em>all</em> — in one shape.</div>
+        <p class="proc-call-body">Five directions explored, each capturing something real. The answer came from stopping the accumulation and asking a different question: not what to include, but where two things were already the same thing. The lattice was always the tartan. The tartan was always the pie.</p>
+      </div>
+    </div>
+
+    </div><!-- /.proc-body -->
+
     <div class="ig c1">
       <div class="proj-video-wrap" id="apw-wrap">
         <video id="apw-vid" loop playsinline muted style="width:100%;display:block;">
