@@ -756,68 +756,34 @@
     </style>
 
     <!-- BENTO: Event Atmosphere & Signage -->
-    <div class="bento-ss" id="bento-atm">
+    <div class="bento-ss">
       <div class="bento-ss-header">
         <div>
           <div class="sl" style="margin-bottom:8px">Event Atmosphere &amp; Signage</div>
           <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Environmental signage, stage branding, and the moments in between — BPC at full scale.</p>
         </div>
-        <div class="bento-ss-nav">
-          <button class="bento-btn" onclick="bentoNav('bento-atm',-1)">&#8592;</button>
-          <div class="bento-dots-row" id="bento-atm-dots">
-            <div class="bento-dot active" onclick="bentoGoto('bento-atm',0)"></div>
-            <div class="bento-dot" onclick="bentoGoto('bento-atm',1)"></div>
-          </div>
-          <button class="bento-btn" onclick="bentoNav('bento-atm',1)">&#8594;</button>
-        </div>
       </div>
-      <div class="bento-slides-wrap">
-
-        <!-- Slide 1 -->
-        <div class="bento-slide active">
-          <div class="bento-grid-a">
-            <div class="bi wide" style="grid-row:span 2"><img src="https://framerusercontent.com/images/EMRoNgIkEcL9p2lijluYNKz58.jpg" loading="lazy" alt="BPC event"></div>
-            <div class="bi sq"><img src="https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg" loading="lazy" alt="BPC event"></div>
-            <div class="bi sq"><img src="https://framerusercontent.com/images/DHxBhFQz76N11u5iYLYrXLtEYw8.jpg" loading="lazy" alt="BPC event"></div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="bento-slide">
-          <div class="bento-grid-c">
-            <div class="bi sq"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="BPC event"></div>
-            <div class="bi wide" style="grid-row:span 2"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="BPC signage"></div>
-            <div class="bi sq"><img src="https://framerusercontent.com/images/AkyHA8hJMow7QjzGM0lt1woOE.jpg" loading="lazy" alt="BPC event"></div>
-          </div>
-        </div>
-
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/EMRoNgIkEcL9p2lijluYNKz58.jpg" loading="lazy" alt="BPC event"></div>
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg" loading="lazy" alt="BPC event"></div>
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/DHxBhFQz76N11u5iYLYrXLtEYw8.jpg" loading="lazy" alt="BPC event"></div>
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/AkyHA8hJMow7QjzGM0lt1woOE.jpg" loading="lazy" alt="BPC event"></div>
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="BPC event"></div>
+        <div class="bi" style="aspect-ratio:4/3"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="BPC signage"></div>
       </div>
     </div>
 
     <!-- BENTO: Promotional Materials -->
-    <div class="bento-ss" id="bento-promo">
+    <div class="bento-ss">
       <div class="bento-ss-header">
         <div>
           <div class="sl" style="margin-bottom:8px">Promotional Materials</div>
           <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Print and digital promotional assets — from save-the-dates and brochures to social campaigns and badges.</p>
         </div>
-        <div class="bento-ss-nav">
-          <button class="bento-btn" onclick="bentoNav('bento-promo',-1)">&#8592;</button>
-          <div class="bento-dots-row" id="bento-promo-dots">
-            <div class="bento-dot active" onclick="bentoGoto('bento-promo',0)"></div>
-          </div>
-          <button class="bento-btn" onclick="bentoNav('bento-promo',1)">&#8594;</button>
-        </div>
       </div>
-      <div class="bento-slides-wrap">
-        <!-- Slide 1 — add your promo images here -->
-        <div class="bento-slide active">
-          <div class="bento-grid-b">
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
-          </div>
-        </div>
+      <div id="promo-slideshow" style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;">
+        <img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="BPC promotional material" class="promo-slide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s ease;">
+        <img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="BPC promotional material" class="promo-slide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s ease;">
       </div>
     </div>
 
@@ -846,7 +812,6 @@
 
     <!-- The signed poster call-out -->
     <div style="margin-bottom:100px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);padding:40px 36px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:-20px;right:16px;font-size:140px;font-weight:900;font-family:'Poppins',sans-serif;color:rgba(31,168,242,0.04);line-height:1;pointer-events:none;user-select:none;">✍</div>
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">A Memorable Moment</div>
       <p style="font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--white);line-height:1.4;margin-bottom:16px;font-family:'Poppins',sans-serif;letter-spacing:-0.01em;">I was asked to sign the BPC poster.</p>
       <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);margin:0;width:100%;max-width:560px;">After working on the event's visuals with the team, being asked to put my name to the finished poster felt like a genuinely special moment — one I didn't expect.</p>
@@ -1888,6 +1853,18 @@ document.querySelectorAll('.pc').forEach(card => {
   let ci = 0;
   slides[ci].classList.add('active');
   setInterval(() => { slides[ci].classList.remove('active'); ci = (ci + 1) % slides.length; slides[ci].classList.add('active'); }, 4000);
+
+  // Promo crossfade slideshow
+  (function() {
+    const promoSlides = document.querySelectorAll('.promo-slide');
+    if (!promoSlides.length) return;
+    let promoIdx = 0;
+    setInterval(() => {
+      promoSlides[promoIdx].style.opacity = '0';
+      promoIdx = (promoIdx + 1) % promoSlides.length;
+      promoSlides[promoIdx].style.opacity = '1';
+    }, 4000);
+  })();
 </script>
 
 <!-- Lightbox -->
