@@ -611,20 +611,30 @@
     <!-- SECTION: BPC Event -->
     <div style="margin-bottom:100px">
       <div class="sl">BPC &mdash; Annual Event</div>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:16px;">A selection of images from APMP's two and a half day in-person event, BPC.</p>
-      <ul style="font-size:13px;line-height:2;color:rgba(255,255,255,0.45);margin-bottom:40px;padding-left:0;list-style:none;font-family:'DM Mono',monospace;letter-spacing:.06em;">
-        <li>&mdash; 1,200 attendees</li>
-        <li>&mdash; Created the branding, signage, and promotional materials</li>
-        <li>&mdash; Including the poster I was asked to sign!</li>
-      </ul>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/EMRoNgIkEcL9p2lijluYNKz58.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/DHxBhFQz76N11u5iYLYrXLtEYw8.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
-        <div class="iw" style="aspect-ratio:4/3;overflow:hidden;"><img src="https://framerusercontent.com/images/AkyHA8hJMow7QjzGM0lt1woOE.jpg" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">APMP's flagship two-and-a-half day in-person conference. Every piece of creative — branding, environmental signage, print, and digital — designed entirely by me.</p>
+      <div onclick="window._navBackPage='apmp';showProj('bpc')" style="position:relative;overflow:hidden;border:1px solid var(--border);cursor:pointer;min-height:380px;transition:border-color .25s;" onmouseover="this.style.borderColor='rgba(31,168,242,0.5)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg');background-size:cover;background-position:center;filter:brightness(0.35);transition:filter .4s;" class="bpc-card-bg"></div>
+        <div style="position:relative;z-index:1;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px;">
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">APMP Flagship Event &middot; Annual</div>
+            <h3 style="font-size:clamp(28px,5vw,56px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px;font-family:'Poppins',sans-serif;line-height:1.05;">Bid &amp; Proposal<br>Con</h3>
+            <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:0;">Branding, environmental signage, promotional print &amp; digital &mdash; including the poster I was asked to sign.</p>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-top:48px;">
+            <div style="display:flex;gap:48px;">
+              <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">1,200+</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Attendees</div></div>
+              <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">2.5</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Days</div></div>
+              <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">100%</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Original creative</div></div>
+            </div>
+            <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(31,168,242,0.5);color:var(--blue);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;white-space:nowrap;">Explore BPC &rarr;</div>
+          </div>
+        </div>
       </div>
+      <style>
+        .bpc-card-bg{transition:filter .4s}
+        div:hover > .bpc-card-bg{filter:brightness(0.45) !important}
+        @media(max-width:600px){div[onclick*="showProj('bpc')"] .pdiv-stats{flex-direction:column;gap:24px}}
+      </style>
     </div>
 
     <!-- SECTION: Membership Welcome Guide -->
@@ -687,6 +697,164 @@
     <!-- Disclaimer -->
     <div style="border-top:1px solid var(--border);padding-top:40px;">
       <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;font-family:'DM Mono',monospace;letter-spacing:.04em;width:100%;">Disclaimer: The work presented in this section was created by me or in collaboration with the APMP marketing team as part of my role as Multimedia Designer. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
+    </div>
+
+  </div>
+  <div class="pnav"><div></div><div></div></div>
+  <footer><span>&copy; 2026 Joshua Deakin</span><span>Multimedia Designer &middot; Glasgow</span></footer>
+</div>
+
+<!-- PAGE: BPC -->
+<div id="bpc" class="page proj-page">
+  <div class="ph">
+    <div class="phbg" style="background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg')"></div>
+    <div class="phc">
+      <div class="ptag">APMP Flagship Event &middot; Annual Conference</div>
+      <h1 class="ptitle">Bid &amp; Proposal Con</h1>
+      <div class="pdesc">
+        <p>BPC — Bid &amp; Proposal Con — is APMP's flagship annual conference. Over two and a half days, more than 1,200 proposal professionals gather from across the globe to connect, learn, and compete.</p>
+        <p>Every piece of creative is mine: the event identity, environmental signage, wayfinding, stage graphics, promotional print, and digital campaigns — built from scratch each year.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pbody">
+
+    <!-- Stats -->
+    <div class="proj-stats">
+      <div class="proj-stat"><div class="proj-stat-n" data-target="1200" data-suffix="+">0+</div><div class="proj-stat-l">Attendees per event</div></div>
+      <div class="proj-stat"><div class="proj-stat-n">2.5 days</div><div class="proj-stat-l">Duration</div></div>
+      <div class="proj-stat"><div class="proj-stat-n" data-target="100" data-suffix="%">0%</div><div class="proj-stat-l">Creative ownership</div></div>
+    </div>
+
+    <!-- Bento slideshow styles (scoped) -->
+    <style>
+      .bento-ss{margin-bottom:100px}
+      .bento-ss-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+      .bento-ss-nav{display:flex;align-items:center;gap:16px}
+      .bento-btn{background:none;border:1px solid var(--border);color:rgba(255,255,255,0.5);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:border-color .2s,color .2s;flex-shrink:0}
+      .bento-btn:hover{border-color:var(--blue);color:var(--blue)}
+      .bento-dots-row{display:flex;gap:8px;align-items:center}
+      .bento-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background .2s,transform .2s;cursor:pointer}
+      .bento-dot.active{background:var(--blue);transform:scale(1.4)}
+      .bento-slides-wrap{position:relative;overflow:hidden}
+      .bento-slide{display:none}
+      .bento-slide.active{display:block}
+      .bento-grid-a{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:3px}
+      .bento-grid-b{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px}
+      .bento-grid-c{display:grid;grid-template-columns:1fr 2fr;grid-template-rows:auto auto;gap:3px}
+      .bi{overflow:hidden;position:relative}
+      .bi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+      .bi:hover img{transform:scale(1.04)}
+      .bi.tall{aspect-ratio:3/4}
+      .bi.wide{aspect-ratio:16/9}
+      .bi.sq{aspect-ratio:1/1}
+      .bi.r-span{grid-row:span 2}
+      @media(max-width:640px){
+        .bento-grid-a,.bento-grid-b,.bento-grid-c{grid-template-columns:1fr 1fr}
+        .bi.r-span{grid-row:auto}
+      }
+    </style>
+
+    <!-- BENTO: Event Atmosphere & Signage -->
+    <div class="bento-ss" id="bento-atm">
+      <div class="bento-ss-header">
+        <div>
+          <div class="sl" style="margin-bottom:8px">Event Atmosphere &amp; Signage</div>
+          <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Environmental signage, stage branding, and the moments in between — BPC at full scale.</p>
+        </div>
+        <div class="bento-ss-nav">
+          <button class="bento-btn" onclick="bentoNav('bento-atm',-1)">&#8592;</button>
+          <div class="bento-dots-row" id="bento-atm-dots">
+            <div class="bento-dot active" onclick="bentoGoto('bento-atm',0)"></div>
+            <div class="bento-dot" onclick="bentoGoto('bento-atm',1)"></div>
+          </div>
+          <button class="bento-btn" onclick="bentoNav('bento-atm',1)">&#8594;</button>
+        </div>
+      </div>
+      <div class="bento-slides-wrap">
+
+        <!-- Slide 1 -->
+        <div class="bento-slide active">
+          <div class="bento-grid-a">
+            <div class="bi wide" style="grid-row:span 2"><img src="https://framerusercontent.com/images/EMRoNgIkEcL9p2lijluYNKz58.jpg" loading="lazy" alt="BPC event"></div>
+            <div class="bi sq"><img src="https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg" loading="lazy" alt="BPC event"></div>
+            <div class="bi sq"><img src="https://framerusercontent.com/images/DHxBhFQz76N11u5iYLYrXLtEYw8.jpg" loading="lazy" alt="BPC event"></div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="bento-slide">
+          <div class="bento-grid-c">
+            <div class="bi sq"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="BPC event"></div>
+            <div class="bi wide" style="grid-row:span 2"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="BPC signage"></div>
+            <div class="bi sq"><img src="https://framerusercontent.com/images/AkyHA8hJMow7QjzGM0lt1woOE.jpg" loading="lazy" alt="BPC event"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BENTO: Promotional Materials -->
+    <div class="bento-ss" id="bento-promo">
+      <div class="bento-ss-header">
+        <div>
+          <div class="sl" style="margin-bottom:8px">Promotional Materials</div>
+          <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Print and digital promotional assets — from save-the-dates and brochures to social campaigns and badges.</p>
+        </div>
+        <div class="bento-ss-nav">
+          <button class="bento-btn" onclick="bentoNav('bento-promo',-1)">&#8592;</button>
+          <div class="bento-dots-row" id="bento-promo-dots">
+            <div class="bento-dot active" onclick="bentoGoto('bento-promo',0)"></div>
+          </div>
+          <button class="bento-btn" onclick="bentoNav('bento-promo',1)">&#8594;</button>
+        </div>
+      </div>
+      <div class="bento-slides-wrap">
+        <!-- Slide 1 — add your promo images here -->
+        <div class="bento-slide active">
+          <div class="bento-grid-b">
+            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
+            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
+            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview / Key work -->
+    <div style="margin-bottom:100px">
+      <div class="sl" style="margin-bottom:32px">What I Built</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+        <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Identity &amp; Brand</div>
+          <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">Full event identity system — logomark, colour palette, typography, and brand guidelines applied consistently across every touchpoint.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Environmental Signage</div>
+          <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">Large-format wayfinding, stage backdrops, banners, and event signage designed for physical production and installed across the venue.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Print &amp; Collateral</div>
+          <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">Programmes, name badges, lanyards, agenda booklets, and promotional print — everything an attendee touches in their hand.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Digital Campaigns</div>
+          <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">Social media graphics, email headers, web banners, and promotional assets driving registration and engagement in the lead-up to the event.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The signed poster call-out -->
+    <div style="margin-bottom:100px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);padding:40px 36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-20px;right:16px;font-size:140px;font-weight:900;font-family:'Poppins',sans-serif;color:rgba(31,168,242,0.04);line-height:1;pointer-events:none;user-select:none;">✍</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">A Personal First</div>
+      <p style="font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--white);line-height:1.4;margin-bottom:16px;font-family:'Poppins',sans-serif;letter-spacing:-0.01em;">I was asked to sign the BPC poster.</p>
+      <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);margin:0;width:100%;max-width:560px;">Not something most designers get to say. Creating the event from the ground up, then being asked to sign the finished print — a moment that stuck.</p>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="border-top:1px solid var(--border);padding-top:40px;">
+      <p style="font-size:12px;line-height:1.9;color:rgba(255,255,255,0.25);font-style:italic;font-family:'DM Mono',monospace;letter-spacing:.04em;width:100%;">Disclaimer: The work presented here was created by me as part of my role as Multimedia Designer at APMP. All intellectual property and final ownership of these materials belong to APMP. These examples are displayed here solely for portfolio and presentation purposes.</p>
     </div>
 
   </div>
@@ -1263,7 +1431,8 @@
     nishikigoi: 'Nishikigoi with Oliver',
     rizen: 'Rizen',
     midgard: 'Midgard Greenhouse & Nursery',
-    apmp: 'APMP — Multimedia Designer'
+    apmp: 'APMP — Multimedia Designer',
+    bpc: 'BPC — Bid & Proposal Con'
   };
 
   const pt = document.getElementById('page-transition');
@@ -1313,6 +1482,9 @@
       document.body.scrollTop = 0;
       document.getElementById('navBack').style.display = 'flex';
       document.getElementById('burger').style.display = 'none';
+      const backPage = window._navBackPage || null;
+      document.getElementById('navBack').onclick = backPage ? () => showProj(backPage) : goHome;
+      window._navBackPage = null;
       if (pushState !== false) history.pushState({ page: id, scrollY: savedScrollY }, '', '?p=' + id);
       document.title = projTitles[id] + ' | Joshua Deakin';
       setTimeout(() => animateCounters(id), 100);
@@ -1577,6 +1749,21 @@ document.querySelectorAll('.pc').forEach(card => {
     { id: '0iWnGuuwoko' },
   ];
   let apmpCurrent = 0;
+
+  function bentoGoto(id, index) {
+    const wrap = document.getElementById(id);
+    const slides = wrap.querySelectorAll('.bento-slide');
+    const dots = document.getElementById(id + '-dots').querySelectorAll('.bento-dot');
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  function bentoNav(id, dir) {
+    const wrap = document.getElementById(id);
+    const slides = wrap.querySelectorAll('.bento-slide');
+    let current = [...slides].findIndex(s => s.classList.contains('active'));
+    bentoGoto(id, (current + dir + slides.length) % slides.length);
+  }
 
   async function buildApmpPlaylist() {
     const playlist = document.getElementById('apmp-playlist');
