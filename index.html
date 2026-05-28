@@ -306,6 +306,21 @@
     .infog-thumb:hover img{transform:scale(1.04)}
     .infog-thumb:hover .infog-overlay{background:rgba(10,10,10,0.5) !important}
     .infog-thumb:hover .infog-label{opacity:1 !important}
+    /* APMP + BPC page mobile fixes */
+    @media(max-width:600px){
+      /* Collapse 3-col grids to 1-col */
+      #apmp-scope-grid,#apmp-infog-grid,#bpc-logos-grid,#bpc-promo-stats{grid-template-columns:1fr !important}
+      /* Collapse 2-col text grids to 1-col */
+      #bpc-contrib-grid,#bpc-promo-cards{grid-template-columns:1fr !important}
+      /* BPC promo card inner layout */
+      #bpc-card-inner{padding:24px 20px !important;min-height:auto !important}
+      #bpc-card-bottom{margin-top:28px !important}
+      #bpc-card-stats{flex-wrap:wrap;gap:20px !important}
+      /* Flipsnack embeds - reduce height on phone */
+      .flipsnack-embed{height:320px !important}
+      /* APMP Scope of Work card padding */
+      #apmp-scope-grid > div,#bpc-contrib-grid > div,#bpc-promo-cards > div{padding:24px 20px !important}
+    }
   </style>
 </head>
 <body>
@@ -577,7 +592,7 @@
     <div style="margin-bottom:100px">
       <div class="sl">Scope of Work</div>
       <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">One designer. Six disciplines. Every deliverable that carries the APMP brand.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+      <div id="apmp-scope-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
         <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(31,168,242,0.4)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Brand &amp; Identity</div>
           <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">Annual event identities, logo systems, and brand applications across every organisational touchpoint.</p>
@@ -653,14 +668,14 @@
       <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:40px;">APMP's flagship annual conference - held each year over two and a half days. Working alongside the marketing team, I lead the visual side of the event: identity, signage, print, and digital.</p>
       <div onclick="window._navBackPage='apmp';showProj('bpc')" style="position:relative;overflow:hidden;border:1px solid var(--border);cursor:pointer;min-height:380px;transition:border-color .25s;" onmouseover="this.style.borderColor='rgba(31,168,242,0.5)'" onmouseout="this.style.borderColor='var(--border)'">
         <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg');background-size:cover;background-position:center;filter:brightness(0.35);transition:filter .4s;" class="bpc-card-bg"></div>
-        <div style="position:relative;z-index:1;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px;">
+        <div id="bpc-card-inner" style="position:relative;z-index:1;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px;">
           <div>
             <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">APMP Flagship Event &middot; Annual</div>
             <h3 style="font-size:clamp(28px,5vw,56px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px;font-family:'Poppins',sans-serif;line-height:1.05;">Bid &amp; Proposal<br>Con</h3>
             <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:0;">An annual event I've had the pleasure of contributing to each year - identity, signage, print &amp; digital, working alongside the marketing team.</p>
           </div>
-          <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-top:48px;">
-            <div style="display:flex;gap:48px;">
+          <div id="bpc-card-bottom" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-top:48px;">
+            <div id="bpc-card-stats" style="display:flex;gap:48px;">
               <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">1,200+</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Attendees</div></div>
               <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">2.5</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Days</div></div>
               <div><div style="font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-0.03em;line-height:1;">100%</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Original creative</div></div>
@@ -693,7 +708,7 @@
             </div>
           </div>
           <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);width:100%;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP - winning a Gold award from Association Trends.</p>
-          <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
+          <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;border:1px solid var(--border);height:480px;"></iframe>
         </div>
 
         <!-- Silver Award -->
@@ -706,7 +721,7 @@
             </div>
           </div>
           <p style="font-size:14px;line-height:1.75;color:rgba(255,255,255,0.55);width:100%;margin-bottom:24px;">The APMP Membership Welcome Guide was recognised with a Silver award for its design and member experience impact.</p>
-          <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" style="display:block;border:1px solid var(--border);"></iframe>
+          <iframe src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;border:1px solid var(--border);height:480px;"></iframe>
         </div>
 
       </div>
@@ -717,7 +732,7 @@
       <div class="sl">Infographics</div>
       <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);width:100%;margin-bottom:12px;">A handful of the infographics created over the years. Used to reinforce that APMP is the profession leader and boost engagement on LinkedIn.</p>
       <p style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:.1em;margin-bottom:32px;width:100%;">CLICK TO VIEW FULL SIZE</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;width:100%;margin-bottom:0;">
+      <div id="apmp-infog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;width:100%;margin-bottom:0;">
         <div onclick="openLightbox('infographic2.png')" style="aspect-ratio:2/3;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);" class="infog-thumb">
           <img src="infographic2.png" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy">
           <div style="position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .3s;" class="infog-overlay"><span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#fff;opacity:0;transition:opacity .3s;" class="infog-label">VIEW</span></div>
@@ -777,7 +792,7 @@
     <!-- My Contributions -->
     <div style="margin-bottom:80px">
       <div class="sl" style="margin-bottom:32px">My Contributions</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div id="bpc-contrib-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
         <div style="background:var(--surface);border:1px solid var(--border);padding:32px 28px;">
           <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">Identity &amp; Brand</div>
           <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;width:100%;">A fresh identity system each year - logomark, colour palette, and typography applied consistently across every touchpoint in collaboration with the team.</p>
@@ -800,7 +815,7 @@
     <!-- BPC Logos -->
     <div style="margin-bottom:80px">
       <div class="sl" style="margin-bottom:32px">Annual Event Identities</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
+      <div id="bpc-logos-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
         <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCDub.png')"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo"></div>
         <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCNas.png')"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville event logo"></div>
         <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCDen.png')"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo"></div>
@@ -889,7 +904,7 @@
     <div style="margin-bottom:80px;">
       <div class="sl" style="margin-bottom:20px">Promotional Content</div>
       <p style="font-size:15px;line-height:1.9;color:rgba(255,255,255,0.65);margin:0 0 40px;max-width:720px;">As the sole designer at APMP, I owned the full promotional content pipeline — from initial concept through to publishing. Every piece of social content reaching APMP's LinkedIn audience of thousands came from me: event countdowns, speaker announcements, registration drives, sponsor recognition posts, and recap content that extended the life of each event well beyond the day itself.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:40px;">
+      <div id="bpc-promo-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:40px;">
         <div style="background:var(--surface);border:1px solid var(--border);padding:28px 24px;">
           <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Output</div>
           <div style="font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--white);font-family:'Poppins',sans-serif;letter-spacing:-0.02em;line-height:1;">50+</div>
@@ -906,7 +921,7 @@
           <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:8px;line-height:1.5;">BPC 2024 reached full capacity — promotional content was a core driver of registration</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div id="bpc-promo-cards" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
         <div style="background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--blue);padding:32px 28px;">
           <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:12px;font-family:'Poppins',sans-serif;">Campaign Strategy</div>
           <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin:0;">Each BPC promotional cycle ran across multiple phases — anticipation, announcement, countdown, and post-event. I designed content for every stage, ensuring consistent visual language throughout and adapting formats to LinkedIn's native styles to maximise organic reach without paid promotion.</p>
