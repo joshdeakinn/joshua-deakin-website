@@ -350,7 +350,6 @@
     </svg>
   </div>
   <div style="display:flex;align-items:center;gap:20px;">
-    <button class="nav-back" id="navBack" onclick="goHome()">&#8592; All Projects</button>
     <button class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1574,10 +1573,7 @@
       document.getElementById(id).classList.add('active');
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      document.getElementById('navBack').style.display = 'flex';
       document.getElementById('burger').style.display = 'none';
-      const backPage = window._navBackPage || null;
-      document.getElementById('navBack').onclick = backPage ? () => showProj(backPage) : goHome;
       window._navBackPage = null;
       if (pushState !== false) history.pushState({ page: id, scrollY: savedScrollY }, '', '?p=' + id);
       document.title = projTitles[id] + ' | Joshua Deakin';
@@ -1591,7 +1587,6 @@
     transitionTo(() => {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-home').classList.add('active');
-      document.getElementById('navBack').style.display = 'none';
       document.getElementById('burger').style.display = 'flex';
       if (pushState !== false) history.pushState({ page: 'home' }, '', window.location.pathname);
       document.title = 'Joshua Deakin | Multimedia Designer';
