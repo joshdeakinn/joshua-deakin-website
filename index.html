@@ -801,18 +801,9 @@
     <div style="margin-bottom:80px">
       <div class="sl" style="margin-bottom:32px">Annual Event Identities</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
-        <div style="cursor:pointer;" onclick="openLightbox('BPCDub.png')">
-          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo"></div>
-          <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Dublin &middot; 2025</div>
-        </div>
-        <div style="cursor:pointer;" onclick="openLightbox('BPCNas.png')">
-          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville event logo"></div>
-          <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Nashville</div>
-        </div>
-        <div style="cursor:pointer;" onclick="openLightbox('BPCDen.png')">
-          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo"></div>
-          <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Denver &middot; 2026</div>
-        </div>
+        <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCDub.png')"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo"></div>
+        <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCNas.png')"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville event logo"></div>
+        <div class="bi" style="aspect-ratio:4/3;cursor:pointer;" onclick="openLightbox('BPCDen.png')"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo"></div>
       </div>
     </div>
 
@@ -853,9 +844,9 @@
           <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Environmental signage, stage branding, and the moments in between - BPC at full scale.</p>
         </div>
         <div class="bento-ss-nav">
-          <button class="bento-btn" onclick="document.getElementById('bpc-atm-strip').scrollBy({left:-376,behavior:'smooth'})">&#8592;</button>
+          <button class="bento-btn" onclick="atmNav(-1)">&#8592;</button>
           <div class="bento-dots-row"><div class="bento-dot active"></div></div>
-          <button class="bento-btn" onclick="document.getElementById('bpc-atm-strip').scrollBy({left:376,behavior:'smooth'})">&#8594;</button>
+          <button class="bento-btn" onclick="atmNav(1)">&#8594;</button>
         </div>
       </div>
       <div id="bpc-atm-strip" style="display:flex;overflow-x:auto;gap:3px;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;">
@@ -871,20 +862,25 @@
         (function(){
           var el = document.getElementById('bpc-atm-strip');
           var paused = false;
-          var rafId;
-          var speed = 0.4; // px per frame (~24px/s at 60fps)
+          var navTimer = null;
+          window.atmNav = function(dir) {
+            paused = true;
+            el.scrollBy({left: dir * 376, behavior: 'smooth'});
+            clearTimeout(navTimer);
+            navTimer = setTimeout(function(){ paused = false; }, 700);
+          };
           function step(){
             if(!paused && el.scrollWidth > el.clientWidth){
-              el.scrollLeft += speed;
+              el.scrollLeft += 0.4;
               if(el.scrollLeft >= el.scrollWidth - el.clientWidth) el.scrollLeft = 0;
             }
-            rafId = requestAnimationFrame(step);
+            requestAnimationFrame(step);
           }
           el.addEventListener('mouseenter', function(){ paused = true; });
           el.addEventListener('mouseleave', function(){ paused = false; });
           el.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
           el.addEventListener('touchend', function(){ paused = false; });
-          rafId = requestAnimationFrame(step);
+          requestAnimationFrame(step);
         })();
       </script>
     </div>
@@ -893,23 +889,30 @@
     <div class="bento-ss" id="bento-promo">
       <div class="bento-ss-header">
         <div>
-          <div class="sl" style="margin-bottom:8px">Promotional Materials</div>
-          <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Print and digital promotional assets - from save-the-dates and brochures to social campaigns and badges.</p>
+          <div class="sl" style="margin-bottom:8px">Promotional Content</div>
+          <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Social campaigns and content created for APMP's LinkedIn audience — driving engagement and reinforcing brand positioning.</p>
         </div>
         <div class="bento-ss-nav">
           <button class="bento-btn" onclick="bentoNav('bento-promo',-1)">&#8592;</button>
           <div class="bento-dots-row" id="bento-promo-dots">
             <div class="bento-dot active" onclick="bentoGoto('bento-promo',0)"></div>
+            <div class="bento-dot" onclick="bentoGoto('bento-promo',1)"></div>
           </div>
           <button class="bento-btn" onclick="bentoNav('bento-promo',1)">&#8594;</button>
         </div>
       </div>
       <div class="bento-slides-wrap">
         <div class="bento-slide active">
-          <div class="bento-grid-b">
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
-            <div class="bi sq" style="background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:.1em;">IMAGE</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7444832304721518592" height="510" frameborder="0" allowfullscreen="" title="APMP LinkedIn post" style="display:block;border:none;width:100%;"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7440819477363015680" height="510" frameborder="0" allowfullscreen="" title="APMP LinkedIn post" style="display:block;border:none;width:100%;"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7458559653883400192" height="510" frameborder="0" allowfullscreen="" title="APMP LinkedIn post" style="display:block;border:none;width:100%;"></iframe>
+          </div>
+        </div>
+        <div class="bento-slide">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7450626423381245952" height="510" frameborder="0" allowfullscreen="" title="APMP LinkedIn post" style="display:block;border:none;width:100%;"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7452492919904796672" height="510" frameborder="0" allowfullscreen="" title="APMP LinkedIn post" style="display:block;border:none;width:100%;"></iframe>
           </div>
         </div>
       </div>
