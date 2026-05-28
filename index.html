@@ -802,15 +802,15 @@
       <div class="sl" style="margin-bottom:32px">Annual Event Identities</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
         <div style="cursor:pointer;" onclick="openLightbox('BPCDub.png')">
-          <div class="bi" style="aspect-ratio:16/9;"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo"></div>
+          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo"></div>
           <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Dublin &middot; 2025</div>
         </div>
         <div style="cursor:pointer;" onclick="openLightbox('BPCNas.png')">
-          <div class="bi" style="aspect-ratio:16/9;"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville event logo"></div>
+          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville event logo"></div>
           <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Nashville</div>
         </div>
         <div style="cursor:pointer;" onclick="openLightbox('BPCDen.png')">
-          <div class="bi" style="aspect-ratio:16/9;"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo"></div>
+          <div class="bi" style="aspect-ratio:4/3;"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo"></div>
           <div style="padding:14px 0 0;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;">BPC Denver &middot; 2026</div>
         </div>
       </div>
@@ -852,6 +852,11 @@
           <div class="sl" style="margin-bottom:8px">Event Atmosphere &amp; Signage</div>
           <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;width:100%;">Environmental signage, stage branding, and the moments in between - BPC at full scale.</p>
         </div>
+        <div class="bento-ss-nav">
+          <button class="bento-btn" onclick="document.getElementById('bpc-atm-strip').scrollBy({left:-376,behavior:'smooth'})">&#8592;</button>
+          <div class="bento-dots-row"><div class="bento-dot active"></div></div>
+          <button class="bento-btn" onclick="document.getElementById('bpc-atm-strip').scrollBy({left:376,behavior:'smooth'})">&#8594;</button>
+        </div>
       </div>
       <div id="bpc-atm-strip" style="display:flex;overflow-x:auto;gap:3px;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;">
         <div class="bi" style="flex:0 0 auto;width:373px;height:280px;cursor:pointer;" onclick="openLightbox('BPC%20Denver%202026%20Fine%20Focus%20Studios%20(1).jpg')"><img src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(1).jpg" loading="lazy" alt="BPC Denver 2026 conference audience"></div>
@@ -869,7 +874,7 @@
           var rafId;
           var speed = 0.4; // px per frame (~24px/s at 60fps)
           function step(){
-            if(!paused){
+            if(!paused && el.scrollWidth > el.clientWidth){
               el.scrollLeft += speed;
               if(el.scrollLeft >= el.scrollWidth - el.clientWidth) el.scrollLeft = 0;
             }
