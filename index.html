@@ -1112,8 +1112,9 @@
       :is(#bpc,#apmp) .yr-tabs button:active,:is(#bpc,#apmp) .bx-tabs button:active{transform:scale(.98)}
       @media(hover:hover) and (pointer:fine){:is(#bpc,#apmp) .yr-tabs button:not([aria-selected="true"]):hover,:is(#bpc,#apmp) .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
       :is(#bpc,#apmp) .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
-      :is(#bpc,#apmp) .ev-logo{background:var(--surface);border-radius:var(--r);aspect-ratio:16/10;padding:9%;box-sizing:border-box}
-      :is(#bpc,#apmp) .ev-logo img{width:100%;height:100%;object-fit:contain;border-radius:0;display:block;cursor:zoom-in}
+      :is(#bpc,#apmp) .ev-logo img{width:100%;height:auto;display:block;border-radius:var(--r);cursor:zoom-in}
+      :is(#bpc,#apmp) .ev-logo.pad{background:var(--surface);border-radius:var(--r);aspect-ratio:4/3;padding:9%;box-sizing:border-box}
+      :is(#bpc,#apmp) .ev-logo.pad img{height:100%;object-fit:contain;border-radius:0}
       :is(#bpc,#apmp) .ev-meta,:is(#bpc,#apmp) .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
       :is(#bpc,#apmp) .ev-meta{margin-bottom:14px}
       :is(#bpc,#apmp) .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
@@ -1222,7 +1223,7 @@
 
       <div class="bx-panel" data-t="bcn">
         <div class="ev-h">
-          <div class="ev-logo"><img src="bpc-barcelona-logo.png" loading="lazy" alt="Best of BPC Barcelona 2024 event logo" onclick="openLightbox(this.src)"></div>
+          <div class="ev-logo pad"><img src="bpc-barcelona-logo.png" loading="lazy" alt="Best of BPC Barcelona 2024 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">Best of BPC &middot; Barcelona 2024</div><h3>Barcelona</h3><p>A "Best of BPC" edition. The mark borrows Spain&rsquo;s reds and golds, with a brushed flag behind the lettering.</p></div>
         </div>
       </div>
@@ -1441,7 +1442,7 @@
 
       <div class="bx-panel" data-t="ana">
         <div class="ev-h">
-          <div class="ev-logo"><img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" onclick="openLightbox(this.src)"></div>
+          <div class="ev-logo pad"><img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">BPC Anaheim &middot; May 18&ndash;21, 2027 &middot; California</div><h3>Anaheim</h3><p>Sun, surf and the Golden State. For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the whole registration page.</p></div>
         </div>
         <div class="ev-sub">From this event</div>
