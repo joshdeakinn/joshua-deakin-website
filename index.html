@@ -63,12 +63,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
   <!-- Display face, separate request so it can be removed (or fail) without affecting the other fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--display:"Bricolage Grotesque","Poppins",sans-serif;--name:"Anton","Poppins",sans-serif;--bg:#F5F5F3;--surface:#ECECE8;--accent:#C2300C;--ink:#111111;--body:#3A3A37;--muted:#5C5C58;--border:#D3D3CE}
+    :root{--display:"Bricolage Grotesque","Poppins",sans-serif;--bg:#F5F5F3;--surface:#ECECE8;--accent:#C2300C;--ink:#111111;--body:#3A3A37;--muted:#5C5C58;--border:#D3D3CE}
 
     html{scroll-behavior:auto}
 
@@ -418,7 +417,7 @@
     .hero-sig #sigPath{stroke:var(--accent)}
     .hero-sig g path{fill:var(--accent)}
     .hero-tag{margin:0;color:var(--muted);max-width:340px;line-height:1.9}
-    .hero-title{font-family:var(--name);font-weight:400;font-size:clamp(80px,15vw,220px);line-height:.95;letter-spacing:0;text-transform:uppercase}
+    .hero-title{font-family:var(--display);font-weight:800;font-size:clamp(64px,11.5vw,168px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
     .hero-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 64px}
     .hero-sub{margin:0;flex:1 1 360px;max-width:520px;font-size:18px;line-height:1.65;color:var(--body)}
     .hero-cta{margin:0}
@@ -475,7 +474,7 @@
       #home{padding:0 24px}
       .hero-inner{padding:140px 0 48px}
       .hero-sig{top:150px;right:-10%;width:92%}
-      .hero-title{font-size:clamp(72px,24vw,150px)}
+      .hero-title{font-size:clamp(56px,19vw,120px)}
       .lead{padding:0 24px}
       #apmp-s .inner{padding:72px 24px 0}
       .pg{grid-template-columns:1fr}
@@ -483,6 +482,17 @@
       .stat-grid .stat{display:block}
       .stat-grid .ec{margin-bottom:12px !important}
       .ix .d{flex-basis:100%}
+    }
+    /* Case-study heroes: text on a clean ground; APMP and BPC get a full-strength banner underneath */
+    .ph{min-height:auto;display:flex;flex-direction:column-reverse;padding:0;overflow:visible}
+    .phc{padding:150px 40px 0}
+    .phbg{display:none}
+    .phbg::after{display:none}
+    #apmp .phbg,#bpc .phbg{display:block;position:static;opacity:1;filter:none;width:calc(100% - 80px);max-width:1020px;height:clamp(220px,40vw,520px);margin:56px auto 0;background-color:var(--surface)}
+    .ptitle{margin-bottom:28px}
+    @media(max-width:768px){
+      .phc{padding:120px 24px 0}
+      #apmp .phbg,#bpc .phbg{width:calc(100% - 48px);margin-top:40px}
     }
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
