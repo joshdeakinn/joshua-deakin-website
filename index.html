@@ -580,6 +580,25 @@
     .ix img{border-radius:8px}
     .cmp-steps button{border-radius:8px}
     .vw-a{border-radius:3px}
+
+    /* Rounded controls */
+    .btn,.nav-links button.cta,.bento-btn,.hamburger,.proc-toggle,#contactForm input,#contactForm textarea,#contactForm button{border-radius:12px !important}
+    .medal{border-radius:6px}
+    /* Homepage work tiles: compact, expand on hover */
+    .pc img{aspect-ratio:16/9}
+    @media(hover:hover) and (pointer:fine) and (min-width:900px){
+      .pg{display:flex;gap:12px;height:340px}
+      .pc{flex:1 1 0;min-width:0;position:relative;overflow:hidden;border-radius:var(--r);background:#111;transition:flex-grow .45s cubic-bezier(0.23,1,0.32,1),opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+      .pc:hover,.pc:focus-visible{flex-grow:2.6}
+      .pc img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;border-radius:0}
+      .pc:hover img{opacity:1}
+      .pco{position:absolute;left:0;right:0;bottom:0;top:auto;padding:88px 22px 20px;background:linear-gradient(to top,rgba(17,17,17,.96) 0%,rgba(17,17,17,.9) 42%,rgba(17,17,17,0) 100%);display:block;opacity:1}
+      .pct{color:#fff;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:20px}
+      .pcl{color:rgba(255,255,255,.75);margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .pcd{color:rgba(255,255,255,.92);max-height:0;opacity:0;overflow:hidden;margin:0;transition:max-height .45s cubic-bezier(0.23,1,0.32,1),opacity .3s ease-out,margin .45s cubic-bezier(0.23,1,0.32,1)}
+      .pc:hover .pcd,.pc:focus-visible .pcd{max-height:5em;opacity:1;margin-top:10px}
+    }
+    @media(prefers-reduced-motion:reduce){.pc,.pcd{transition:none !important}}
   </style>
 </head>
 <body>
@@ -709,7 +728,7 @@
       </div>
       <div class="pg">
         <a class="pc" href="?p=bpc" onclick="cardNav(event,'bpc')"><img src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(2).jpg" alt="Bid and Proposal Con stage branding, Denver 2026" loading="lazy"><div class="pco"><div><div class="pct">Bid &amp; Proposal Con</div><div class="pcl">Event identity &middot; Signage &middot; Campaign</div><div class="pcd">A new identity every year for a 1,200-person conference.</div></div></div></a>
-        <a class="pc" href="?p=apmp" onclick="window._anchor='apmp-podcast';cardNav(event,'apmp')"><img src="https://img.youtube.com/vi/JGLDMUn6ilY/mqdefault.jpg" alt="APMP On The Record podcast episode" loading="lazy"><div class="pco"><div><div class="pct">On The Record podcast</div><div class="pcl">Video production &middot; Channel growth</div><div class="pcd">Edited and branded the series. Subscribers more than doubled.</div></div></div></a>
+        <a class="pc" href="?p=apmp" onclick="window._anchor='apmp-podcast';cardNav(event,'apmp')"><img src="otr-th-jamie.jpg" alt="APMP On the Record podcast episode thumbnail" loading="lazy"><div class="pco"><div><div class="pct">On The Record podcast</div><div class="pcl">Video production &middot; Channel growth</div><div class="pcd">Edited and branded the series. Subscribers more than doubled.</div></div></div></a>
         <a class="pc" href="?p=apmp" onclick="window._anchor='apmp-pubs';cardNav(event,'apmp')"><img src="Infographic2.png" alt="APMP infographic" loading="lazy"><div class="pco"><div><div class="pct">Publications &amp; infographics</div><div class="pcl">Editorial &middot; Social</div><div class="pcd">Two award-winning interactive guides, plus infographics for LinkedIn.</div></div></div></a>
       </div>
       <div class="awards">
@@ -844,8 +863,7 @@
       <h1 class="ptitle">APMP</h1>
       <div class="pdesc">
         <p>Multimedia Designer &middot; Remote &middot; October 2023 &ndash; Present</p>
-        <p>At APMP, I am the design department. There's no creative director above me, no senior designer to hand a brief to — every piece of work is managed independently from first conversation to final delivery. From a 1,200-person conference identity to a podcast series that more than doubled its subscriber base, everything comes from one person.</p>
-        <p>I work cross-functionally across marketing, events, and membership — taking direction from multiple teams simultaneously, managing competing deadlines without oversight, and delivering work that meets each department's brief without losing visual coherence across the brand as a whole.</p>
+        <p>At APMP, I am the design department. Every piece of work runs through me from first conversation to final delivery, across marketing, events and membership: video, brand, publications, campaigns and signage.</p>
       </div>
     </div>
   </div>
@@ -859,77 +877,38 @@
       <div class="proj-stat"><div class="proj-stat-n">6</div><div class="proj-stat-l">Disciplines - sole designer across all</div></div>
     </div>
 
-    <!-- SECTION: BPC Event -->
-    <div style="margin-bottom:100px">
-      <div class="sl">BPC - Annual Event</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);width:100%;margin-bottom:40px;">APMP's flagship annual conference - held each year over two and a half days. Working alongside the marketing team, I lead the visual side of the event: identity, signage, print, and digital.</p>
-      <div onclick="window._navBackPage='apmp';showProj('bpc')" style="position:relative;overflow:hidden;border:1px solid var(--border);cursor:pointer;min-height:380px;transition:border-color .25s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.borderColor='var(--border)'">
-        <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/i9UZtXTctBSltwykCN4uxNOsF2I.jpg');background-size:cover;background-position:center;filter:brightness(0.35);transition:filter .4s;" class="bpc-card-bg"></div>
-        <div id="bpc-card-inner" style="position:relative;z-index:1;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px;">
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:20px;">APMP Flagship Event &middot; Annual</div>
-            <h3 style="font-size:clamp(28px,5vw,56px);font-weight:900;letter-spacing:-0.03em;color:#fff;margin-bottom:20px;font-family:'Poppins',sans-serif;line-height:1.05;">Bid &amp; Proposal<br>Con</h3>
-            <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:0;">An annual event I've had the pleasure of contributing to each year - identity, signage, print &amp; digital, working alongside the marketing team.</p>
+    <!-- SECTION: On the Record -->
+    <section class="bs bx" id="apmp-podcast" style="scroll-margin-top:96px">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Video &middot; Podcast series</div><h2>On the Record.</h2></div>
+        <p>APMP's video podcast for bid and proposal professionals. I branded the series and edit every episode: multi-camera cuts, motion graphics, thumbnails and the short clips that promote each one. The YouTube channel's subscribers have more than doubled.</p>
+      </div>
+      <div class="bx-hint">Five parts &middot; pick one</div>
+      <div class="bx-tabs" role="tablist" aria-label="On the Record">
+        <button role="tab" aria-selected="true" data-t="trailer"><b>01</b>Trailer</button>
+        <button role="tab" aria-selected="false" data-t="eps"><b>02</b>Episodes</button>
+        <button role="tab" aria-selected="false" data-t="motion"><b>03</b>Motion</button>
+        <button role="tab" aria-selected="false" data-t="thumbs"><b>04</b>Thumbnails</button>
+        <button role="tab" aria-selected="false" data-t="shorts"><b>05</b>Shorts &amp; social</button>
+      </div>
+
+      <div class="bx-panel on" data-t="trailer">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>The season trailer</h3>
+            <p>The launch film for the series: kinetic type over the show's microphone pattern, cut with moments from the first episodes.</p>
+            <img src="otr-promo.jpg" loading="lazy" alt="On the Record with APMP, watch now on YouTube" style="width:100%;display:block;cursor:zoom-in" onclick="openLightbox(this.src)">
           </div>
-          <div id="bpc-card-bottom" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-top:48px;">
-            <div id="bpc-card-stats" style="display:flex;gap:48px;">
-              <div><div style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1;">1,200+</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Attendees</div></div>
-              <div><div style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1;">2.5</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Days</div></div>
-              <div><div style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1;">100%</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:6px;">Original creative</div></div>
-            </div>
-            <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.6);color:#fff;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;white-space:nowrap;">Explore BPC &rarr;</div>
-          </div>
+          <video style="width:100%;display:block;background:#0d1f33" controls preload="none" playsinline poster="otr-trailer-poster.jpg"><source src="otr-trailer.mp4" type="video/mp4"></video>
         </div>
       </div>
-      <style>
-        .bpc-card-bg{transition:filter .4s}
-        div:hover > .bpc-card-bg{filter:brightness(0.45) !important}
-        @media(max-width:600px){div[onclick*="showProj('bpc')"] .pdiv-stats{flex-direction:column;gap:24px}}
-      </style>
-    </div>
 
-    <!-- SECTION: Membership Welcome Guide -->
-    <div id="apmp-pubs" style="margin-bottom:100px;scroll-margin-top:120px">
-      <div class="sl">Award-Winning Publications</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);width:100%;margin-bottom:48px;">Two interactive publications, both recognised by Association Trends.</p>
-
-      <div style="display:flex;flex-direction:column;gap:48px;">
-
-        <!-- Gold Award -->
-        <div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-            <span class="medal gold">Gold</span>
-            <div>
-              <div style="font-size:18px;font-weight:700;color:var(--ink);">Gold Award - Advertising Media Kit</div>
-              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; Mar 2025</div>
-            </div>
-          </div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);width:100%;margin-bottom:24px;">Using Flipsnack, I developed an interactive, magazine-style guide to showcase sponsorship opportunities with APMP - winning a Gold award from Association Trends.</p>
-          <iframe loading="lazy" title="APMP publication (Flipsnack)" src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;border:1px solid var(--border);height:480px;"></iframe>
+      <div class="bx-panel" data-t="eps">
+        <div class="bp" style="margin-bottom:28px">
+          <h3 style="margin:0">Watch an episode</h3>
+          <p style="margin:0">Each episode is a multi-camera conversation, cut for pace and finished with the show's titles, lower-thirds and end card. Pick one from the list.</p>
         </div>
-
-        <!-- Silver Award -->
-        <div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-            <span class="medal silver">Silver</span>
-            <div>
-              <div style="font-size:18px;font-weight:700;color:var(--ink);">Silver Award - Membership Welcome Guide</div>
-              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Association Trends &middot; Mar 2026</div>
-            </div>
-          </div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);width:100%;margin-bottom:24px;">Designed to bridge the gap between joining the association and discovering all the benefits unlocked as a new member. Recognised with a Silver award for its design and member experience impact.</p>
-          <iframe loading="lazy" title="APMP publication (Flipsnack)" src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;border:1px solid var(--border);height:480px;"></iframe>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SECTION: Podcast -->
-    <div id="apmp-podcast" style="margin-bottom:100px;scroll-margin-top:120px">
-      <div class="sl">On The Record Podcast</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);width:100%;margin-bottom:40px;">An episode from APMP's On The Record podcast. I edited the episodes, branded the series, and grew the YouTube channel by over 100% in new subscribers.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 280px;gap:2px;align-items:stretch;" id="apmp-player-wrap">
+        <div style="display:grid;grid-template-columns:1fr 280px;gap:0;align-items:stretch;border-radius:var(--r);overflow:hidden;border:1px solid var(--border)" id="apmp-player-wrap">
 
         <!-- Main player -->
         <div style="background:#000;display:flex;flex-direction:column;">
@@ -964,60 +943,105 @@
           .apmp-ep-thumb{width:60px;height:38px;}
         }
       </style>
-    </div>
+      </div>
+
+      <div class="bx-panel" data-t="motion">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Titles and lower-thirds</h3>
+            <p>The motion package I built in After Effects so every episode opens and labels its guests the same way: an animated title sequence and a paper-tape name tag.</p>
+          </div>
+          <div class="bpc-stack">
+            <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="otr-intro.mp4" type="video/mp4"></video><figcaption>Title sequence</figcaption></figure>
+            <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="otr-nametag.mp4" type="video/mp4"></video><figcaption>Guest name tag</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="thumbs">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Thumbnails built to be clicked</h3>
+            <p>One system for every episode: host and guest either side, a short hook in the middle, and one loud colour word. Consistent enough to read as a series, different enough to tell episodes apart.</p>
+          </div>
+          <div class="bpc-g c3">
+              <figure class="bpc-f "><img src="otr-th-jamie.jpg" loading="lazy" alt="On the Record thumbnail: Your brain is drowning in choices, with Jamie Ninneman" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-emily.jpg" loading="lazy" alt="On the Record thumbnail: Sell with stories, with Emily Katz" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-jennifer.jpg" loading="lazy" alt="On the Record thumbnail: AI will never do this, with Jennifer Danforth" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-lisa.jpg" loading="lazy" alt="On the Record thumbnail: How to avoid death by PowerPoint, with Lisa Diven" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-patrick.jpg" loading="lazy" alt="On the Record thumbnail: Gen Z vs Boomers, with Patrick Chace" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-bruce.jpg" loading="lazy" alt="On the Record thumbnail: Win or lose? Here is how bids get scored, with Bruce Morton" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-corinne.jpg" loading="lazy" alt="On the Record thumbnail: It is time to upgrade your toolkit, with Corinne Jorgenson" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-neal.jpg" loading="lazy" alt="On the Record thumbnail: You have been using this emoji wrong, with Neal and Sara Levene" onclick="openLightbox(this.src)"></figure>
+              <figure class="bpc-f "><img src="otr-th-david.jpg" loading="lazy" alt="On the Record thumbnail: Let us talk neurodiversity in bids and proposals, with David Gray" onclick="openLightbox(this.src)"></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="shorts">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Clips that sell the episode</h3>
+            <p>Every episode is cut down into captioned vertical clips for social, an animated "now live" announcement, and a share graphic guests post themselves.</p>
+          </div>
+          <div class="bpc-g c3" style="align-items:start">
+            <figure class="bpc-f"><video style="width:100%;display:block;background:#0d1f33" controls preload="none" playsinline poster="otr-short-poster.jpg"><source src="otr-short.mp4" type="video/mp4"></video><figcaption>Vertical clip</figcaption></figure>
+            <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="otr-announce.mp4" type="video/mp4"></video><figcaption>Episode announcement</figcaption></figure>
+            <figure class="bpc-f "><img src="otr-iwent.jpg" loading="lazy" alt="I went On the Record with APMP, guest share graphic" onclick="openLightbox(this.src)"><figcaption>Guest share graphic</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BPC -->
+    <section class="bs">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Flagship event</div><h2>Bid &amp; Proposal Con.</h2></div>
+        <div><p style="margin-bottom:24px">APMP's annual conference for 1,200+ people. A new identity every year, carried through social, email, web, print and the venue itself.</p><button class="btn solid" onclick="window._navBackPage='apmp';showProj('bpc')">Open the BPC case study &rarr;</button></div>
+      </div>
+      <a href="?p=bpc" onclick="window._navBackPage='apmp';cardNav(event,'bpc')" style="display:block"><img src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(2).jpg" loading="lazy" alt="Bid and Proposal Con stage branding, Denver 2026" style="width:100%;aspect-ratio:21/9;object-fit:cover;display:block"></a>
+    </section>
+
+    <!-- SECTION: Publications -->
+    <section class="bs bx" id="apmp-pubs" style="scroll-margin-top:96px">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Editorial</div><h2>Award-winning publications.</h2></div>
+        <p>Two interactive, magazine-style guides built in Flipsnack, both recognised by Association Trends.</p>
+      </div>
+      <div class="bx-hint">Two awards &middot; pick one</div>
+      <div class="bx-tabs" role="tablist" aria-label="Publications">
+        <button role="tab" aria-selected="true" data-t="gold"><b>Gold &middot; 2025</b>Advertising Media Kit</button>
+        <button role="tab" aria-selected="false" data-t="silver"><b>Silver &middot; 2026</b>Membership Welcome Guide</button>
+      </div>
+      <div class="bx-panel on" data-t="gold">
+        <div class="bp"><div class="bp-t"><h3>Advertising Media Kit</h3><p>An interactive guide that showcases sponsorship opportunities with APMP. Gold, Association Trends, 2025.</p></div><iframe loading="lazy" title="APMP publication (Flipsnack)" src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrMWs4b21wdW83aw==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;width:100%;border:0;border-radius:var(--r);background:var(--surface)"></iframe></div>
+      </div>
+      <div class="bx-panel" data-t="silver">
+        <div class="bp"><div class="bp-t"><h3>Membership Welcome Guide</h3><p>Designed to bridge the gap between joining the association and discovering everything membership unlocks. Silver, Association Trends, 2026.</p></div><iframe loading="lazy" title="APMP publication (Flipsnack)" src="https://player.flipsnack.com?hash=RkZDOTc3RUVGQjUrY2ZxZHFxMDk1ZQ==" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write" class="flipsnack-embed" style="display:block;width:100%;border:0;border-radius:var(--r);background:var(--surface)"></iframe></div>
+      </div>
+    </section>
 
     <!-- SECTION: Infographics -->
-    <div style="margin-bottom:100px">
-      <div class="sl">Infographics</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);width:100%;margin-bottom:12px;">A handful of the infographics created over the years. Used to reinforce that APMP is the profession leader and boost engagement on LinkedIn.</p>
-      <p style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(17,17,17,0.62);letter-spacing:.1em;margin-bottom:32px;width:100%;">CLICK TO VIEW FULL SIZE</p>
-      <div id="apmp-infog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;width:100%;margin-bottom:0;">
-        <div onclick="openLightbox('Infographic2.png')" style="aspect-ratio:2/3;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);" class="infog-thumb">
-          <img src="Infographic2.png" alt="APMP infographic 2" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy">
-          <div style="position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .3s;" class="infog-overlay"><span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#fff;opacity:0;transition:opacity .3s;" class="infog-label">VIEW</span></div>
-        </div>
-        <div onclick="openLightbox('Infographic3.jpg')" style="aspect-ratio:2/3;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);" class="infog-thumb">
-          <img src="Infographic3.jpg" alt="APMP infographic 3" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy">
-          <div style="position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .3s;" class="infog-overlay"><span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#fff;opacity:0;transition:opacity .3s;" class="infog-label">VIEW</span></div>
-        </div>
-        <div onclick="openLightbox('Infographic4.png')" style="aspect-ratio:2/3;overflow:hidden;cursor:pointer;position:relative;background:var(--surface);" class="infog-thumb">
-          <img src="Infographic4.png" alt="APMP infographic 4" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy">
-          <div style="position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .3s;" class="infog-overlay"><span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#fff;opacity:0;transition:opacity .3s;" class="infog-label">VIEW</span></div>
-        </div>
+    <section class="bs">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Social</div><h2>Infographics.</h2></div>
+        <p>A handful of the infographics made for LinkedIn, used to reinforce APMP as the profession's leader. Tap one to view it full size.</p>
       </div>
-    </div>
+      <div class="bpc-g c3 info">
+        <figure class="bpc-f "><img src="Infographic2.png" loading="lazy" alt="APMP infographic" onclick="openLightbox(this.src)"></figure>
+        <figure class="bpc-f "><img src="Infographic3.jpg" loading="lazy" alt="APMP infographic" onclick="openLightbox(this.src)"></figure>
+        <figure class="bpc-f "><img src="Infographic4.png" loading="lazy" alt="APMP infographic" onclick="openLightbox(this.src)"></figure>
+      </div>
+    </section>
 
-    <!-- SECTION: Scope of Work -->
-    <div style="margin-bottom:100px">
-      <div class="sl">Scope of Work</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);width:100%;margin-bottom:40px;">One designer. Six disciplines. Multiple departments. Every deliverable that carries the APMP brand — taken on independently, managed without handoffs, and delivered to a consistent standard across all of them.</p>
-      <div id="apmp-scope-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Brand &amp; Identity</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">Annual event identities, logo systems, and brand applications across every organisational touchpoint — developed independently and applied consistently across all teams and outputs.</p>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Video Production</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">End-to-end podcast editing, channel management, and promotional video production. Grew the YouTube channel by over 100% in new subscribers.</p>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Editorial &amp; Publication</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">Multi-page guides, interactive digital publications, and brochures - two of which have won national industry awards.</p>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Environmental Signage</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">Large-format wayfinding, stage backdrops, and event signage designed for physical production at a 1,200+ person conference.</p>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Digital Campaigns</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">Social graphics, email headers, web banners, and promotional assets driving registration and engagement across global audiences.</p>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:28px 28px 28px 0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Member Experience</div>
-          <p style="font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0;width:100%;">How-to video content and the APMP Knowledge Centre — working directly with the membership team to design resources that support members from the moment they join, through onboarding and beyond.</p>
-        </div>
+    <!-- SECTION: Scope -->
+    <section class="bs" style="margin-bottom:72px">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Scope of work</div><h2>One designer, six disciplines.</h2></div>
+        <p>Every deliverable that carries the APMP brand, taken on independently and delivered to a consistent standard across marketing, events and membership.</p>
       </div>
-    </div>
+      <div class="sc-g"><div class="sc-i"><div class="sc-k">Brand &amp; Identity</div><p>Annual event identities, logo systems, and brand applications across every organisational touchpoint — developed independently and applied consistently across all teams and outputs.</p></div><div class="sc-i"><div class="sc-k">Video Production</div><p>End-to-end podcast editing, channel management, and promotional video production. Grew the YouTube channel by over 100% in new subscribers.</p></div><div class="sc-i"><div class="sc-k">Editorial &amp; Publication</div><p>Multi-page guides, interactive digital publications, and brochures - two of which have won national industry awards.</p></div><div class="sc-i"><div class="sc-k">Environmental Signage</div><p>Large-format wayfinding, stage backdrops, and event signage designed for physical production at a 1,200+ person conference.</p></div><div class="sc-i"><div class="sc-k">Digital Campaigns</div><p>Social graphics, email headers, web banners, and promotional assets driving registration and engagement across global audiences.</p></div><div class="sc-i"><div class="sc-k">Member Experience</div><p>How-to video content and the APMP Knowledge Centre — working directly with the membership team to design resources that support members from the moment they join, through onboarding and beyond.</p></div></div>
+    </section>
 
     <!-- Disclaimer -->
     <div style="border-top:1px solid var(--border);padding-top:40px;">
@@ -1062,40 +1086,40 @@
 
     <!-- BPC Logos -->
     <style>
-      #bpc .bs{border-top:1px solid var(--border);padding:72px 0 0;margin:0 0 104px;max-width:none}
-      #bpc .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
-      #bpc .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
-      #bpc .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
-      #bpc .yr-tabs,#bpc .bx-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:0 0 40px}
-      #bpc .yr-tabs button,#bpc .bx-tabs button{flex:none;display:block;text-align:left;background:none;border:none;border-radius:11px;padding:14px 16px;min-height:56px;cursor:pointer;font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.25;color:var(--ink);transition:background .2s,color .2s}
-      #bpc .bx-tabs button b{display:block;font-family:"DM Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
-      #bpc .yr-tabs button[aria-selected="true"],#bpc .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
-      #bpc .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
-      #bpc .yr-tabs button:active,#bpc .bx-tabs button:active{transform:scale(.98)}
-      @media(hover:hover) and (pointer:fine){#bpc .yr-tabs button:not([aria-selected="true"]):hover,#bpc .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
-      #bpc .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
-      #bpc .ev-logo{background:var(--surface);border-radius:var(--r);aspect-ratio:16/10;padding:9%;box-sizing:border-box}
-      #bpc .ev-logo img{width:100%;height:100%;object-fit:contain;border-radius:0;display:block;cursor:zoom-in}
-      #bpc .ev-meta,#bpc .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-      #bpc .ev-meta{margin-bottom:14px}
-      #bpc .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
-      #bpc .ev-h h3{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
-      #bpc .ev-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
-      #bpc .bx-tabs.sub{background:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:20px 0 0;gap:8px}
-      #bpc .bx-tabs.sub button{border:1px solid var(--border);font-size:15px;font-weight:600;min-height:52px;padding:11px 14px}
-      #bpc .bx-tabs.sub button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-      #bpc .bx-tabs.sub button[aria-selected="true"] b{color:rgba(255,255,255,.7)}
+      :is(#bpc,#apmp) .bs{border-top:1px solid var(--border);padding:72px 0 0;margin:0 0 104px;max-width:none}
+      :is(#bpc,#apmp) .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
+      :is(#bpc,#apmp) .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
+      :is(#bpc,#apmp) .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      :is(#bpc,#apmp) .yr-tabs,:is(#bpc,#apmp) .bx-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:0 0 40px}
+      :is(#bpc,#apmp) .yr-tabs button,:is(#bpc,#apmp) .bx-tabs button{flex:none;display:block;text-align:left;background:none;border:none;border-radius:11px;padding:14px 16px;min-height:56px;cursor:pointer;font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.25;color:var(--ink);transition:background .2s,color .2s}
+      :is(#bpc,#apmp) .bx-tabs button b{display:block;font-family:"DM Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
+      :is(#bpc,#apmp) .yr-tabs button[aria-selected="true"],:is(#bpc,#apmp) .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
+      :is(#bpc,#apmp) .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
+      :is(#bpc,#apmp) .yr-tabs button:active,:is(#bpc,#apmp) .bx-tabs button:active{transform:scale(.98)}
+      @media(hover:hover) and (pointer:fine){:is(#bpc,#apmp) .yr-tabs button:not([aria-selected="true"]):hover,:is(#bpc,#apmp) .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
+      :is(#bpc,#apmp) .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
+      :is(#bpc,#apmp) .ev-logo{background:var(--surface);border-radius:var(--r);aspect-ratio:16/10;padding:9%;box-sizing:border-box}
+      :is(#bpc,#apmp) .ev-logo img{width:100%;height:100%;object-fit:contain;border-radius:0;display:block;cursor:zoom-in}
+      :is(#bpc,#apmp) .ev-meta,:is(#bpc,#apmp) .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+      :is(#bpc,#apmp) .ev-meta{margin-bottom:14px}
+      :is(#bpc,#apmp) .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
+      :is(#bpc,#apmp) .ev-h h3{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
+      :is(#bpc,#apmp) .ev-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      :is(#bpc,#apmp) .bx-tabs.sub{background:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:20px 0 0;gap:8px}
+      :is(#bpc,#apmp) .bx-tabs.sub button{border:1px solid var(--border);font-size:15px;font-weight:600;min-height:52px;padding:11px 14px}
+      :is(#bpc,#apmp) .bx-tabs.sub button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+      :is(#bpc,#apmp) .bx-tabs.sub button[aria-selected="true"] b{color:rgba(255,255,255,.7)}
       .bx-hint{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
-      #bpc .yr-stage img{inset:9%;width:82%;height:82%}
+      :is(#bpc,#apmp) .yr-stage img{inset:9%;width:82%;height:82%}
       .bx-panel{display:none}
       .bx-panel.on{display:block;animation:bxin .28s cubic-bezier(0.23,1,0.32,1)}
       @keyframes bxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
       @media(prefers-reduced-motion:reduce){.bx-panel.on{animation:none}}
-      #bpc .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
-      #bpc .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
-      #bpc .bp-t{position:sticky;top:112px}
-      #bpc .bp h3,#bpc .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
-      #bpc .bp p,#bpc .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
+      :is(#bpc,#apmp) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+      :is(#bpc,#apmp) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+      :is(#bpc,#apmp) .bp-t{position:sticky;top:112px}
+      :is(#bpc,#apmp) .bp h3,:is(#bpc,#apmp) .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
+      :is(#bpc,#apmp) .bp p,:is(#bpc,#apmp) .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
       .bpc-g{display:grid;gap:20px 12px}
       .bpc-g.c2{grid-template-columns:1fr 1fr}
       .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
@@ -1114,7 +1138,7 @@
       .cmp-view img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
       .cmp-n{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);margin:28px 0 8px}
       .cmp-t{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.2;margin:0 0 6px;color:var(--ink)}
-      #bpc .cmp-side p.cmp-d{min-height:3.4em;margin-bottom:18px}
+      :is(#bpc,#apmp) .cmp-side p.cmp-d{min-height:3.4em;margin-bottom:18px}
       .cmp-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:18px}
       .cmp-steps button{padding:0;border:none;background:none;cursor:pointer;aspect-ratio:1/1;overflow:hidden;opacity:.4;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s,outline-color .2s}
       .cmp-steps button img{width:100%;height:100%;object-fit:cover;display:block}
@@ -1141,11 +1165,17 @@
       .vw-l{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:16px;white-space:nowrap;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3a3a37}
       .vw-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap}
       .vw-note{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;max-width:560px}
-      #bpc .bx-panel .bento-ss{margin:72px 0 0}
-      #bpc .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
-      #bpc .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
-      #bpc .bpc-letters b{color:var(--ink)}
-      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters,#bpc .ev-h{grid-template-columns:1fr;gap:24px}#bpc .ev-h{margin-bottom:40px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}#bpc .yr-tabs button,#bpc .bx-tabs button{font-size:14px;padding:12px}}
+      :is(#bpc,#apmp) .bx-panel .bento-ss{margin:72px 0 0}
+      :is(#bpc,#apmp) .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
+      :is(#bpc,#apmp) .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
+      :is(#bpc,#apmp) .bpc-letters b{color:var(--ink)}
+      @media(max-width:860px){:is(#bpc,#apmp) .bs-h,:is(#bpc,#apmp) .bp,:is(#bpc,#apmp) .bp.wide,.cmp,:is(#bpc,#apmp) .bpc-letters,:is(#bpc,#apmp) .ev-h{grid-template-columns:1fr;gap:24px}:is(#bpc,#apmp) .ev-h{margin-bottom:40px}:is(#bpc,#apmp) .bp-t{position:static}:is(#bpc,#apmp) .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}:is(#bpc,#apmp) .yr-tabs,:is(#bpc,#apmp) .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}:is(#bpc,#apmp) .yr-tabs button,:is(#bpc,#apmp) .bx-tabs button{font-size:14px;padding:12px}}
+          .bpc-g.info img{aspect-ratio:2/3;object-fit:cover}
+      .sc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+      .sc-i{border-top:1px solid var(--border);padding:24px 0 28px}
+      .sc-k{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+      .sc-i p{font-size:15px;line-height:1.7;color:var(--body);margin:0}
+      @media(max-width:860px){.sc-g{grid-template-columns:1fr}}
     </style>
 
     <!-- 1. Identities -->
@@ -1400,14 +1430,15 @@
     <script>
     (function(){
       var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      document.querySelectorAll('#bpc .bx').forEach(function(bx){
+      document.querySelectorAll('.bx').forEach(function(bx){
         var tabs=bx.querySelectorAll(':scope > .bx-tabs > button'),panels=bx.querySelectorAll(':scope > .bx-panel');
         tabs.forEach(function(t){t.addEventListener('click',function(){
           tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
           panels.forEach(function(p){p.classList.toggle('on',p.dataset.t===t.dataset.t)});
-          bx.querySelectorAll('video').forEach(function(v){v.pause()});
+          bx.querySelectorAll('video:not(.loopv)').forEach(function(v){v.pause()});
         })});
       });
+      if(rm)document.querySelectorAll('video.loopv').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true});
       var posts=[
         ['den-cfp.jpg','Call for presenters','The campaign opens by inviting speakers to submit a topic.'],
         ['den-regopen.jpg','Registration opens','The identity front and centre, with one clear action.'],
