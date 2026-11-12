@@ -1074,8 +1074,18 @@
       </div>
     </div>
 
+    <!-- Jump row -->
+    <div class="bpc-jump" style="margin-bottom:56px">
+      <span>Jump to</span>
+      <a href="#" onclick="bpcGo('bpc-denver');return false">Denver 2026</a>
+      <a href="#" onclick="bpcGo('bpc-nashville');return false">Nashville poster</a>
+      <a href="#" onclick="bpcGo('bpc-dublin');return false">Dublin phrase cards</a>
+      <a href="#" onclick="bpcGo('bpc-letters');return false">Event letters</a>
+      <a href="#" onclick="bpcGo('bpc-anaheim');return false">Anaheim 2027</a>
+    </div>
+
     <!-- BPC Logos -->
-    <div style="margin-bottom:80px">
+    <div style="margin-bottom:96px">
       <div class="sl" style="margin-bottom:20px">One event, a new identity every year</div>
       <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0 0 32px;max-width:720px;">Every BPC takes its personality from its host city: Barcelona's reds, Dublin's greens, Nashville's gig posters, Denver's Red Rocks, Anaheim's sun and surf. The brief each year is the same: feel local, stay unmistakably BPC.</p>
       <div class="yr-switch">
@@ -1097,73 +1107,99 @@
     </div>
 
     <style>
+      .bpc-jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+      .bpc-jump span{color:var(--muted);margin-right:6px}
+      .bpc-jump a{padding:9px 14px;border:1px solid var(--border);background:var(--surface);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+      .bpc-jump a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
       .bpc-g{display:grid;gap:2px}
       .bpc-g.c2{grid-template-columns:1fr 1fr}
+      .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
       .bpc-g.c4{grid-template-columns:repeat(4,1fr)}
+      .bpc-g.sq img{aspect-ratio:1/1;object-fit:cover}.bpc-g.id img[src*="concept"]{object-fit:contain;background:#0d1f33}
       .bpc-f{margin:0;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column}
       .bpc-f img{width:100%;display:block;cursor:zoom-in;flex:1;object-fit:contain;background:#fff}
       .bpc-f figcaption{padding:12px 14px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.6}
-      .bpc-idea{border-top:2px solid var(--accent);padding-top:28px;margin-bottom:64px}
-      .bpc-idea h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.15;margin:0 0 14px;color:var(--ink)}
-      .bpc-idea p{font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0 0 28px;max-width:720px}
+      .bpc-den-h{border-top:2px solid var(--accent);padding-top:28px;margin-bottom:20px}
+      .bpc-den-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 16px;color:var(--ink)}
+      .bpc-den-h p{font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0;max-width:760px}
+      .bpc-chnav{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 56px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+      .bpc-chnav a{padding:9px 14px;border:1px solid var(--border);background:var(--surface);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+      .bpc-chnav a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+      .bpc-chnav b{color:var(--accent);font-weight:500;margin-right:6px}
+      .bpc-chnav a:hover b{color:#fff}
+      .bpc-ch{margin-bottom:80px;scroll-margin-top:96px}
+      .bpc-ch .k{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+      .bpc-ch h3,.bpc-idea h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.15;margin:0 0 14px;color:var(--ink)}
+      .bpc-ch p,.bpc-idea p{font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0 0 28px;max-width:720px}
+      .bpc-ch .bento-ss{margin:40px 0 0}
+      .bpc-idea{border-top:2px solid var(--accent);padding-top:28px;margin-bottom:72px;scroll-margin-top:96px}
+      .bpc-idea .k{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
       .bpc-idea .row{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:32px;align-items:start}
-      @media(max-width:768px){.bpc-g.c4{grid-template-columns:1fr 1fr}.bpc-idea .row{grid-template-columns:1fr}.yr-tabs{flex-wrap:wrap}.yr-tabs button{flex:1 0 30%}}
+      .bpc-os{display:grid;grid-template-columns:2fr 1fr;gap:2px;align-items:start}
+      .bpc-os .stack{display:grid;gap:2px}
+      .bpc-vid{width:100%;display:block;background:#0e1d2e}
+      @media(max-width:768px){.bpc-g.c4{grid-template-columns:1fr 1fr}.bpc-g.c3{grid-template-columns:1fr 1fr}.bpc-idea .row,.bpc-os{grid-template-columns:1fr}.bpc-an{grid-template-columns:1fr !important}.yr-tabs{flex-wrap:wrap}.yr-tabs button{flex:1 0 30%}}
     </style>
 
-    <!-- Anatomy of one year: Denver -->
-    <div style="margin-bottom:80px">
-      <div class="sl" style="margin-bottom:20px">Anatomy of one year: Denver</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0 0 32px;max-width:720px;">When BPC's new CEO wanted a fresh look for Denver, the challenge was to change the brand without losing what makes it BPC. I explored two directions, a mountain mark and a Red Rocks badge, and the mountain became the identity. The rule that came out of it now guides every event: borrow the city's character, keep the system. From that one mark I built the partner brand-mark guidelines, the exhibitor guide, wayfinding and signage, social campaigns and the promo video.</p>
-      <div class="bpc-g c4">
-        <figure class="bpc-f"><img src="bpc-denver-concept1.jpg" loading="lazy" alt="BPC Denver rebrand concept 1, mountain mark" onclick="openLightbox(this.src)"><figcaption>Concept 1 &middot; the mountain mark, taken forward</figcaption></figure>
-        <figure class="bpc-f"><img src="bpc-denver-concept2.jpg" loading="lazy" alt="BPC Denver rebrand concept 2, Red Rocks badge" onclick="openLightbox(this.src)"><figcaption>Concept 2 &middot; a Red Rocks badge</figcaption></figure>
-        <figure class="bpc-f"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
-        <figure class="bpc-f"><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide cover</figcaption></figure>
+    <!-- DENVER: the full picture -->
+    <div id="bpc-denver" style="scroll-margin-top:96px;margin-bottom:40px">
+      <div class="bpc-den-h">
+        <div class="k" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Case study &middot; BPC Denver 2026</div>
+        <h2>Denver, start to finish</h2>
+        <p>The first Denver identity, a maroon badge, was already out in the world when APMP's new CEO asked for a different look. The challenge was to change the brand without losing Denver. I explored two directions, a mountain mark and a Red Rocks badge, and the mountain became the identity, rebuilt across every touchpoint. The rule that came out of it now guides every event: borrow the city's character, keep the system.</p>
       </div>
-    </div>
+      <div class="bpc-chnav">
+        <a href="#" onclick="bpcGo('dv-1');return false"><b>01</b>Identity</a>
+        <a href="#" onclick="bpcGo('dv-2');return false"><b>02</b>Campaign</a>
+        <a href="#" onclick="bpcGo('dv-3');return false"><b>03</b>On-site</a>
+        <a href="#" onclick="bpcGo('dv-4');return false"><b>04</b>Partners</a>
+        <a href="#" onclick="bpcGo('dv-5');return false"><b>05</b>Film</a>
+      </div>
 
-    <!-- Anaheim event page -->
-    <div style="margin-bottom:80px">
-      <div class="sl" style="margin-bottom:20px">Anaheim 2027: the event page too</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0 0 32px;max-width:720px;">I designed the BPC Anaheim event page as well as its identity, from the hero through the agenda, pricing and venue sections, so the website and everything around it feel like one brand.</p>
-      <a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block;border:1px solid var(--border);">
-        <img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="width:100%;display:block;">
-      </a>
-      <p style="margin:12px 0 0;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);">View the live page &#8599;</a></p>
-    </div>
-
-    <!-- Ideas beyond the brief -->
-    <div style="margin-bottom:40px">
-      <div class="sl" style="margin-bottom:32px">Ideas beyond the brief</div>
-
-      <div class="bpc-idea">
-        <h3>Nashville: a poster people hunted for</h3>
-        <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print. Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. It spread to social media, and by the end attendees were asking me to sign theirs.</p>
-        <div class="bpc-g c2">
-          <figure class="bpc-f"><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
-          <figure class="bpc-f"><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>An earlier direction</figcaption></figure>
-          <figure class="bpc-f"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
-          <figure class="bpc-f"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
+      <div class="bpc-ch" id="dv-1">
+        <div class="k">01 &middot; Identity</div>
+        <h3>Two systems, one event</h3>
+        <p>On the left, the original maroon badge identity as it first went out. On the right, the two rebrand directions I developed when the brief changed. The mountain mark, with its orange glow nodding to Red Rocks, was taken forward.</p>
+        <div class="bpc-g c4 sq id">
+          <figure class="bpc-f"><img src="den-before-presenter.jpg" loading="lazy" alt="Original BPC Denver identity, call for presenters" onclick="openLightbox(this.src)"><figcaption>Original identity &middot; call for presenters</figcaption></figure>
+          <figure class="bpc-f"><img src="den-before-attending.jpg" loading="lazy" alt="Original BPC Denver identity, I am attending" onclick="openLightbox(this.src)"><figcaption>Original identity &middot; I am attending</figcaption></figure>
+          <figure class="bpc-f"><img src="bpc-denver-concept1.jpg" loading="lazy" alt="BPC Denver rebrand concept 1, mountain mark" onclick="openLightbox(this.src)"><figcaption>Rebrand 1 &middot; the mountain, taken forward</figcaption></figure>
+          <figure class="bpc-f"><img src="bpc-denver-concept2.jpg" loading="lazy" alt="BPC Denver rebrand concept 2, Red Rocks badge" onclick="openLightbox(this.src)"><figcaption>Rebrand 2 &middot; a Red Rocks badge</figcaption></figure>
         </div>
       </div>
 
-      <div class="bpc-idea">
-        <h3>Dublin: how to sound like a local</h3>
-        <div class="row">
-          <figure class="bpc-f" style="margin:0"><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
-          <div>
-            <p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p>
+      <div class="bpc-ch" id="dv-2">
+        <div class="k">02 &middot; Campaign</div>
+        <h3>A campaign built to a calendar</h3>
+        <p>From the call for presenters through early-bird pricing, countdowns, Certification Day and the agenda reveal, every post followed one visual system and one clock. Concept, design, copy and scheduling, end to end. A speaker-spotlight series and track carousels profiled the programme alongside these.</p>
+        <div class="bpc-g c4 sq">
+        <figure class="bpc-f"><img src="den-cfp.jpg" loading="lazy" alt="Call for presenters post, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Call for presenters</figcaption></figure>
+        <figure class="bpc-f"><img src="den-regopen.jpg" loading="lazy" alt="Registration now open post, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Registration open</figcaption></figure>
+        <figure class="bpc-f"><img src="den-eb6.jpg" loading="lazy" alt="Early bird, 6 weeks left, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Early bird &middot; 6 weeks</figcaption></figure>
+        <figure class="bpc-f"><img src="den-eb1m.jpg" loading="lazy" alt="Early bird, 1 month left, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Early bird &middot; 1 month</figcaption></figure>
+        <figure class="bpc-f"><img src="den-eb2w.jpg" loading="lazy" alt="Early bird, 2 weeks left, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Early bird &middot; 2 weeks</figcaption></figure>
+        <figure class="bpc-f"><img src="den-eblast.jpg" loading="lazy" alt="Early bird, last chance, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Early bird &middot; last chance</figcaption></figure>
+        <figure class="bpc-f"><img src="den-cd4.jpg" loading="lazy" alt="Countdown, 4 weeks to go, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Countdown &middot; 4 weeks</figcaption></figure>
+        <figure class="bpc-f"><img src="den-cd7.jpg" loading="lazy" alt="Countdown, 7 days to go, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Countdown &middot; 7 days</figcaption></figure>
+        <figure class="bpc-f"><img src="den-cert-earn.jpg" loading="lazy" alt="Earn your CF APMP at BPC Denver" onclick="openLightbox(this.src)"><figcaption>Certification Day</figcaption></figure>
+        <figure class="bpc-f"><img src="den-cert-sold.jpg" loading="lazy" alt="Certification Day almost sold out, BPC Denver" onclick="openLightbox(this.src)"><figcaption>Certification Day &middot; selling out</figcaption></figure>
+        <figure class="bpc-f"><img src="den-agenda.jpg" loading="lazy" alt="The BPC Denver agenda is here" onclick="openLightbox(this.src)"><figcaption>Agenda reveal</figcaption></figure>
+        <figure class="bpc-f"><img src="den-hotel.jpg" loading="lazy" alt="BPC Denver hotel offer at Gaylord Rockies" onclick="openLightbox(this.src)"><figcaption>Hotel offer</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="bpc-ch" id="dv-3">
+        <div class="k">03 &middot; On-site</div>
+        <h3>Built for the venue</h3>
+        <p>The registration counter, welcome signage and wayfinding, designed for physical production and specified with the events team and the production supplier delivering on-site.</p>
+        <div class="bpc-os">
+          <div class="stack">
+            <figure class="bpc-f"><img src="den-reg-sign.jpg" loading="lazy" alt="BPC Denver registration counter sign" onclick="openLightbox(this.src)"><figcaption>Registration counter</figcaption></figure>
+            <figure class="bpc-f"><img src="den-welcome-sign.jpg" loading="lazy" alt="BPC Denver welcome sign" onclick="openLightbox(this.src)"><figcaption>Welcome signage</figcaption></figure>
           </div>
+          <figure class="bpc-f"><img src="den-lstand.jpg" loading="lazy" alt="BPC Denver welcome L-stand with app download" onclick="openLightbox(this.src)"><figcaption>Welcome L-stand</figcaption></figure>
         </div>
-      </div>
-
-      <div class="bpc-idea" style="margin-bottom:0">
-        <h3>Event justification letters</h3>
-        <p>Many attendees need their manager's approval to come. The events team spotted that, and I designed ready-to-share documents that make the case for them, so a team member can pass one straight to their employer, ideally to send more than one person and strengthen the whole team.</p>
-      </div>
-    </div>
-
-    <!-- Bento slideshow styles (scoped) -->
+<!-- Bento slideshow styles (scoped) -->
     <style>
       .bento-ss{margin-bottom:100px}
       .bento-ss-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap}
@@ -1240,6 +1276,77 @@
           requestAnimationFrame(step);
         })();
       </script>
+    </div>
+      </div>
+
+      <div class="bpc-ch" id="dv-4">
+        <div class="k">04 &middot; Partners</div>
+        <h3>Made for other people to use</h3>
+        <p>Brand-mark guidelines so sponsors and exhibitors use the identity correctly, an exhibitor guide, shareable "I'm exhibiting" and "I'm speaking" badges, and sponsor-branded on-site pieces.</p>
+        <div class="bpc-g" style="margin-bottom:2px">
+          <figure class="bpc-f"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand-mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
+        </div>
+        <div class="bpc-g c3 sq" style="margin-bottom:2px">
+          <figure class="bpc-f"><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide cover</figcaption></figure>
+          <figure class="bpc-f"><img src="den-expo-badge.jpg" loading="lazy" alt="I am an exhibitor at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Exhibitor badge</figcaption></figure>
+          <figure class="bpc-f"><img src="den-speaker-badge.jpg" loading="lazy" alt="I am a speaker at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Speaker badge</figcaption></figure>
+        </div>
+        <div class="bpc-g c2">
+          <figure class="bpc-f"><img src="den-ticket-regi.jpg" loading="lazy" alt="BPC Denver Regi-ception drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Regi-ception ticket &middot; sponsored</figcaption></figure>
+          <figure class="bpc-f"><img src="den-ticket-celeb.jpg" loading="lazy" alt="BPC Denver Celebration drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Celebration ticket &middot; sponsored</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="bpc-ch" id="dv-5" style="margin-bottom:0">
+        <div class="k">05 &middot; Film</div>
+        <h3>The promo film</h3>
+        <p>A promotional film pulling together event footage and speaker clips, with branded titles and "Sign up today" lower-thirds in the Denver system.</p>
+        <video class="bpc-vid" controls preload="none" playsinline poster="den-promo-poster.jpg"><source src="den-promo.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+
+    <div style="height:56px"></div>
+
+    <!-- Ideas beyond the brief -->
+    <div class="sl" style="margin-bottom:32px">Ideas beyond the brief</div>
+
+    <div class="bpc-idea" id="bpc-nashville">
+      <div class="k">Nashville 2025 &middot; The poster</div>
+      <h3>A poster people hunted for</h3>
+      <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print. Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. It spread to social media, and by the end attendees were asking me to sign theirs.</p>
+      <div class="bpc-g c2">
+        <figure class="bpc-f"><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
+        <figure class="bpc-f"><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>An earlier direction</figcaption></figure>
+        <figure class="bpc-f"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
+        <figure class="bpc-f"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="bpc-idea" id="bpc-dublin">
+      <div class="k">Dublin 2025 &middot; Phrase cards</div>
+      <h3>How to sound like a local</h3>
+      <div class="row">
+        <figure class="bpc-f" style="margin:0"><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
+        <div>
+          <p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bpc-idea" id="bpc-letters">
+      <div class="k">Every event &middot; Event letters</div>
+      <h3>Event justification letters</h3>
+      <p>Many attendees need their manager's approval to come. The events team spotted that, and I designed ready-to-share documents that make the case for them, so a team member can pass one straight to their employer, ideally to send more than one person and strengthen the whole team.</p>
+    </div>
+
+    <div class="bpc-idea" id="bpc-anaheim" style="margin-bottom:96px">
+      <div class="k">Anaheim 2027 &middot; Next up</div>
+      <h3>Sun, surf and the Golden State</h3>
+      <p>For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the hero, agenda, pricing and venue sections of the registration page. See you in the Golden State.</p>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;align-items:stretch" class="bpc-an">
+        <figure class="bpc-f" style="margin:0"><img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" style="object-fit:contain;padding:24px" onclick="openLightbox(this.src)"><figcaption>The identity</figcaption></figure>
+        <figure class="bpc-f" style="margin:0"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
+      </div>
     </div>
 
     <!-- Promotional Content -->
@@ -2376,6 +2483,7 @@
 </div>
 
 <script>
+function bpcGo(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
 function openLightbox(src){
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('open');
