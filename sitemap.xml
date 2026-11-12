@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.joshuadeakin.co.uk/</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.joshuadeakin.co.uk/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=apmp</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=bpc</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=murrays</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=applewise</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=freshbite</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=nishikigoi</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=rizen</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://www.joshuadeakin.co.uk/?p=midgard</loc><lastmod>2026-11-12</lastmod></url>
 </urlset>
