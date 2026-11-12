@@ -1051,9 +1051,83 @@
     </div>
 
     <!-- BPC Logos -->
-    <div style="margin-bottom:96px">
-      <div class="sl" style="margin-bottom:20px">One event, a new identity every year</div>
-      <p style="font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0 0 32px;max-width:720px;">Every BPC takes its personality from its host city: Barcelona's reds, Dublin's greens, Nashville's gig posters, Denver's Red Rocks, Anaheim's sun and surf. The brief each year is the same: feel local, stay unmistakably BPC. Pick a year.</p>
+    <style>
+      #bpc .bs{border-top:1px solid var(--border);padding:72px 0 0;margin:0 0 104px;max-width:none}
+      #bpc .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
+      #bpc .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
+      #bpc .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      #bpc .yr-tabs,#bpc .bx-tabs{display:flex;flex-wrap:wrap;gap:0 32px;border-bottom:1px solid var(--border);margin:0 0 36px}
+      #bpc .yr-tabs button,#bpc .bx-tabs button{flex:none;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;padding:14px 0;min-height:48px;cursor:pointer;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s}
+      #bpc .bx-tabs button b{color:var(--accent);font-weight:500;margin-right:8px}
+      #bpc .yr-tabs button[aria-selected="true"],#bpc .bx-tabs button[aria-selected="true"]{background:none;color:var(--ink);border-bottom-color:var(--accent)}
+      @media(hover:hover) and (pointer:fine){#bpc .yr-tabs button:hover,#bpc .bx-tabs button:hover{background:none;color:var(--ink)}}
+      #bpc .yr-stage img{inset:9%;width:82%;height:82%}
+      .bx-panel{display:none}
+      .bx-panel.on{display:block;animation:bxin .28s cubic-bezier(0.23,1,0.32,1)}
+      @keyframes bxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+      @media(prefers-reduced-motion:reduce){.bx-panel.on{animation:none}}
+      #bpc .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+      #bpc .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+      #bpc .bp-t{position:sticky;top:112px}
+      #bpc .bp h3,#bpc .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
+      #bpc .bp p,#bpc .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
+      .bpc-g{display:grid;gap:20px 12px}
+      .bpc-g.c2{grid-template-columns:1fr 1fr}
+      .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
+      .bpc-g.sq img{aspect-ratio:1/1;object-fit:cover}
+      .bpc-g.tall img{aspect-ratio:3/4;object-fit:cover}
+      .bpc-f{margin:0}
+      .bpc-f img{width:100%;display:block;cursor:zoom-in}
+      .bpc-f.line img{border:1px solid var(--border)}
+      .bpc-f figcaption{margin-top:10px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+      .bpc-f figcaption b{color:var(--accent);font-weight:500}
+      .bpc-stack>*+*{margin-top:20px}
+      /* campaign player */
+      .cmp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center}
+      .cmp-view{aspect-ratio:1/1;background:#0d1f33;overflow:hidden}
+      .cmp-view img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
+      .cmp-n{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);margin:28px 0 8px}
+      .cmp-t{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.2;margin:0 0 6px;color:var(--ink)}
+      #bpc .cmp-side p.cmp-d{min-height:3.4em;margin-bottom:18px}
+      .cmp-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:18px}
+      .cmp-steps button{padding:0;border:none;background:none;cursor:pointer;aspect-ratio:1/1;overflow:hidden;opacity:.4;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s,outline-color .2s}
+      .cmp-steps button img{width:100%;height:100%;object-fit:cover;display:block}
+      .cmp-steps button[aria-current="true"]{opacity:1;outline-color:var(--accent)}
+      @media(hover:hover) and (pointer:fine){.cmp-steps button:hover{opacity:1}}
+      .cmp-nav{display:flex;gap:8px}
+      /* venue walk */
+      .vw{--ft:34px;overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+      .vw-in{width:max-content;background:linear-gradient(to bottom,#ECEBE6 0,#E4E2DC calc(var(--ft)*12.4),#B9B6AD calc(var(--ft)*12.4),#CFCCC4 100%);padding:0 calc(var(--ft)*1.5) 58px}
+      .vw-scene{display:flex;align-items:stretch;gap:calc(var(--ft)*1.3);height:calc(var(--ft)*12.4)}
+      .vw-i{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+      .vw-i.hang{justify-content:flex-start}
+      .vw-a{width:calc(var(--ft)*var(--w));height:auto;display:block;cursor:zoom-in;box-shadow:0 8px 22px rgba(0,0,0,.2);transition:transform .2s cubic-bezier(0.23,1,0.32,1)}
+      @media(hover:hover) and (pointer:fine){.vw-a:hover{transform:translateY(-4px)}}
+      .vw-leg{width:4px;height:calc(var(--ft)*var(--h));background:#77756d}
+      .vw-base{width:calc(var(--ft)*1.5);height:5px;background:#77756d;border-radius:2px}
+      .vw-posts{width:calc(var(--ft)*8);height:calc(var(--ft)*2.6);border-left:5px solid #77756d;border-right:5px solid #77756d;box-sizing:border-box}
+      .vw-desk{background:#fff;padding-top:calc(var(--ft)*.9);box-shadow:0 8px 22px rgba(0,0,0,.2)}
+      .vw-desk .vw-a,.vw-pod .vw-a{box-shadow:none}
+      .vw-wires{width:calc(var(--ft)*10);height:calc(var(--ft)*1.1);border-left:2px solid #99968d;border-right:2px solid #99968d}
+      .vw-under{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:calc(var(--ft)*2.2)}
+      .vw-pod{background:#2b3038;width:calc(var(--ft)*2.3);height:calc(var(--ft)*4.1);display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--ft)*.3);box-sizing:border-box;border-radius:3px 3px 0 0}
+      .vw-p{height:calc(var(--ft)*5.7);width:auto;fill:rgba(17,17,17,.2);display:block}
+      .vw-l{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:16px;white-space:nowrap;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3a3a37}
+      .vw-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap}
+      .vw-note{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;max-width:560px}
+      #bpc .bx-panel .bento-ss{margin:72px 0 0}
+      #bpc .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
+      #bpc .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
+      #bpc .bpc-letters b{color:var(--ink)}
+      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters{grid-template-columns:1fr;gap:24px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{gap:0 22px}}
+    </style>
+
+    <!-- 1. Identities -->
+    <section class="bs">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">The idea</div><h2>One event, a new identity every year.</h2></div>
+        <p>Every BPC takes its personality from its host city: Barcelona's reds, Dublin's greens, Nashville's gig posters, Denver's Red Rocks, Anaheim's sun and surf. The brief each year is the same: feel local, stay unmistakably BPC.</p>
+      </div>
       <div class="yr-switch">
         <div class="yr-tabs" role="tablist" aria-label="Bid and Proposal Con identities">
           <button role="tab" aria-selected="true" data-i="0">Barcelona 2024</button>
@@ -1070,84 +1144,13 @@
           <img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" onclick="openLightbox(this.src)">
         </div>
       </div>
-    </div>
+    </section>
 
-    <style>
-      .bpc-g{display:grid;gap:2px}
-      .bpc-g.c2{grid-template-columns:1fr 1fr}
-      .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
-      .bpc-g.c4{grid-template-columns:repeat(4,1fr)}
-      .bpc-g.sq img{aspect-ratio:1/1;object-fit:cover}
-      .bpc-g.id img[src*="concept"]{object-fit:contain;background:#0d1f33}
-      .bpc-f{margin:0;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column}
-      .bpc-f img{width:100%;display:block;cursor:zoom-in;flex:1;object-fit:contain;background:#fff}
-      .bpc-f figcaption{padding:12px 14px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.6}
-      .bpc-k{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-      .bpc-den-h{border-top:2px solid var(--accent);padding-top:28px}
-      .bpc-den-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 16px;color:var(--ink)}
-      .bpc-den-h p{font-size:16px;line-height:1.75;color:rgba(17,17,17,0.8);margin:0;max-width:760px}
-      .bx-tabs{display:flex;flex-wrap:wrap;gap:2px;margin:28px 0 40px}
-      .bx-tabs button{flex:1 1 0;min-width:118px;min-height:52px;padding:0 12px;background:var(--surface);border:none;cursor:pointer;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);transition:background .2s,color .2s}
-      .bx-tabs button b{color:var(--accent);font-weight:500;margin-right:8px}
-      .bx-tabs button:active{transform:scale(.98)}
-      .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
-      .bx-tabs button[aria-selected="true"] b{color:#fff}
-      @media(hover:hover) and (pointer:fine){.bx-tabs button:not([aria-selected="true"]):hover{background:var(--border)}}
-      .bx-panel{display:none}
-      .bx-panel.on{display:block;animation:bxin .28s cubic-bezier(0.23,1,0.32,1)}
-      @keyframes bxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-      @media(prefers-reduced-motion:reduce){.bx-panel.on{animation:none}}
-      .bx-panel h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.15;margin:0 0 14px;color:var(--ink)}
-      .bx-panel p{font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);margin:0 0 28px;max-width:720px}
-      .bx-panel .bento-ss{margin:56px 0 0}
-      /* campaign player */
-      .cmp{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:40px;align-items:center}
-      .cmp-view{aspect-ratio:1/1;background:#0d1f33;border:1px solid var(--border);overflow:hidden}
-      .cmp-view img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
-      .cmp-n{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}
-      .cmp-t{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.2vw,38px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
-      .cmp-side p{margin:0 0 24px;min-height:3.5em}
-      .cmp-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:20px}
-      .cmp-steps button{padding:0;border:none;background:none;cursor:pointer;aspect-ratio:1/1;overflow:hidden;opacity:.45;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s,outline-color .2s}
-      .cmp-steps button img{width:100%;height:100%;object-fit:cover;display:block}
-      .cmp-steps button[aria-current="true"]{opacity:1;outline-color:var(--accent)}
-      @media(hover:hover) and (pointer:fine){.cmp-steps button:hover{opacity:1}}
-      .cmp-nav{display:flex;gap:8px}
-      /* venue walk */
-      .vw{--ft:34px;border:1px solid var(--border);overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-      .vw-in{width:max-content;background:linear-gradient(to bottom,#ECEBE6 0,#E4E2DC calc(var(--ft)*12.4),#B9B6AD calc(var(--ft)*12.4),#CFCCC4 100%);padding:0 calc(var(--ft)*1.5) 58px}
-      .vw-scene{display:flex;align-items:stretch;gap:calc(var(--ft)*1.3);height:calc(var(--ft)*12.4)}
-      .vw-i{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
-      .vw-i.hang{justify-content:flex-start}
-      .vw-a{width:calc(var(--ft)*var(--w));height:auto;display:block;cursor:zoom-in;box-shadow:0 8px 22px rgba(0,0,0,.2);transition:transform .2s cubic-bezier(0.23,1,0.32,1)}
-      @media(hover:hover) and (pointer:fine){.vw-a:hover{transform:translateY(-4px)}}
-      .vw-leg{width:4px;height:calc(var(--ft)*var(--h));background:#77756d}
-      .vw-base{width:calc(var(--ft)*1.5);height:5px;background:#77756d;border-radius:2px}
-      .vw-posts{width:calc(var(--ft)*8);height:calc(var(--ft)*2.6);border-left:5px solid #77756d;border-right:5px solid #77756d;box-sizing:border-box}
-      .vw-desk{background:#fff;padding-top:calc(var(--ft)*.9);box-shadow:0 8px 22px rgba(0,0,0,.2)}
-      .vw-desk .vw-a{box-shadow:none}
-      .vw-wires{width:calc(var(--ft)*10);height:calc(var(--ft)*1.1);border-left:2px solid #99968d;border-right:2px solid #99968d}
-      .vw-under{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:calc(var(--ft)*2.2)}
-      .vw-pod{background:#2b3038;width:calc(var(--ft)*2.3);height:calc(var(--ft)*4.1);display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--ft)*.3);box-sizing:border-box;border-radius:3px 3px 0 0}
-      .vw-pod .vw-a{box-shadow:none}
-      .vw-p{height:calc(var(--ft)*5.7);width:auto;fill:rgba(17,17,17,.2);display:block}
-      .vw-l{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:16px;white-space:nowrap;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3a3a37}
-      .vw-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:12px;flex-wrap:wrap}
-      .vw-note{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;max-width:560px}
-      .bpc-row{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:32px;align-items:start}
-      .bpc-an{display:grid;grid-template-columns:1fr 2fr;gap:2px;align-items:stretch}
-      .bpc-note{border-left:3px solid var(--accent);background:var(--surface);padding:24px 28px;margin:0 0 96px}
-      .bpc-note p{margin:0;font-size:15px;line-height:1.75;color:rgba(17,17,17,0.72);max-width:760px}
-      .bpc-note b{color:var(--ink)}
-      @media(max-width:768px){.bpc-g.c4,.bpc-g.c3{grid-template-columns:1fr 1fr}.bpc-row,.bpc-an,.cmp{grid-template-columns:1fr}.cmp{gap:24px}.yr-tabs{flex-wrap:wrap}.yr-tabs button{flex:1 0 30%}.vw{--ft:24px}.bx-tabs button{flex:1 0 30%}}
-    </style>
-
-    <!-- DENVER case study (tabbed) -->
-    <div class="bx" style="margin-bottom:104px">
-      <div class="bpc-den-h">
-        <div class="bpc-k">Case study &middot; BPC Denver 2026</div>
-        <h2>Denver, start to finish</h2>
-        <p>The first Denver identity, a maroon badge, was already out in the world when APMP's new CEO asked for a different look. I explored two directions and the mountain mark became the identity, rebuilt across every touchpoint: social, email, web, print and the venue itself. Pick a chapter.</p>
+    <!-- 2. Denver case study -->
+    <section class="bs bx">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Case study &middot; Denver 2026</div><h2>Denver, start to finish.</h2></div>
+        <p>The first Denver identity was already out in the world when APMP's new CEO asked for a different look. I explored two directions, and the mountain mark became the identity, rebuilt across social, email, web, print and the venue itself.</p>
       </div>
       <div class="bx-tabs" role="tablist" aria-label="Denver case study chapters">
         <button role="tab" aria-selected="true" data-t="id"><b>01</b>Identity</button>
@@ -1158,25 +1161,31 @@
       </div>
 
       <div class="bx-panel on" data-t="id">
-        <h3>Two systems, one event</h3>
-        <p>On the left, the original maroon badge identity as it first went out. On the right, the two rebrand directions I developed when the brief changed. The mountain mark, with its orange glow nodding to Red Rocks, was taken forward. The rule that came out of it now guides every BPC: borrow the city's character, keep the system.</p>
-        <div class="bpc-g c4 sq id">
-          <figure class="bpc-f"><img src="den-before-presenter.jpg" loading="lazy" alt="Original BPC Denver identity, call for presenters" onclick="openLightbox(this.src)"><figcaption>Original identity &middot; call for presenters</figcaption></figure>
-          <figure class="bpc-f"><img src="den-before-attending.jpg" loading="lazy" alt="Original BPC Denver identity, I am attending" onclick="openLightbox(this.src)"><figcaption>Original identity &middot; I am attending</figcaption></figure>
-          <figure class="bpc-f"><img src="bpc-denver-concept1.jpg" loading="lazy" alt="BPC Denver rebrand concept 1, mountain mark" onclick="openLightbox(this.src)"><figcaption>Rebrand 1 &middot; the mountain, taken forward</figcaption></figure>
-          <figure class="bpc-f"><img src="bpc-denver-concept2.jpg" loading="lazy" alt="BPC Denver rebrand concept 2, Red Rocks badge" onclick="openLightbox(this.src)"><figcaption>Rebrand 2 &middot; a Red Rocks badge</figcaption></figure>
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Two systems, one event</h3>
+            <p>The original maroon badge had already launched when the brief changed. The mountain mark, with an orange glow that nods to Red Rocks, replaced it. The rule that came out of it now guides every BPC: borrow the city's character, keep the system.</p>
+            <figure class="bpc-f "><img src="bpc-denver-concept2.jpg" loading="lazy" alt="BPC Denver rebrand concept 2, Red Rocks badge" onclick="openLightbox(this.src)"><figcaption>Also explored &middot; a Red Rocks badge</figcaption></figure>
+          </div>
+          <div class="bpc-stack">
+            <div class="bpc-g c2 sq">
+              <figure class="bpc-f "><img src="den-before-presenter.jpg" loading="lazy" alt="Original BPC Denver identity, call for presenters" onclick="openLightbox(this.src)"><figcaption><b>Before</b> &middot; call for presenters</figcaption></figure>
+              <figure class="bpc-f "><img src="den-before-attending.jpg" loading="lazy" alt="Original BPC Denver identity, I am attending" onclick="openLightbox(this.src)"><figcaption><b>Before</b> &middot; I am attending</figcaption></figure>
+            </div>
+            <figure class="bpc-f "><img src="bpc-denver-concept1.jpg" loading="lazy" alt="BPC Denver rebrand, the mountain mark" onclick="openLightbox(this.src)"><figcaption><b>After</b> &middot; the mountain mark, taken forward</figcaption></figure>
+          </div>
         </div>
       </div>
 
       <div class="bx-panel" data-t="cmp">
-        <h3>A campaign built to a calendar</h3>
-        <p>Twelve moments from one campaign, in roughly the order they ran. Concept, design, copy and scheduling, end to end. Step through it.</p>
         <div class="cmp" id="bpc-cmp">
           <div class="cmp-view"><img id="cmp-img" src="den-cfp.jpg" alt="" onclick="openLightbox(this.src)"></div>
           <div class="cmp-side">
+            <h3>A campaign built to a calendar</h3>
+            <p>Twelve moments from one campaign, in roughly the order they ran. Concept, design, copy and scheduling, end to end.</p>
             <div class="cmp-n" id="cmp-n">01 / 12</div>
             <h4 class="cmp-t" id="cmp-t"></h4>
-            <p id="cmp-d"></p>
+            <p class="cmp-d" id="cmp-d"></p>
             <div class="cmp-steps" id="cmp-steps"></div>
             <div class="cmp-nav">
               <button class="bento-btn" aria-label="Previous post" onclick="cmpGo(-1)">&#8592;</button>
@@ -1187,8 +1196,10 @@
       </div>
 
       <div class="bx-panel" data-t="venue">
-        <h3>Walk the venue</h3>
-        <p>Registration counter, wayfinding, L-stands, a photo-op wall, a ribbon wall, overhead banners and the podium: designed for print and specified with the events team and the production supplier. Scroll sideways to walk past it, and tap any piece to see it up close.</p>
+        <div class="bp" style="margin-bottom:32px">
+          <h3 style="margin:0">Walk the venue</h3>
+          <p style="margin:0">Registration counter, wayfinding, L-stands, a photo-op wall, a ribbon wall, overhead banners and the podium, designed for print and specified with the events team and the production supplier. Scroll sideways, and tap any piece to see it up close.</p>
+        </div>
         <div class="vw" id="bpc-vw" tabindex="0" aria-label="Illustrated walk past the BPC Denver signage"><div class="vw-in"><div class="vw-scene"><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2" src="vw-dir-reg.jpg" loading="lazy" alt="Directional sign to BPC registration, 24 by 36 inches" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Wayfinding</span></div><div class="vw-i"><img class="vw-a" style="--w:8" src="den-reg-sign.jpg" loading="lazy" alt="Registration overhead header sign" onclick="openLightbox(this.src)"><div class="vw-posts"></div><div class="vw-desk"><img class="vw-a" style="--w:8" src="den-welcome-sign.jpg" loading="lazy" alt="Registration counter kickboard, Welcome to BPC Denver" onclick="openLightbox(this.src)"></div><span class="vw-l">Registration counter</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="den-lstand.jpg" loading="lazy" alt="Welcome L-stand, the Mile High City" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8)"></div><span class="vw-l">Welcome</span></div><div class="vw-i hang"><div class="vw-wires"></div><img class="vw-a" style="--w:12" src="vw-ban-thanks.jpg" loading="lazy" alt="Overhead banner, thank you for attending BPC Denver" onclick="openLightbox(this.src)"><div class="vw-under"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><span class="vw-l">Overhead banner</span></div><div class="vw-i"><img class="vw-a" style="--w:8" src="vw-photoop.jpg" loading="lazy" alt="Photo op backdrop, 8 by 8 feet" onclick="openLightbox(this.src)"><span class="vw-l">Photo-op wall &middot; 8&times;8ft</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="vw-l-member.jpg" loading="lazy" alt="Membership L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8)"></div><span class="vw-l">Membership</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="vw-l-know.jpg" loading="lazy" alt="Resource Library L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8)"></div><span class="vw-l">Resources</span></div><div class="vw-i"><img class="vw-a" style="--w:7" src="vw-ribbon.jpg" loading="lazy" alt="Ribbon wall, tell your story" onclick="openLightbox(this.src)"><span class="vw-l">Ribbon wall</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2" src="vw-dir-left.jpg" loading="lazy" alt="Directional sign, this way to BPC Denver, 24 by 36 inches" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Wayfinding</span></div><div class="vw-i hang"><div class="vw-wires"></div><img class="vw-a" style="--w:12" src="vw-ban-presenter.jpg" loading="lazy" alt="Overhead banner, become a presenter" onclick="openLightbox(this.src)"><div class="vw-under"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><span class="vw-l">Overhead banner</span></div><div class="vw-i"><div class="vw-pod"><img class="vw-a" style="--w:1.7" src="vw-podium.jpg" loading="lazy" alt="Podium sign, BPC Denver 2026" onclick="openLightbox(this.src)"></div><span class="vw-l">Podium</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div></div></div></div>
         <div class="vw-bar">
           <div class="vw-note">An illustration, not photographs: my print artwork placed in a drawn venue at approximate scale, with figures for size.</div>
@@ -1278,34 +1289,41 @@
       </div>
 
       <div class="bx-panel" data-t="partners">
-        <h3>Made for other people to use</h3>
-        <p>Brand-mark guidelines so sponsors and exhibitors use the identity correctly, an exhibitor guide, shareable "I'm exhibiting" and "I'm speaking" badges, and sponsor-branded on-site pieces.</p>
-        <div class="bpc-g" style="margin-bottom:2px">
-          <figure class="bpc-f"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand-mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
-        </div>
-        <div class="bpc-g c3 sq" style="margin-bottom:2px">
-          <figure class="bpc-f"><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide cover</figcaption></figure>
-          <figure class="bpc-f"><img src="den-expo-badge.jpg" loading="lazy" alt="I am an exhibitor at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Exhibitor badge</figcaption></figure>
-          <figure class="bpc-f"><img src="den-speaker-badge.jpg" loading="lazy" alt="I am a speaker at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Speaker badge</figcaption></figure>
-        </div>
-        <div class="bpc-g c2">
-          <figure class="bpc-f"><img src="den-ticket-regi.jpg" loading="lazy" alt="BPC Denver Regi-ception drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Regi-ception ticket &middot; sponsored</figcaption></figure>
-          <figure class="bpc-f"><img src="den-ticket-celeb.jpg" loading="lazy" alt="BPC Denver Celebration drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Celebration ticket &middot; sponsored</figcaption></figure>
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Made for other people to use</h3>
+            <p>Brand-mark guidelines so sponsors and exhibitors use the identity correctly, an exhibitor guide, shareable "I'm exhibiting" and "I'm speaking" badges, and sponsor-branded on-site pieces.</p>
+          </div>
+          <div class="bpc-stack">
+            <figure class="bpc-f line"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand-mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
+            <div class="bpc-g c3 sq">
+              <figure class="bpc-f "><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide</figcaption></figure>
+              <figure class="bpc-f "><img src="den-expo-badge.jpg" loading="lazy" alt="I am an exhibitor at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Exhibitor badge</figcaption></figure>
+              <figure class="bpc-f "><img src="den-speaker-badge.jpg" loading="lazy" alt="I am a speaker at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Speaker badge</figcaption></figure>
+            </div>
+            <div class="bpc-g c2">
+              <figure class="bpc-f "><img src="den-ticket-regi.jpg" loading="lazy" alt="BPC Denver Regi-ception drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Regi-ception ticket</figcaption></figure>
+              <figure class="bpc-f "><img src="den-ticket-celeb.jpg" loading="lazy" alt="BPC Denver Celebration drink ticket, sponsored" onclick="openLightbox(this.src)"><figcaption>Celebration ticket</figcaption></figure>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="bx-panel" data-t="film">
-        <h3>The promo film</h3>
-        <p>A promotional film pulling together event footage and speaker clips, with branded titles and "Sign up today" lower-thirds in the Denver system.</p>
-        <video class="bpc-vid" style="width:100%;display:block;background:#0d1f33" controls preload="none" playsinline poster="den-promo-poster.jpg"><source src="den-promo.mp4" type="video/mp4"></video>
+        <div class="bp">
+          <div class="bp-t">
+            <h3>The promo film</h3>
+            <p>Event footage and speaker clips, with branded titles and "Sign up today" lower-thirds in the Denver system.</p>
+          </div>
+          <video style="width:100%;display:block;background:#0d1f33" controls preload="none" playsinline poster="den-promo-poster.jpg"><source src="den-promo.mp4" type="video/mp4"></video>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Ideas beyond the brief (tabbed) -->
-    <div class="bx" style="margin-bottom:40px">
-      <div class="bpc-den-h">
-        <div class="bpc-k">Other years</div>
-        <h2>Ideas beyond the brief</h2>
+    <!-- 3. Ideas beyond the brief -->
+    <section class="bs bx" style="margin-bottom:72px">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">Other years</div><h2>Ideas beyond the brief.</h2></div>
         <p>Three pieces from other editions that went further than the asset list.</p>
       </div>
       <div class="bx-tabs" role="tablist" aria-label="Ideas beyond the brief">
@@ -1315,35 +1333,47 @@
       </div>
 
       <div class="bx-panel on" data-t="nash">
-        <h3>A poster people hunted for</h3>
-        <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print. Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. It spread to social media, and by the end attendees were asking me to sign theirs.</p>
-        <div class="bpc-g c4">
-          <figure class="bpc-f"><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
-          <figure class="bpc-f"><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>An earlier direction</figcaption></figure>
-          <figure class="bpc-f"><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
-          <figure class="bpc-f"><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signing posters</figcaption></figure>
+        <div class="bp wide">
+          <figure class="bpc-f "><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
+          <div>
+            <h3>A poster people hunted for</h3>
+            <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print.</p>
+            <p style="margin-bottom:32px">Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. By the end, attendees were asking me to sign theirs.</p>
+            <div class="bpc-g c3 tall">
+              <figure class="bpc-f "><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>Earlier direction</figcaption></figure>
+              <figure class="bpc-f "><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing</figcaption></figure>
+              <figure class="bpc-f "><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signed</figcaption></figure>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="bx-panel" data-t="dub">
-        <h3>How to sound like a local</h3>
-        <div class="bpc-row">
-          <figure class="bpc-f"><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
-          <div><p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p></div>
+        <div class="bp wide">
+          <figure class="bpc-f "><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
+          <div>
+            <h3>How to sound like a local</h3>
+            <p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p>
+          </div>
         </div>
       </div>
 
       <div class="bx-panel" data-t="ana">
-        <h3>Sun, surf and the Golden State</h3>
-        <p>For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the hero, agenda, pricing and venue sections of the registration page.</p>
-        <div class="bpc-an">
-          <figure class="bpc-f"><img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" style="object-fit:contain;padding:24px" onclick="openLightbox(this.src)"><figcaption>The identity</figcaption></figure>
-          <figure class="bpc-f"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Sun, surf and the Golden State</h3>
+            <p>For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the hero, agenda, pricing and venue sections of the registration page.</p>
+            <img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" style="width:100%;max-width:240px;display:block;margin-top:28px;cursor:zoom-in" onclick="openLightbox(this.src)">
+          </div>
+          <figure class="bpc-f line"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bpc-note"><p><b>Also, for every event: justification letters.</b> Many attendees need their manager's approval to come. The events team spotted that, and I designed ready-to-share documents that make the case for them, so a team member can pass one straight to their employer.</p></div>
+    <div class="bpc-letters">
+      <div class="sl">Every event</div>
+      <p><b>Justification letters.</b> Many attendees need their manager's approval to come. The events team spotted that, and I designed ready-to-share documents that make the case for them, so a team member can pass one straight to their employer.</p>
+    </div>
 
     <script>
     (function(){
