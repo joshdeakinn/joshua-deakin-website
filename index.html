@@ -599,6 +599,9 @@
       .pc:hover .pcd,.pc:focus-visible .pcd{max-height:5em;opacity:1;margin-top:10px}
     }
     @media(prefers-reduced-motion:reduce){.pc,.pcd{transition:none !important}}
+    /* Episode list always matches the player height, even when built while its tab is hidden */
+    #apmp-playlist{max-height:none !important}
+    @media(min-width:601px){#apmp-playlist{height:0;min-height:100%}}
   </style>
 </head>
 <body>
