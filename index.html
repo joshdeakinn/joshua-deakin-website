@@ -569,6 +569,17 @@
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
     }
+
+    /* Soft corners on all imagery */
+    :root{--r:14px}
+    img,video{border-radius:var(--r)}
+    .iw,.bi,.yr-stage,.cmp-view,.phbg,.vw,.lead .hero-bg,.bento-slides-wrap{border-radius:var(--r);overflow:hidden}
+    .iw img,.bi img,.yr-stage img,.cmp-view img,.cmp-steps img{border-radius:0}
+    .ig{gap:10px;margin-bottom:10px}
+    #bpc-atm-strip{gap:10px !important}
+    .ix img{border-radius:8px}
+    .cmp-steps button{border-radius:8px}
+    .vw-a{border-radius:3px}
   </style>
 </head>
 <body>
@@ -1026,9 +1037,8 @@
       <div class="ptag">APMP Flagship Event &middot; Annual Conference</div>
       <h1 class="ptitle">Bid &amp; Proposal Con</h1>
       <div class="pdesc">
-        <p>BPC — Bid &amp; Proposal Con — is APMP's flagship annual conference. Over two and a half days, more than 1,200 proposal professionals gather from across the globe to connect, learn, and compete.</p>
-        <p>Each year, I manage the full visual output of the event independently — building a new identity from scratch, working directly with the events and marketing teams on print production and signage specifications, and running the digital campaigns that drive registration in the months leading up to it.</p>
-        <p>Most briefs arrive as a conversation and a deadline. Getting from that starting point to a finished stage backdrop, a set of printed collateral, and a sold-out conference is the job.</p>
+        <p>BPC is APMP's flagship annual conference: two and a half days, and more than 1,200 proposal professionals from around the world.</p>
+        <p>Each year I build a new identity from scratch and carry it through every touchpoint: social campaigns, email, the event website, print and the venue itself.</p>
       </div>
     </div>
   </div>
@@ -1056,11 +1066,14 @@
       #bpc .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
       #bpc .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
       #bpc .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
-      #bpc .yr-tabs,#bpc .bx-tabs{display:flex;flex-wrap:wrap;gap:0 32px;border-bottom:1px solid var(--border);margin:0 0 36px}
-      #bpc .yr-tabs button,#bpc .bx-tabs button{flex:none;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;padding:14px 0;min-height:48px;cursor:pointer;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s}
-      #bpc .bx-tabs button b{color:var(--accent);font-weight:500;margin-right:8px}
-      #bpc .yr-tabs button[aria-selected="true"],#bpc .bx-tabs button[aria-selected="true"]{background:none;color:var(--ink);border-bottom-color:var(--accent)}
-      @media(hover:hover) and (pointer:fine){#bpc .yr-tabs button:hover,#bpc .bx-tabs button:hover{background:none;color:var(--ink)}}
+      #bpc .yr-tabs,#bpc .bx-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:0 0 40px}
+      #bpc .yr-tabs button,#bpc .bx-tabs button{flex:none;display:block;text-align:left;background:none;border:none;border-radius:11px;padding:14px 16px;min-height:56px;cursor:pointer;font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.25;color:var(--ink);transition:background .2s,color .2s}
+      #bpc .bx-tabs button b{display:block;font-family:"DM Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
+      #bpc .yr-tabs button[aria-selected="true"],#bpc .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
+      #bpc .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
+      #bpc .yr-tabs button:active,#bpc .bx-tabs button:active{transform:scale(.98)}
+      @media(hover:hover) and (pointer:fine){#bpc .yr-tabs button:not([aria-selected="true"]):hover,#bpc .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
+      .bx-hint{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
       #bpc .yr-stage img{inset:9%;width:82%;height:82%}
       .bx-panel{display:none}
       .bx-panel.on{display:block;animation:bxin .28s cubic-bezier(0.23,1,0.32,1)}
@@ -1075,6 +1088,7 @@
       .bpc-g.c2{grid-template-columns:1fr 1fr}
       .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
       .bpc-g.sq img{aspect-ratio:1/1;object-fit:cover}
+      .bpc-g.fit img{object-fit:contain;background:#0d1f33}
       .bpc-g.tall img{aspect-ratio:3/4;object-fit:cover}
       .bpc-f{margin:0}
       .bpc-f img{width:100%;display:block;cursor:zoom-in}
@@ -1119,7 +1133,7 @@
       #bpc .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
       #bpc .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
       #bpc .bpc-letters b{color:var(--ink)}
-      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters{grid-template-columns:1fr;gap:24px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{gap:0 22px}}
+      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters{grid-template-columns:1fr;gap:24px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}#bpc .yr-tabs button,#bpc .bx-tabs button{font-size:14px;padding:12px}}
     </style>
 
     <!-- 1. Identities -->
@@ -1129,6 +1143,7 @@
         <p>Every BPC takes its personality from its host city: Barcelona's reds, Dublin's greens, Nashville's gig posters, Denver's Red Rocks, Anaheim's sun and surf. The brief each year is the same: feel local, stay unmistakably BPC.</p>
       </div>
       <div class="yr-switch">
+        <div class="bx-hint">Pick a year</div>
         <div class="yr-tabs" role="tablist" aria-label="Bid and Proposal Con identities">
           <button role="tab" aria-selected="true" data-i="0">Barcelona 2024</button>
           <button role="tab" aria-selected="false" data-i="1">Dublin 2025</button>
@@ -1152,6 +1167,7 @@
         <div><div class="sl" style="margin-bottom:16px">Case study &middot; Denver 2026</div><h2>Denver, start to finish.</h2></div>
         <p>The first Denver identity was already out in the world when APMP's new CEO asked for a different look. I explored two directions, and the mountain mark became the identity, rebuilt across social, email, web, print and the venue itself.</p>
       </div>
+      <div class="bx-hint">Five chapters &middot; pick one</div>
       <div class="bx-tabs" role="tablist" aria-label="Denver case study chapters">
         <button role="tab" aria-selected="true" data-t="id"><b>01</b>Identity</button>
         <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
@@ -1296,7 +1312,7 @@
           </div>
           <div class="bpc-stack">
             <figure class="bpc-f line"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand-mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
-            <div class="bpc-g c3 sq">
+            <div class="bpc-g c3 sq fit">
               <figure class="bpc-f "><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide</figcaption></figure>
               <figure class="bpc-f "><img src="den-expo-badge.jpg" loading="lazy" alt="I am an exhibitor at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Exhibitor badge</figcaption></figure>
               <figure class="bpc-f "><img src="den-speaker-badge.jpg" loading="lazy" alt="I am a speaker at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Speaker badge</figcaption></figure>
@@ -1326,6 +1342,7 @@
         <div><div class="sl" style="margin-bottom:16px">Other years</div><h2>Ideas beyond the brief.</h2></div>
         <p>Three pieces from other editions that went further than the asset list.</p>
       </div>
+      <div class="bx-hint">Three stories &middot; pick one</div>
       <div class="bx-tabs" role="tablist" aria-label="Ideas beyond the brief">
         <button role="tab" aria-selected="true" data-t="nash"><b>Nashville 2025</b>The poster hunt</button>
         <button role="tab" aria-selected="false" data-t="dub"><b>Dublin 2025</b>Sound like a local</button>
