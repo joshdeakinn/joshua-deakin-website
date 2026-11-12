@@ -1073,6 +1073,18 @@
       #bpc .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
       #bpc .yr-tabs button:active,#bpc .bx-tabs button:active{transform:scale(.98)}
       @media(hover:hover) and (pointer:fine){#bpc .yr-tabs button:not([aria-selected="true"]):hover,#bpc .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
+      #bpc .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
+      #bpc .ev-logo{background:var(--surface);border-radius:var(--r);aspect-ratio:16/10;padding:9%;box-sizing:border-box}
+      #bpc .ev-logo img{width:100%;height:100%;object-fit:contain;border-radius:0;display:block;cursor:zoom-in}
+      #bpc .ev-meta,#bpc .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+      #bpc .ev-meta{margin-bottom:14px}
+      #bpc .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
+      #bpc .ev-h h3{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
+      #bpc .ev-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      #bpc .bx-tabs.sub{background:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:20px 0 0;gap:8px}
+      #bpc .bx-tabs.sub button{border:1px solid var(--border);font-size:15px;font-weight:600;min-height:52px;padding:11px 14px}
+      #bpc .bx-tabs.sub button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+      #bpc .bx-tabs.sub button[aria-selected="true"] b{color:rgba(255,255,255,.7)}
       .bx-hint{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
       #bpc .yr-stage img{inset:9%;width:82%;height:82%}
       .bx-panel{display:none}
@@ -1133,42 +1145,76 @@
       #bpc .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
       #bpc .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
       #bpc .bpc-letters b{color:var(--ink)}
-      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters{grid-template-columns:1fr;gap:24px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}#bpc .yr-tabs button,#bpc .bx-tabs button{font-size:14px;padding:12px}}
+      @media(max-width:860px){#bpc .bs-h,#bpc .bp,#bpc .bp.wide,.cmp,#bpc .bpc-letters,#bpc .ev-h{grid-template-columns:1fr;gap:24px}#bpc .ev-h{margin-bottom:40px}#bpc .bp-t{position:static}#bpc .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}#bpc .yr-tabs,#bpc .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}#bpc .yr-tabs button,#bpc .bx-tabs button{font-size:14px;padding:12px}}
     </style>
 
     <!-- 1. Identities -->
-    <section class="bs">
+    <section class="bs bx" style="margin-bottom:72px">
       <div class="bs-h">
-        <div><div class="sl" style="margin-bottom:16px">The idea</div><h2>One event, a new identity every year.</h2></div>
-        <p>Every BPC takes its personality from its host city: Barcelona's reds, Dublin's greens, Nashville's gig posters, Denver's Red Rocks, Anaheim's sun and surf. The brief each year is the same: feel local, stay unmistakably BPC.</p>
+        <div><div class="sl" style="margin-bottom:16px">Event by event</div><h2>One event, a new identity every year.</h2></div>
+        <p>Every BPC takes its personality from its host city. The brief each year is the same: feel local, stay unmistakably BPC. Pick an event to see what I made for it.</p>
       </div>
-      <div class="yr-switch">
-        <div class="bx-hint">Pick a year</div>
-        <div class="yr-tabs" role="tablist" aria-label="Bid and Proposal Con identities">
-          <button role="tab" aria-selected="true" data-i="0">Barcelona 2024</button>
-          <button role="tab" aria-selected="false" data-i="1">Dublin 2025</button>
-          <button role="tab" aria-selected="false" data-i="2">Nashville 2025</button>
-          <button role="tab" aria-selected="false" data-i="3">Denver 2026</button>
-          <button role="tab" aria-selected="false" data-i="4">Anaheim 2027</button>
-        </div>
-        <div class="yr-stage">
-          <img class="on" src="bpc-barcelona-logo.png" loading="lazy" alt="Best of BPC Barcelona 2024 event logo" onclick="openLightbox(this.src)">
-          <img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo" onclick="openLightbox(this.src)">
-          <img src="BPCNas.png" loading="lazy" alt="BPC Nashville 2025 event logo" onclick="openLightbox(this.src)">
-          <img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo" onclick="openLightbox(this.src)">
-          <img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" onclick="openLightbox(this.src)">
-        </div>
+      <div class="bx-hint">Five events &middot; pick one</div>
+      <div class="bx-tabs" role="tablist" aria-label="BPC events">
+        <button role="tab" aria-selected="false" data-t="bcn"><b>2024</b>Barcelona</button>
+        <button role="tab" aria-selected="false" data-t="dub"><b>2025</b>Dublin</button>
+        <button role="tab" aria-selected="false" data-t="nash"><b>2025</b>Nashville</button>
+        <button role="tab" aria-selected="true" data-t="den"><b>2026 &middot; Case study</b>Denver</button>
+        <button role="tab" aria-selected="false" data-t="ana"><b>2027 &middot; Next up</b>Anaheim</button>
       </div>
-    </section>
 
-    <!-- 2. Denver case study -->
-    <section class="bs bx">
-      <div class="bs-h">
-        <div><div class="sl" style="margin-bottom:16px">Case study &middot; Denver 2026</div><h2>Denver, start to finish.</h2></div>
-        <p>The first Denver identity was already out in the world when APMP's new CEO asked for a different look. I explored two directions, and the mountain mark became the identity, rebuilt across social, email, web, print and the venue itself.</p>
+      <div class="bx-panel" data-t="bcn">
+        <div class="ev-h">
+          <div class="ev-logo"><img src="bpc-barcelona-logo.png" loading="lazy" alt="Best of BPC Barcelona 2024 event logo" onclick="openLightbox(this.src)"></div>
+          <div><div class="ev-meta">Best of BPC &middot; Barcelona 2024</div><h3>Barcelona</h3><p>A "Best of BPC" edition. The mark borrows Spain&rsquo;s reds and golds, with a brushed flag behind the lettering.</p></div>
+        </div>
       </div>
-      <div class="bx-hint">Five chapters &middot; pick one</div>
-      <div class="bx-tabs" role="tablist" aria-label="Denver case study chapters">
+
+      <div class="bx-panel" data-t="dub">
+        <div class="ev-h">
+          <div class="ev-logo"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo" onclick="openLightbox(this.src)"></div>
+          <div><div class="ev-meta">BPC Dublin &middot; 2025</div><h3>Dublin</h3><p>Greens, shamrocks and a bit of Irish humour, carried from the logo through to the social content.</p></div>
+        </div>
+        <div class="ev-sub">From this event</div>
+
+        <div class="bp wide">
+          <figure class="bpc-f "><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
+          <div>
+            <h3>How to sound like a local</h3>
+            <p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="nash">
+        <div class="ev-h">
+          <div class="ev-logo"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville 2025 event logo" onclick="openLightbox(this.src)"></div>
+          <div><div class="ev-meta">BPC Nashville &middot; 2025</div><h3>Nashville</h3><p>Music City: a neon-script mark, and a gig poster that became the talk of the exhibitor hall.</p></div>
+        </div>
+        <div class="ev-sub">From this event</div>
+
+        <div class="bp wide">
+          <figure class="bpc-f "><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
+          <div>
+            <h3>A poster people hunted for</h3>
+            <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print.</p>
+            <p style="margin-bottom:32px">Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. By the end, attendees were asking me to sign theirs.</p>
+            <div class="bpc-g c3 tall">
+              <figure class="bpc-f "><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>Earlier direction</figcaption></figure>
+              <figure class="bpc-f "><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing</figcaption></figure>
+              <figure class="bpc-f "><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signed</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel on bx" data-t="den">
+        <div class="ev-h">
+          <div class="ev-logo"><img src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 event logo" onclick="openLightbox(this.src)"></div>
+          <div><div class="ev-meta">BPC Denver &middot; May 13&ndash;16, 2026 &middot; Colorado</div><h3>Denver, start to finish</h3><p>The first Denver identity was already out in the world when APMP&rsquo;s new CEO asked for a different look. I explored two directions, and the mountain mark became the identity, rebuilt across social, email, web, print and the venue itself.</p></div>
+        </div>
+        <div class="bx-hint">Denver in five chapters</div>
+      <div class="bx-tabs sub" role="tablist" aria-label="Denver case study chapters">
         <button role="tab" aria-selected="true" data-t="id"><b>01</b>Identity</button>
         <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
         <button role="tab" aria-selected="false" data-t="venue"><b>03</b>The venue</button>
@@ -1334,56 +1380,15 @@
           <video style="width:100%;display:block;background:#0d1f33" controls preload="none" playsinline poster="den-promo-poster.jpg"><source src="den-promo.mp4" type="video/mp4"></video>
         </div>
       </div>
-    </section>
-
-    <!-- 3. Ideas beyond the brief -->
-    <section class="bs bx" style="margin-bottom:72px">
-      <div class="bs-h">
-        <div><div class="sl" style="margin-bottom:16px">Other years</div><h2>Ideas beyond the brief.</h2></div>
-        <p>Three pieces from other editions that went further than the asset list.</p>
-      </div>
-      <div class="bx-hint">Three stories &middot; pick one</div>
-      <div class="bx-tabs" role="tablist" aria-label="Ideas beyond the brief">
-        <button role="tab" aria-selected="true" data-t="nash"><b>Nashville 2025</b>The poster hunt</button>
-        <button role="tab" aria-selected="false" data-t="dub"><b>Dublin 2025</b>Sound like a local</button>
-        <button role="tab" aria-selected="false" data-t="ana"><b>Anaheim 2027</b>Identity + event page</button>
-      </div>
-
-      <div class="bx-panel on" data-t="nash">
-        <div class="bp wide">
-          <figure class="bpc-f "><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
-          <div>
-            <h3>A poster people hunted for</h3>
-            <p>The brief was a takeaway that felt like Nashville but was unmistakably APMP. I researched the city's visual language (AI-assisted) and drew the poster by hand in Illustrator with the pen tool, in the tradition of Hatch Show Print.</p>
-            <p style="margin-bottom:32px">Printed in limited numbers, it became a game: attendees had to track one down through the exhibitor hall. People carried them through the venue, others stopped to ask what they were, and conversations and exhibitor visits followed. By the end, attendees were asking me to sign theirs.</p>
-            <div class="bpc-g c3 tall">
-              <figure class="bpc-f "><img src="bpc-nash-poster-alt.jpg" loading="lazy" alt="BPC Nashville 2025 poster, earlier direction" onclick="openLightbox(this.src)"><figcaption>Earlier direction</figcaption></figure>
-              <figure class="bpc-f "><img src="https://framerusercontent.com/images/hQMyZvdH4NO8DPlRSiJvmFJyOE.jpg" loading="lazy" alt="Signing BPC Nashville posters for attendees" onclick="openLightbox(this.src)"><figcaption>Signing</figcaption></figure>
-              <figure class="bpc-f "><img src="https://framerusercontent.com/images/ZZPXdD6NpaXEKABAJoi4Ft6430.jpg" loading="lazy" alt="Attendees with signed BPC Nashville posters" onclick="openLightbox(this.src)"><figcaption>Signed</figcaption></figure>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bx-panel" data-t="dub">
-        <div class="bp wide">
-          <figure class="bpc-f "><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
-          <div>
-            <h3>How to sound like a local</h3>
-            <p>Most attendees were American and the venue was Irish. To give people a feel for Dublin before they landed, the team wanted something playful, so I designed a set of phrase cards that doubled as a social post, ending with a prompt for attendees to add their own favourite phrases in the comments.</p>
-          </div>
-        </div>
       </div>
 
       <div class="bx-panel" data-t="ana">
-        <div class="bp">
-          <div class="bp-t">
-            <h3>Sun, surf and the Golden State</h3>
-            <p>For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the hero, agenda, pricing and venue sections of the registration page.</p>
-            <img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" style="width:100%;max-width:240px;display:block;margin-top:28px;cursor:zoom-in" onclick="openLightbox(this.src)">
-          </div>
-          <figure class="bpc-f line"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
+        <div class="ev-h">
+          <div class="ev-logo"><img src="bpc-anaheim-logo.png" loading="lazy" alt="BPC Anaheim 2027 event logo" onclick="openLightbox(this.src)"></div>
+          <div><div class="ev-meta">BPC Anaheim &middot; May 18&ndash;21, 2027 &middot; California</div><h3>Anaheim</h3><p>Sun, surf and the Golden State. For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the whole registration page.</p></div>
         </div>
+        <div class="ev-sub">From this event</div>
+        <figure class="bpc-f line"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
       </div>
     </section>
 
@@ -1396,7 +1401,7 @@
     (function(){
       var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       document.querySelectorAll('#bpc .bx').forEach(function(bx){
-        var tabs=bx.querySelectorAll('.bx-tabs button'),panels=bx.querySelectorAll('.bx-panel');
+        var tabs=bx.querySelectorAll(':scope > .bx-tabs > button'),panels=bx.querySelectorAll(':scope > .bx-panel');
         tabs.forEach(function(t){t.addEventListener('click',function(){
           tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
           panels.forEach(function(p){p.classList.toggle('on',p.dataset.t===t.dataset.t)});
