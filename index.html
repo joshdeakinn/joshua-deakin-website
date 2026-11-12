@@ -477,6 +477,7 @@
     .stat-grid .ec{margin-bottom:0 !important}
     .stat-grid .edesc{grid-column:3;grid-row:1/3;color:var(--body)}
     /* Contact */
+    .form-done{max-width:560px;margin:0 auto;padding:32px;border:1px solid var(--accent);font-size:18px;line-height:1.6;color:var(--ink)}
     #contact .sh{font-size:clamp(44px,6.2vw,88px)}
     .sig-static{display:block;width:220px;height:auto;margin:48px auto 0}
     .sig-static path{stroke:var(--ink);fill:none}
@@ -771,7 +772,7 @@
     <div class="sl reveal">Contact</div>
     <h2 class="sh reveal" style="transition-delay:.08s">Let's talk.</h2>
     <p class="csub reveal" style="transition-delay:.16s">Whether it's a project, a collaboration, or just a conversation about design - I'm always happy to connect.</p>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal" style="transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;">
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal" style="transition-delay:.24s;max-width:560px;margin:0 auto;text-align:left;">
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
       <div style="display:flex;flex-direction:column;gap:12px;">
@@ -2167,6 +2168,23 @@
     abSlides[0].style.opacity = '1';
     setInterval(() => goToAbSlide((abIdx + 1) % aboutImages.length), 4000);
   }
+
+  // Contact form: send in the background and show a thank-you in place (falls back to a normal submit if that fails)
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(contactForm)).toString() })
+      .then(r => { if (!r.ok) throw new Error(r.status); })
+      .then(() => {
+        const done = document.createElement('p');
+        done.className = 'form-done'; done.setAttribute('role', 'status');
+        done.textContent = "Thanks, your message is on its way. I'll reply soon.";
+        contactForm.replaceWith(done);
+      })
+      .catch(() => contactForm.submit());
+  });
 
   document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
 
