@@ -12,14 +12,17 @@
   <meta name="theme-color" content="#F5F5F3">
   <meta property="og:title" content="Joshua Deakin | Multimedia Designer">
   <meta property="og:description" content="An award-winning multimedia designer based in Glasgow, creating since 2013.">
-  <meta property="og:image" content="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg">
+  <meta property="og:image" content="https://www.joshuadeakin.co.uk/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Joshua Deakin, Multimedia Designer, Glasgow, Scotland">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.joshuadeakin.co.uk/">
   <link rel="canonical" href="https://www.joshuadeakin.co.uk/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Joshua Deakin | Multimedia Designer">
   <meta name="twitter:description" content="An award-winning multimedia designer based in Glasgow, creating since 2013.">
-  <meta name="twitter:image" content="https://framerusercontent.com/images/Sbeel4CMcDjrY5u9bDoQ6va4L4.jpg">
+  <meta name="twitter:image" content="https://www.joshuadeakin.co.uk/share.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,6 +55,14 @@
     "Print Design",
     "Digital Marketing",
     "Visual Communication"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "City of Glasgow College"
+  },
+  "award": [
+    "Gold, Advertising Media Kit - Association Trends (2025)",
+    "Silver, Membership Welcome Guide - Association Trends (2026)"
   ],
   "worksFor": {
     "@type": "Organization",
@@ -1741,6 +1752,23 @@
     bpc: 'BPC - Bid & Proposal Con'
   };
 
+  const homeTitle = document.title;
+  const homeDesc = document.querySelector('meta[name="description"]').content;
+  const projDesc = {
+    apmp: "Joshua Deakin's work as Multimedia Designer at APMP: event identities, video and podcast production, award-winning publications, signage and digital campaigns.",
+    bpc: "Identity, signage, print and digital campaign design for Bid & Proposal Con, APMP's annual conference of more than 1,200 proposal professionals.",
+    murrays: "Brand identity for Murray's Plant Hire by Joshua Deakin: a geometric M that also reads as a screw thread and a bolt.",
+    applewise: "Brand identity for Applewise Bakery, Stirling, by Joshua Deakin: an apple pie lattice and the MacLeod tartan fused into one mark.",
+    freshbite: "Brand identity for Freshbite, a meal-kit company, by Joshua Deakin: organic warmth with enough restraint to feel premium.",
+    nishikigoi: "YouTube channel branding for Nishikigoi with Oliver by Joshua Deakin: logo, thumbnail templates and channel art from one system.",
+    rizen: "eSports mascot logo for Rizen by Joshua Deakin: a hand-illustrated phoenix built for stream overlays, merchandise and social.",
+    midgard: "Brand identity for Midgard Greenhouse & Nursery by Joshua Deakin: a Norse-rooted mark built for uniforms, bags and flags."
+  };
+  function setMeta(id) {
+    document.querySelector('link[rel="canonical"]').href = 'https://www.joshuadeakin.co.uk/' + (id ? '?p=' + id : '');
+    document.querySelector('meta[name="description"]').content = id ? projDesc[id] : homeDesc;
+  }
+
   const pt = document.getElementById('page-transition');
 
   function transitionTo(fn) {
@@ -1801,6 +1829,7 @@
       window._navBackPage = null;
       if (pushState !== false) history.pushState({ page: id, scrollY: savedScrollY }, '', '?p=' + id);
       document.title = projTitles[id] + ' | Joshua Deakin';
+      setMeta(id);
       setTimeout(() => animateCounters(id), 100);
       if (id === 'apmp' && !window._apmpBuilt) { window._apmpBuilt = true; buildApmpPlaylist(); }
     });
@@ -1813,7 +1842,8 @@
       document.getElementById('page-home').classList.add('active');
       if (apwVid) apwVid.pause();
       if (pushState !== false) history.pushState({ page: 'home' }, '', window.location.pathname);
-      document.title = 'Joshua Deakin | Multimedia Designer';
+      document.title = homeTitle;
+      setMeta(null);
       requestAnimationFrame(() => {
         document.documentElement.scrollTop = restoreY;
         document.body.scrollTop = restoreY;
