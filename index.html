@@ -921,14 +921,15 @@
     </div>
 
     <!-- SECTION: On the Record -->
-    <div class="bx-tabs apmp-jump" aria-label="Jump to a section">
-      <button data-go="apmp-podcast"><b>Podcast</b>On the Record</button>
-      <button data-go="apmp-bpc"><b>Flagship event</b>BPC</button>
-      <button data-go="apmp-digital"><b>Virtual</b>Digital events</button>
-      <button data-go="apmp-templates"><b>Speakers</b>Templates</button>
-      <button data-go="apmp-brand"><b>Master brand</b>APMP brand</button>
-      <button data-go="apmp-pubs"><b>Editorial</b>Publications</button>
-      <button data-go="apmp-info"><b>Social</b>Infographics</button>
+    <div class="bx-tabs apmp-jump" id="apmpJump" aria-label="Jump to a section">
+      <i class="rail-fill" aria-hidden="true"></i>
+      <button data-go="apmp-podcast"><b>Podcast</b><span>On the Record</span></button>
+      <button data-go="apmp-bpc"><b>Flagship event</b><span>BPC</span></button>
+      <button data-go="apmp-digital"><b>Virtual</b><span>Digital events</span></button>
+      <button data-go="apmp-templates"><b>Speakers</b><span>Templates</span></button>
+      <button data-go="apmp-brand"><b>Master brand</b><span>APMP brand</span></button>
+      <button data-go="apmp-pubs"><b>Editorial</b><span>Publications</span></button>
+      <button data-go="apmp-info"><b>Social</b><span>Infographics</span></button>
     </div>
     <section class="bs bx" id="apmp-podcast" style="scroll-margin-top:96px">
       <div class="bs-h">
@@ -1283,9 +1284,29 @@
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp-t{position:sticky;top:112px}
-      #apmp .apmp-jump{position:sticky;top:var(--navh,72px);z-index:50;margin:0 0 56px;box-shadow:0 10px 24px -18px rgba(0,0,0,.35)}
-      #apmp section.bs[id]{scroll-margin-top:170px !important}
-      @media(max-width:860px){#apmp .apmp-jump{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}#apmp .apmp-jump::-webkit-scrollbar{display:none}#apmp .apmp-jump button{flex:0 0 auto}}
+      /* APMP section nav: slim sticky row on small screens, progress rail on the right on wide screens */
+      #apmp #apmpJump{position:sticky;top:var(--navh,72px);z-index:50;margin:0 0 48px;display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 10px 24px -18px rgba(0,0,0,.35)}
+      #apmp #apmpJump::-webkit-scrollbar{display:none}
+      #apmp #apmpJump button{flex:0 0 auto;min-height:0;padding:10px 14px}
+      #apmp #apmpJump button b,#apmp #apmpJump .rail-fill{display:none}
+      #apmp section.bs[id]{scroll-margin-top:140px !important}
+      @media(min-width:1200px){
+        #apmp section.bs[id]{scroll-margin-top:110px !important}
+        #apmp #apmpJump{position:fixed;top:50%;right:32px;z-index:60;flex-direction:column;align-items:flex-end;gap:22px;overflow:visible;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;opacity:0;pointer-events:none;transform:translate(12px,-50%);transition:opacity 400ms cubic-bezier(.23,1,.32,1),transform 400ms cubic-bezier(.23,1,.32,1)}
+        #apmp #apmpJump.show{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+        #apmp #apmpJump::before,#apmp #apmpJump .rail-fill{content:"";display:block;position:absolute;right:5px;top:6px;bottom:6px;width:2px;border-radius:2px;background:var(--border)}
+        #apmp #apmpJump .rail-fill{background:var(--accent);transform-origin:top;transform:scaleY(var(--p,0));transition:transform 240ms cubic-bezier(.23,1,.32,1)}
+        #apmp #apmpJump button{position:relative;display:flex;align-items:center;gap:14px;padding:0;background:none;border:0;border-radius:0;font-size:13px;font-weight:600;line-height:1;color:var(--muted);white-space:nowrap;cursor:pointer}
+        #apmp #apmpJump button::after{content:"";flex:none;width:12px;height:12px;box-sizing:border-box;border-radius:50%;background:var(--bg);border:2px solid var(--border);transition:transform 300ms cubic-bezier(.23,1,.32,1),background-color 300ms cubic-bezier(.23,1,.32,1),border-color 300ms cubic-bezier(.23,1,.32,1)}
+        #apmp #apmpJump button.done::after{border-color:var(--accent)}
+        #apmp #apmpJump button[aria-selected="true"]{background:none;color:var(--ink)}
+        #apmp #apmpJump button[aria-selected="true"]::after{background:var(--accent);border-color:var(--accent);transform:scale(1.3)}
+        #apmp #apmpJump button:active::after{transform:scale(.9)}
+        #apmp #apmpJump button span{padding:5px 10px;border-radius:999px;background:var(--bg);opacity:0;transform:translateX(6px);transition:opacity 250ms cubic-bezier(.23,1,.32,1),transform 250ms cubic-bezier(.23,1,.32,1)}
+      }
+      @media(min-width:1440px){#apmp #apmpJump button[aria-selected="true"] span{opacity:1;transform:none}}
+      @media(min-width:1200px) and (hover:hover) and (pointer:fine){#apmp #apmpJump:hover button span{opacity:1;transform:none}#apmp #apmpJump button:hover{color:var(--ink)}}
+      @media(min-width:1200px) and (prefers-reduced-motion:reduce){#apmp #apmpJump,#apmp #apmpJump.show{transform:translate(0,-50%)}#apmp #apmpJump button span{transform:none}#apmp #apmpJump .rail-fill{transition:none}#apmp #apmpJump button::after{transition-property:background-color,border-color}}
       .bp-k{font-size:15px;font-weight:600;color:var(--accent);margin:0 0 6px}
       .bp-t .bp-k:not(:first-child){margin-top:36px}
       .dir2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
@@ -2635,16 +2656,31 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox
 </script>
 <script>
 (function(){
-  var bar=document.querySelector('#apmp .apmp-jump'); if(!bar) return;
+  var bar=document.getElementById('apmpJump'), page=document.getElementById('apmp'); if(!bar||!page) return;
   var nav=document.querySelector('nav'), btns=[].slice.call(bar.querySelectorAll('button'));
+  var secs=btns.map(function(b){ return document.getElementById(b.dataset.go); });
+  var ticking=false, last=-1;
   function navh(){ bar.style.setProperty('--navh',(nav?nav.offsetHeight:72)+'px'); }
-  navh(); addEventListener('resize',navh);
-  btns.forEach(function(b){ b.addEventListener('click',function(){ var t=document.getElementById(b.dataset.go); if(t) t.scrollIntoView({behavior:'smooth'}); }); });
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return;
-    btns.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.go===e.target.id); });
-    var on=bar.querySelector('[aria-selected="true"]'); if(on) bar.scrollTo({left:on.offsetLeft-24,behavior:'smooth'});
-  }); },{rootMargin:'-40% 0px -55% 0px'});
-  btns.forEach(function(b){ var t=document.getElementById(b.dataset.go); if(t) io.observe(t); });
+  function update(){
+    ticking=false; if(!page.classList.contains('active')) return;
+    var vh=innerHeight, mark=vh*0.45, idx=0, frac=0;
+    secs.forEach(function(sec,i){ var r=sec.getBoundingClientRect(); if(r.top<=mark){ idx=i; frac=Math.min(1,Math.max(0,(mark-r.top)/r.height)); } });
+    var first=secs[0].getBoundingClientRect(), end=secs[secs.length-1].getBoundingClientRect();
+    bar.classList.toggle('show', first.top<vh*0.85 && end.bottom>vh*0.35);
+    var p=first.top>mark?0:(idx+(idx<secs.length-1?frac:0))/(secs.length-1);
+    bar.style.setProperty('--p',p.toFixed(4));
+    if(idx!==last){
+      last=idx;
+      btns.forEach(function(b,i){ b.setAttribute('aria-selected',i===idx); b.classList.toggle('done',i<idx); });
+      if(bar.scrollWidth>bar.clientWidth) bar.scrollTo({left:btns[idx].offsetLeft-24,behavior:'smooth'});
+    }
+  }
+  function req(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  btns.forEach(function(b,i){ b.addEventListener('click',function(){ secs[i].scrollIntoView({behavior:'smooth'}); }); });
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',function(){ navh(); req(); });
+  new MutationObserver(req).observe(page,{attributes:true,attributeFilter:['class']});
+  navh(); req();
 })();
 </script>
 </body>
