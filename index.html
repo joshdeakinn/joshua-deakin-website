@@ -1175,6 +1175,7 @@
       .vw-desk .vw-a,.vw-pod .vw-a{box-shadow:none}
       .vw-wires{width:calc(var(--ft)*10);height:calc(var(--ft)*1.1);border-left:2px solid #99968d;border-right:2px solid #99968d}
       .vw-under{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:calc(var(--ft)*2.2)}
+      .vw-stg{width:100%;height:calc(var(--ft)*1.6);background:#2b3038;border-radius:0 0 3px 3px}
       .vw-pod{background:#2b3038;width:calc(var(--ft)*2.3);height:calc(var(--ft)*4.1);display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--ft)*.3);box-sizing:border-box;border-radius:3px 3px 0 0}
       .vw-p{height:calc(var(--ft)*5.7);width:auto;fill:rgba(17,17,17,.2);display:block}
       .vw-l{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:16px;white-space:nowrap;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3a3a37}
@@ -1226,15 +1227,36 @@
           <div class="ev-logo pad"><img src="bpc-barcelona-logo.png" loading="lazy" alt="Best of BPC Barcelona 2024 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">Best of BPC &middot; Barcelona 2024</div><h3>Barcelona</h3><p>A "Best of BPC" edition. The mark borrows Spain&rsquo;s reds and golds, with a brushed flag behind the lettering.</p></div>
         </div>
+        <div class="ev-sub">From this event</div>
+        <div class="bp">
+          <div class="bp-t">
+            <h3>A special-edition T-shirt</h3>
+            <p>For Barcelona the identity became something to wear: a pattern of Spanish icons drawn to match the mark, printed on a limited-edition shirt and used as an incentive to register.</p>
+          </div>
+          <div class="bpc-stack">
+            <figure class="bpc-f "><img src="bcn-social.jpg" loading="lazy" alt="Register for BPC Barcelona and claim your special edition T-shirt" onclick="openLightbox(this.src)"><figcaption>Registration incentive</figcaption></figure>
+            <div class="bpc-g c2">
+              <figure class="bpc-f "><img src="bcn-mock.jpg" loading="lazy" alt="BPC Barcelona special edition T-shirt, front and back" onclick="openLightbox(this.src)"><figcaption>The shirt</figcaption></figure>
+              <figure class="bpc-f "><img src="bcn-print3.jpg" loading="lazy" alt="BPC Barcelona icon pattern" onclick="openLightbox(this.src)"><figcaption>The pattern</figcaption></figure>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="bx-panel" data-t="dub">
+      <div class="bx-panel bx" data-t="dub">
         <div class="ev-h">
           <div class="ev-logo"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">BPC Dublin &middot; 2025</div><h3>Dublin</h3><p>Greens, shamrocks and a bit of Irish humour, carried from the logo through to the social content.</p></div>
         </div>
-        <div class="ev-sub">From this event</div>
+        <div class="bx-hint">Dublin in four chapters</div>
+        <div class="bx-tabs sub" role="tablist" aria-label="Dublin chapters">
+        <button role="tab" aria-selected="true" data-t="story"><b>01</b>Phrase cards</button>
+        <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
+        <button role="tab" aria-selected="false" data-t="venue"><b>03</b>The venue</button>
+        <button role="tab" aria-selected="false" data-t="film"><b>04</b>Film</button>
+      </div>
 
+      <div class="bx-panel on" data-t="story">
         <div class="bp wide">
           <figure class="bpc-f "><img src="bpc-dublin-local.jpg" loading="lazy" alt="Heading to BPC Dublin? How to sound like a local, Irish phrase cards" onclick="openLightbox(this.src)"></figure>
           <div>
@@ -1244,13 +1266,67 @@
         </div>
       </div>
 
-      <div class="bx-panel" data-t="nash">
+      <div class="bx-panel" data-t="cmp">
+        <div class="cmp" data-k="dub" tabindex="0">
+          <div class="cmp-view"><img class="cmp-img" src="" alt="" onclick="openLightbox(this.src)"></div>
+          <div class="cmp-side">
+            <h3>A countdown in Irish</h3>
+            <p>Twelve moments from the Dublin campaign, in roughly the order they ran. The countdown posts lead in Irish, with the English underneath.</p>
+            <div class="cmp-n"></div>
+            <h4 class="cmp-t"></h4>
+            <p class="cmp-d"></p>
+            <div class="cmp-steps"></div>
+            <div class="cmp-nav">
+              <button class="bento-btn cmp-prev" aria-label="Previous post">&#8592;</button>
+              <button class="bento-btn cmp-next" aria-label="Next post">&#8594;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="venue">
+        <div class="bp" style="margin-bottom:32px">
+          <h3 style="margin:0">Walk the venue</h3>
+          <p style="margin:0">A set of L-stands for a compact venue: welcome, registration, wayfinding between suites, room and agenda stands, and sponsor thank-yous. Scroll sideways, and tap any piece to see it up close.</p>
+        </div>
+        <div class="vw" tabindex="0" aria-label="Illustrated walk past the event signage"><div class="vw-in"><div class="vw-scene"><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-welcome.jpg" loading="lazy" alt="Welcome to BPC Dublin L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Welcome</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-reg.jpg" loading="lazy" alt="BPC Dublin registration L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Registration</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-dir.jpg" loading="lazy" alt="BPC Dublin directional L-stand to the Nally and Davin suites" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Wayfinding</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-davin.jpg" loading="lazy" alt="BPC Dublin Davin Suite L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Davin Suite</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-nally.jpg" loading="lazy" alt="BPC Dublin Nally Suite L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Nally Suite</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-agenda.jpg" loading="lazy" alt="BPC Dublin Hogan Mezzanine agenda L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Agenda</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-tara.jpg" loading="lazy" alt="Welcome to TARA L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">TARA</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="dub-v-thanks.jpg" loading="lazy" alt="Thank you to our sponsors L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Sponsor thank-you</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div></div></div></div>
+        <div class="vw-bar">
+          <div class="vw-note">An illustration, not photographs: my print artwork placed in a drawn venue at approximate scale, with figures for size.</div>
+          <div class="cmp-nav">
+            <button class="bento-btn" aria-label="Walk back" onclick="vwGo(this,-1)">&#8592;</button>
+            <button class="bento-btn" aria-label="Walk forward" onclick="vwGo(this,1)">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="film">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Say What</h3>
+            <p>A short video series teaching attendees one Irish word at a time before they travelled. Episode one: craic. Alongside it, the animated registration announcement.</p>
+          </div>
+          <div class="bpc-g c2" style="align-items:start">
+            <figure class="bpc-f"><video style="width:100%;display:block;background:#111" controls preload="none" playsinline poster="dub-saywhat-poster.jpg"><source src="dub-saywhat.mp4" type="video/mp4"></video><figcaption>Say What &middot; episode 1</figcaption></figure>
+            <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="dub-regopen.mp4" type="video/mp4"></video><figcaption>Registration announcement</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="bx-panel bx" data-t="nash">
         <div class="ev-h">
           <div class="ev-logo"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville 2025 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">BPC Nashville &middot; 2025</div><h3>Nashville</h3><p>Music City: a neon-script mark, and a gig poster that became the talk of the exhibitor hall.</p></div>
         </div>
-        <div class="ev-sub">From this event</div>
+        <div class="bx-hint">Nashville in four chapters</div>
+        <div class="bx-tabs sub" role="tablist" aria-label="Nashville chapters">
+        <button role="tab" aria-selected="true" data-t="story"><b>01</b>The poster</button>
+        <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
+        <button role="tab" aria-selected="false" data-t="venue"><b>03</b>The venue</button>
+        <button role="tab" aria-selected="false" data-t="film"><b>04</b>Motion</button>
+      </div>
 
+      <div class="bx-panel on" data-t="story">
         <div class="bp wide">
           <figure class="bpc-f "><img src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig-style poster, final" onclick="openLightbox(this.src)"><figcaption>The final poster</figcaption></figure>
           <div>
@@ -1264,6 +1340,56 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="bx-panel" data-t="cmp">
+        <div class="cmp" data-k="nash" tabindex="0">
+          <div class="cmp-view"><img class="cmp-img" src="" alt="" onclick="openLightbox(this.src)"></div>
+          <div class="cmp-side">
+            <h3>From first call to sold out</h3>
+            <p>Twelve moments from the Nashville campaign, in roughly the order they ran, on a wood-and-neon system that carried the city through every post.</p>
+            <div class="cmp-n"></div>
+            <h4 class="cmp-t"></h4>
+            <p class="cmp-d"></p>
+            <div class="cmp-steps"></div>
+            <div class="cmp-nav">
+              <button class="bento-btn cmp-prev" aria-label="Previous post">&#8592;</button>
+              <button class="bento-btn cmp-next" aria-label="Next post">&#8594;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="venue">
+        <div class="bp" style="margin-bottom:32px">
+          <h3 style="margin:0">Walk the venue</h3>
+          <p style="margin:0">Wayfinding, welcome signs, L-stands, the exhibit hall entrance, the main stage screen and the podium, with Nashville turns of phrase written into the signs. Scroll sideways, and tap any piece to see it up close.</p>
+        </div>
+        <div class="vw" tabindex="0" aria-label="Illustrated walk past the event signage"><div class="vw-in"><div class="vw-scene"><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2" src="nash-v-reg.jpg" loading="lazy" alt="Registration this way, Nashville directional sign" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Wayfinding</span></div><div class="vw-i"><img class="vw-a" style="--w:2" src="nash-v-welcome.jpg" loading="lazy" alt="Welcome to BPC Nashville sign, 24 by 36 inches" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Welcome</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="nash-v-lwelcome.jpg" loading="lazy" alt="Welcome to BPC Nashville L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Welcome L-stand</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:3.3" src="nash-v-exhibit.jpg" loading="lazy" alt="Exhibitor hall entrance banner" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*3.5)"></div><span class="vw-l">Exhibit hall</span></div><div class="vw-i"><img class="vw-a" style="--w:2" src="nash-v-atrium.jpg" loading="lazy" alt="You are at the atrium entrance, directional sign" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">You are here</span></div><div class="vw-i"><img class="vw-a" style="--w:13" src="nash-v-stage.jpg" loading="lazy" alt="BPC Nashville main stage screen visual" onclick="openLightbox(this.src)"><div class="vw-stg"></div><span class="vw-l">Main stage screen</span></div><div class="vw-i"><div class="vw-pod"><img class="vw-a" style="--w:1.1" src="nash-v-podium.jpg" loading="lazy" alt="BPC Nashville podium sign" onclick="openLightbox(this.src)"></div><span class="vw-l">Podium</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="nash-v-levents.jpg" loading="lazy" alt="APMP events and sponsorship L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Events</span></div><div class="vw-i"><img class="vw-a" style="--w:2.6" src="nash-v-lknow.jpg" loading="lazy" alt="Knowledge Center L-stand" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*2.8000000000000003)"></div><span class="vw-l">Resources</span></div><div class="vw-i"><img class="vw-a" style="--w:2" src="nash-v-happy.jpg" loading="lazy" alt="Happy hour entrance sign" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Happy hour</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div><div class="vw-i"><img class="vw-a" style="--w:3" src="nash-v-thanks.jpg" loading="lazy" alt="Thank you to our BPC Nashville sponsors display" onclick="openLightbox(this.src)"><div class="vw-base" style="width:calc(var(--ft)*3.2)"></div><span class="vw-l">Sponsor thank-you</span></div><div class="vw-i"><img class="vw-a" style="--w:2" src="nash-v-turn.jpg" loading="lazy" alt="Well bless your heart, you have gone too far. Turn-around sign" onclick="openLightbox(this.src)"><div class="vw-leg" style="--h:2.4"></div><div class="vw-base"></div><span class="vw-l">Turn around</span></div><div class="vw-i"><svg class="vw-p" viewBox="0 0 40 114" aria-hidden="true"><circle cx="20" cy="9" r="8"/><path d="M8 24c0-4 4-6 12-6s12 2 12 6v34h-5v52h-6V62h-2v48h-6V58H8z"/></svg></div></div></div></div>
+        <div class="vw-bar">
+          <div class="vw-note">An illustration, not photographs: my print artwork placed in a drawn venue at approximate scale, with figures for size.</div>
+          <div class="cmp-nav">
+            <button class="bento-btn" aria-label="Walk back" onclick="vwGo(this,-1)">&#8592;</button>
+            <button class="bento-btn" aria-label="Walk forward" onclick="vwGo(this,1)">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bx-panel" data-t="film">
+        <div class="bp">
+          <div class="bp-t">
+            <h3>Logo reveal and announcement</h3>
+            <p>The animated neon logo reveal that announced Nashville, the announcement film it opened, and the looping visual made for the main stage screen.</p>
+          </div>
+          <div class="bpc-stack">
+            <figure class="bpc-f"><video style="width:100%;display:block;background:#111" controls preload="none" playsinline poster="nash-announce-poster.jpg"><source src="nash-announce.mp4" type="video/mp4"></video><figcaption>Announcement film</figcaption></figure>
+            <div class="bpc-g c2">
+              <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="nash-reveal.mp4" type="video/mp4"></video><figcaption>Logo reveal</figcaption></figure>
+              <figure class="bpc-f"><video class="loopv" style="width:100%;display:block" autoplay muted loop playsinline preload="metadata"><source src="nash-stage.mp4" type="video/mp4"></video><figcaption>Stage screen loop</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
 
       <div class="bx-panel on bx" data-t="den">
@@ -1298,18 +1424,18 @@
       </div>
 
       <div class="bx-panel" data-t="cmp">
-        <div class="cmp" id="bpc-cmp">
-          <div class="cmp-view"><img id="cmp-img" src="den-cfp.jpg" alt="" onclick="openLightbox(this.src)"></div>
+        <div class="cmp" data-k="den" tabindex="0">
+          <div class="cmp-view"><img class="cmp-img" src="" alt="" onclick="openLightbox(this.src)"></div>
           <div class="cmp-side">
             <h3>A campaign built to a calendar</h3>
             <p>Twelve moments from one campaign, in roughly the order they ran. Concept, design, copy and scheduling, end to end.</p>
-            <div class="cmp-n" id="cmp-n">01 / 12</div>
-            <h4 class="cmp-t" id="cmp-t"></h4>
-            <p class="cmp-d" id="cmp-d"></p>
-            <div class="cmp-steps" id="cmp-steps"></div>
+            <div class="cmp-n"></div>
+            <h4 class="cmp-t"></h4>
+            <p class="cmp-d"></p>
+            <div class="cmp-steps"></div>
             <div class="cmp-nav">
-              <button class="bento-btn" aria-label="Previous post" onclick="cmpGo(-1)">&#8592;</button>
-              <button class="bento-btn" aria-label="Next post" onclick="cmpGo(1)">&#8594;</button>
+              <button class="bento-btn cmp-prev" aria-label="Previous post">&#8592;</button>
+              <button class="bento-btn cmp-next" aria-label="Next post">&#8594;</button>
             </div>
           </div>
         </div>
@@ -1324,8 +1450,8 @@
         <div class="vw-bar">
           <div class="vw-note">An illustration, not photographs: my print artwork placed in a drawn venue at approximate scale, with figures for size.</div>
           <div class="cmp-nav">
-            <button class="bento-btn" aria-label="Walk back" onclick="vwGo(-1)">&#8592;</button>
-            <button class="bento-btn" aria-label="Walk forward" onclick="vwGo(1)">&#8594;</button>
+            <button class="bento-btn" aria-label="Walk back" onclick="vwGo(this,-1)">&#8592;</button>
+            <button class="bento-btn" aria-label="Walk forward" onclick="vwGo(this,1)">&#8594;</button>
           </div>
         </div>
 <!-- Bento slideshow styles (scoped) -->
@@ -1467,7 +1593,7 @@
         })});
       });
       if(rm)document.querySelectorAll('video.loopv').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true});
-      var posts=[
+      var CMP={den:[
         ['den-cfp.jpg','Call for presenters','The campaign opens by inviting speakers to submit a topic.'],
         ['den-regopen.jpg','Registration opens','The identity front and centre, with one clear action.'],
         ['den-eb6.jpg','Early bird: 6 weeks left','The first of four early-bird posts on a shared layout.'],
@@ -1479,18 +1605,19 @@
         ['den-agenda.jpg','The agenda is here','Announcing the full programme.'],
         ['den-hotel.jpg','Hotel offer','Pointing attendees to the on-site room rate.'],
         ['den-cd4.jpg','4 weeks to go','The countdown series, built around what the event delivers.'],
-        ['den-cd7.jpg','7 days to go','The last push before doors open.']];
-      var ci=0,img=document.getElementById('cmp-img'),steps=document.getElementById('cmp-steps');
-      posts.forEach(function(p,i){var b=document.createElement('button');b.setAttribute('aria-label',p[1]);b.innerHTML='<img src="'+p[0]+'" loading="lazy" alt="">';b.onclick=function(){cmpSet(i)};steps.appendChild(b)});
-      function cmpSet(i){ci=(i+posts.length)%posts.length;var p=posts[ci];img.src=p[0];img.alt=p[1]+', BPC Denver social post';
-        document.getElementById('cmp-n').textContent=('0'+(ci+1)).slice(-2)+' / '+posts.length;
-        document.getElementById('cmp-t').textContent=p[1];document.getElementById('cmp-d').textContent=p[2];
-        [].forEach.call(steps.children,function(b,j){b.setAttribute('aria-current',j===ci)})}
-      window.cmpGo=function(d){cmpSet(ci+d)};
-      document.getElementById('bpc-cmp').addEventListener('keydown',function(e){if(e.key==='ArrowRight')cmpSet(ci+1);if(e.key==='ArrowLeft')cmpSet(ci-1)});
-      cmpSet(0);
-      var vw=document.getElementById('bpc-vw');
-      window.vwGo=function(d){vw.scrollBy({left:d*Math.max(280,vw.clientWidth*.7),behavior:rm?'auto':'smooth'})};
+        ['den-cd7.jpg','7 days to go','The last push before doors open.']],nash:[["nash-c01.jpg", "Call for presenters", "The campaign opens with the logo and an invitation to speak."],["nash-c02.jpg", "Registrations open", "The same lock-up, with one clear action."],["nash-c03.jpg", "5 months of early bird", "The first early-bird post, on the wood-panel system."],["nash-c04.jpg", "1 month of early bird left", "Same layout, new number."],["nash-c05.jpg", "Early bird: last chance", "A vintage number plate carries the final push."],["nash-c06.jpg", "The agenda is here", "Another plate, announcing the programme."],["nash-c07.jpg", "Earn 14 CEUs/CPDs", "A practical reason to attend, for certified members."],["nash-c08.jpg", "2 months to go", "The event countdown begins."],["nash-c09.jpg", "1 week to go", "A retro sunburst plate for the final week."],["nash-c10.jpg", "28 spots left", "Scarcity, with the remaining places as the headline."],["nash-c11.jpg", "Sold out", "The campaign reaches its goal."],["nash-c12.jpg", "That's a wrap", "Closing out day one, live from the event."]],dub:[["dub-c01.jpg", "The announcement", "The Dublin mark, launched on its own."],["dub-c02.jpg", "Call for presenters", "Inviting speakers to submit a topic."],["dub-c03.jpg", "Registrations open", "The theme line and one clear action."],["dub-c04.jpg", "The agenda is here", "Announcing the programme."],["dub-c05.jpg", "Earn 12 CEUs/CPDs", "A practical reason to attend, for certified members."],["dub-c06.jpg", "Member savings", "Turning the member discount into the headline."],["dub-c07.jpg", "63 days, 9 weeks or 2 months", "The countdown opens, three ways."],["dub-c08.jpg", "2 mh\u00ed le dul", "Two months to go, in Irish first."],["dub-c09.jpg", "The calendar", "Days crossed off, with the event marked."],["dub-c10.jpg", "N\u00ed fada anois", "Not long now."],["dub-c11.jpg", "T\u00e1 s\u00e9 beagnach am", "It's almost time."],["dub-c12.jpg", "That's a wrap", "Closing the event and thanking sponsors."]]};
+      document.querySelectorAll('.cmp[data-k]').forEach(function(c){
+        var posts=CMP[c.dataset.k],ci=0,img=c.querySelector('.cmp-img'),steps=c.querySelector('.cmp-steps');
+        function set(i){ci=(i+posts.length)%posts.length;var p=posts[ci];img.src=p[0];img.alt=p[1]+', BPC social post';
+          c.querySelector('.cmp-n').textContent=('0'+(ci+1)).slice(-2)+' / '+posts.length;
+          c.querySelector('.cmp-t').textContent=p[1];c.querySelector('.cmp-d').textContent=p[2];
+          [].forEach.call(steps.children,function(b,j){b.setAttribute('aria-current',j===ci)})}
+        posts.forEach(function(p,i){var b=document.createElement('button');b.setAttribute('aria-label',p[1]);b.innerHTML='<img src="'+p[0]+'" loading="lazy" alt="">';b.onclick=function(){set(i)};steps.appendChild(b)});
+        c.querySelector('.cmp-prev').onclick=function(){set(ci-1)};c.querySelector('.cmp-next').onclick=function(){set(ci+1)};
+        c.addEventListener('keydown',function(e){if(e.key==='ArrowRight')set(ci+1);if(e.key==='ArrowLeft')set(ci-1)});
+        set(0);
+      });
+      window.vwGo=function(btn,d){var vw=btn.closest('.bx-panel').querySelector('.vw');vw.scrollBy({left:d*Math.max(280,vw.clientWidth*.7),behavior:rm?'auto':'smooth'})};
     })();
     </script>
 
