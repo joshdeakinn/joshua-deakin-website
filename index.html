@@ -613,6 +613,15 @@
     .cmp .cmp-view{background:none;display:flex;align-items:center;justify-content:center;overflow:visible}
     .cmp .cmp-view img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:var(--r)}
     .fsn{display:block;width:100%;aspect-ratio:4/3;min-height:420px;border:0;border-radius:var(--r);background:var(--surface)}
+    /* Live webpage screenshots: browser frame + open button */
+    .ws{display:block;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;text-decoration:none;background:var(--surface);transition:border-color .2s,box-shadow .2s}
+    .ws img{display:block;width:100%;border-radius:0;cursor:pointer}
+    .ws-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--border)}
+    .ws-bar i{width:9px;height:9px;border-radius:50%;background:var(--border);flex:none}
+    .ws-url{flex:1;min-width:0;margin:0 8px;padding:6px 12px;border-radius:999px;background:var(--bg);font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ws-go{flex:none;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+    @media(hover:hover) and (pointer:fine){.ws:hover{border-color:var(--accent);box-shadow:0 10px 30px rgba(17,17,17,.12)}}
+    @media(max-width:600px){.ws-bar i{display:none}.ws-url{margin-left:0}}
   </style>
 </head>
 <body>
@@ -1039,7 +1048,10 @@
             <img src="de-logo-cbdc.jpg" loading="lazy" alt="Capture &amp; Business Development Conference event logo" style="width:100%;max-width:300px;display:block;cursor:zoom-in" onclick="openLightbox(this.src)">
           </div>
           <div class="bpc-stack">
-            <figure class="bpc-f line"><a href="https://www.apmp.org/Web/Web/Events/CBDC26.aspx" target="_blank" rel="noopener" style="display:block"><img src="de-cbdc-page.jpg" loading="lazy" alt="The CBDC 2026 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/CBDC26.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
+            <figure class="bpc-f"><a class="ws" href="https://www.apmp.org/Web/Web/Events/CBDC26.aspx" target="_blank" rel="noopener" aria-label="The CBDC 2026 event webpage on apmp.org. Opens the live webpage in a new tab">
+              <span class="ws-bar"><i></i><i></i><i></i><span class="ws-url">apmp.org/Events/CBDC26</span><span class="ws-go">Open live page &#8599;</span></span>
+              <img src="de-cbdc-page.jpg" loading="lazy" alt="The CBDC 2026 event webpage on apmp.org">
+            </a><figcaption>Live webpage &middot; designed and built by me</figcaption></figure>
             <div class="bpc-g c3" style="align-items:start"><figure class="bpc-f "><img src="de-cbdc-2.jpg" loading="lazy" alt="CBDC call for presenters post" onclick="openLightbox(this.src)"></figure><figure class="bpc-f "><img src="de-cbdc-1.jpg" loading="lazy" alt="CBDC agenda announcement post" onclick="openLightbox(this.src)"></figure><figure class="bpc-f "><img src="de-cbdc-3.jpg" loading="lazy" alt="CBDC six weeks to go post" onclick="openLightbox(this.src)"></figure></div>
           </div>
         </div>
@@ -1062,10 +1074,14 @@
         <div class="bp">
           <div class="bp-t">
             <h3>Modern Leadership Summit</h3>
-            <p>A leadership event with a warmer, darker look than the rest of the calendar, built around a lower-case wordmark.</p>
+            <p>A leadership event with a warmer, darker look than the rest of the calendar, built around a lower-case wordmark. Identity, campaign graphics and the event webpage.</p>
             <img src="de-logo-mls.jpg" loading="lazy" alt="Modern Leadership Summit event logo" style="width:100%;max-width:300px;display:block;cursor:zoom-in" onclick="openLightbox(this.src)">
           </div>
           <div class="bpc-stack">
+            <figure class="bpc-f"><a class="ws" href="https://www.apmp.org/Web/Web/Events/MLS27.aspx" target="_blank" rel="noopener" aria-label="The Modern Leadership Summit 2027 event webpage on apmp.org. Opens the live webpage in a new tab">
+              <span class="ws-bar"><i></i><i></i><i></i><span class="ws-url">apmp.org/Events/MLS27</span><span class="ws-go">Open live page &#8599;</span></span>
+              <img src="de-mls-page.jpg" loading="lazy" alt="The Modern Leadership Summit 2027 event webpage on apmp.org">
+            </a><figcaption>Live webpage &middot; the 2027 edition</figcaption></figure>
             <div class="bpc-g c3" style="align-items:start"><figure class="bpc-f "><img src="de-mls-1.jpg" loading="lazy" alt="Modern Leadership Summit be a presenter post" onclick="openLightbox(this.src)"></figure><figure class="bpc-f "><img src="de-mls-2.jpg" loading="lazy" alt="Modern Leadership Summit one month away post" onclick="openLightbox(this.src)"></figure><figure class="bpc-f "><img src="de-mls-3.jpg" loading="lazy" alt="Modern Leadership Summit know before you go post" onclick="openLightbox(this.src)"></figure></div>
           </div>
         </div>
@@ -1089,10 +1105,10 @@
     <section class="bs" id="apmp-templates" style="scroll-margin-top:96px">
       <div class="bs-h">
         <div><div class="sl" style="margin-bottom:16px">Templates</div><h2>Slides every speaker builds on.</h2></div>
-        <p>Each event gets a PowerPoint template in its own identity. Speakers build their sessions on it, so every presentation across an event looks like part of the same conference without a designer touching each deck.</p>
+        <p>Each event gets a PowerPoint template in its own identity. Speakers build their sessions on it, so every presentation across an event looks like part of the same conference without a designer touching each deck. Each one cycles through its layouts here: title, content, section and comparison slides.</p>
       </div>
       <div class="bpc-g c3">
-        <figure class="bpc-f line"><img src="tpl-connect.jpg" loading="lazy" alt="APMP Connect speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>APMP Connect</figcaption></figure><figure class="bpc-f line"><img src="tpl-waia.jpg" loading="lazy" alt="Winning AI: Advanced speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>Winning AI: Advanced</figcaption></figure><figure class="bpc-f line"><img src="tpl-mls.jpg" loading="lazy" alt="Modern Leadership Summit speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>Modern Leadership Summit</figcaption></figure><figure class="bpc-f line"><img src="tpl-wr.jpg" loading="lazy" alt="Write &amp; Refine speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>Write &amp; Refine</figcaption></figure><figure class="bpc-f line"><img src="tpl-cbdc.jpg" loading="lazy" alt="CBDC speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>CBDC</figcaption></figure><figure class="bpc-f line"><img src="tpl-denver.jpg" loading="lazy" alt="BPC Denver speaker slide template, title slide" onclick="openLightbox(this.src)"><figcaption>BPC Denver</figcaption></figure>
+        <figure class="bpc-f line"><img src="tpl-connect.webp" loading="lazy" alt="APMP Connect speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>APMP Connect</figcaption></figure><figure class="bpc-f line"><img src="tpl-waia.webp" loading="lazy" alt="Winning AI: Advanced speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>Winning AI: Advanced</figcaption></figure><figure class="bpc-f line"><img src="tpl-mls.webp" loading="lazy" alt="Modern Leadership Summit speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>Modern Leadership Summit</figcaption></figure><figure class="bpc-f line"><img src="tpl-wr.webp" loading="lazy" alt="Write &amp; Refine speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>Write &amp; Refine</figcaption></figure><figure class="bpc-f line"><img src="tpl-cbdc.webp" loading="lazy" alt="CBDC speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>CBDC</figcaption></figure><figure class="bpc-f line"><img src="tpl-denver.webp" loading="lazy" alt="BPC Denver speaker slide template, cycling through its layouts" onclick="openLightbox(this.src)"><figcaption>BPC Denver</figcaption></figure>
       </div>
     </section>
 
@@ -1699,7 +1715,10 @@
           <div><div class="ev-meta">BPC Anaheim &middot; May 18&ndash;21, 2027 &middot; California</div><h3>Anaheim</h3><p>Sun, surf and the Golden State. For the next BPC I designed the identity and the event page together, so the brand runs from the logo through the whole registration page.</p></div>
         </div>
         <div class="ev-sub">From this event</div>
-        <figure class="bpc-f line"><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="display:block"><img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event page on apmp.org" style="cursor:pointer"></a><figcaption><a href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">The event page &middot; view live &#8599;</a></figcaption></figure>
+        <figure class="bpc-f"><a class="ws" href="https://www.apmp.org/Web/Web/Events/BPCUS27.aspx" target="_blank" rel="noopener" aria-label="The BPC Anaheim 2027 event webpage on apmp.org. Opens the live webpage in a new tab">
+              <span class="ws-bar"><i></i><i></i><i></i><span class="ws-url">apmp.org/Events/BPCUS27</span><span class="ws-go">Open live page &#8599;</span></span>
+              <img src="bpc-anaheim-page.jpg" loading="lazy" alt="The BPC Anaheim 2027 event webpage on apmp.org">
+            </a><figcaption>Live webpage &middot; designed by me</figcaption></figure>
       </div>
     </section>
 
