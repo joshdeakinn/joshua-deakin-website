@@ -1,7 +1,7 @@
 From 5f5eaf41f1cda72fffc41d8f7c0e2f83b54b775c Mon Sep 17 00:00:00 2001
 From: Joshua Deakin <noreply@anthropic.com>
 Date: Fri, 13 Nov 2026 10:05:57 +0000
-Subject: [PATCH 1/3] Rewrite About section in a senior voice
+Subject: [PATCH 1/4] Rewrite About section in a senior voice
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_017oDDujfdd5mhsN1JvueHB4
@@ -47,7 +47,7 @@ index e70c08b..9108102 100644
 From a3f468dc1f4e3a3e1b638e46d99563671a4062c1 Mon Sep 17 00:00:00 2001
 From: Joshua Deakin <noreply@anthropic.com>
 Date: Fri, 13 Nov 2026 10:06:46 +0000
-Subject: [PATCH 2/3] Add poster-signing photo to About slideshow
+Subject: [PATCH 2/4] Add poster-signing photo to About slideshow
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_017oDDujfdd5mhsN1JvueHB4
@@ -82,7 +82,7 @@ index 9108102..00a24f4 100644
 From bc212d16bb409dd687d81d76bdba3bc334273ec3 Mon Sep 17 00:00:00 2001
 From: Joshua Deakin <noreply@anthropic.com>
 Date: Fri, 13 Nov 2026 10:10:50 +0000
-Subject: [PATCH 3/3] Rebuild Murray's case study in the BPC/APMP layout
+Subject: [PATCH 3/4] Rebuild Murray's case study in the BPC/APMP layout
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_017oDDujfdd5mhsN1JvueHB4
@@ -363,6 +363,59 @@ index 00a24f4..348cfad 100644
    </div>
    <div class="pnav"><div></div><button class="pnb r" onclick="showProj('applewise')"><div class="pnl">Next &rarr;</div><div class="pnt">Applewise Bakery</div></button></div>
    <footer><span>&copy; <span class="yr">2026</span> Joshua Deakin</span><span>Senior Creative Designer &middot; Glasgow</span></footer>
+-- 
+2.43.0
+
+
+From c4c04267dca204100c0466e90cb49d36c559504d Mon Sep 17 00:00:00 2001
+From: Joshua Deakin <noreply@anthropic.com>
+Date: Fri, 13 Nov 2026 10:13:14 +0000
+Subject: [PATCH 4/4] Softer sentence-case labels on Murray's chapters
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_017oDDujfdd5mhsN1JvueHB4
+---
+ index.html | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/index.html b/index.html
+index 348cfad..33863ab 100644
+--- a/index.html
++++ b/index.html
+@@ -1263,6 +1263,7 @@
+       :is(#bpc,#apmp,#murrays) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+       :is(#bpc,#apmp,#murrays) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+       :is(#bpc,#apmp,#murrays) .bp-t{position:sticky;top:112px}
++      .bp-k{font-size:15px;font-weight:600;color:var(--accent);margin:0 0 6px}
+       :is(#bpc,#apmp,#murrays) .bp h3,:is(#bpc,#apmp,#murrays) .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
+       :is(#bpc,#apmp,#murrays) .bp p,:is(#bpc,#apmp,#murrays) .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
+       .bpc-g{display:grid;gap:20px 12px}
+@@ -1882,10 +1883,10 @@
+       </div>
+       <div class="bp">
+         <div class="bp-t">
+-          <div class="ev-meta">What they asked for</div>
++          <div class="bp-k">What they asked for</div>
+           <h3>Look different.</h3>
+           <p>Murray's wanted something that commands attention in a sector where everyone looks the same.</p>
+-          <div class="ev-meta">What it really meant</div>
++          <div class="bp-k">What it really meant</div>
+           <h3>Be smarter, not louder.</h3>
+           <p>The industry default is to show what you do. The opportunity was to make people think about it instead. The tone had to be direct and hard-wearing: no softness, no excess.</p>
+         </div>
+@@ -1902,10 +1903,10 @@
+       </div>
+       <div class="bp">
+         <div class="bp-t">
+-          <div class="ev-meta" style="color:var(--muted)">Ruled out</div>
++          <div class="bp-k" style="color:var(--muted)">Ruled out</div>
+           <h3>The industry playbook</h3>
+           <p>Tool-based marks and trade palettes communicate, but they don't stick. Going that way meant blending in, the opposite of the brief.</p>
+-          <div class="ev-meta">Chosen</div>
++          <div class="bp-k">Chosen</div>
+           <h3>One mark, three readings</h3>
+           <p>The M is geometric and ownable, but its form is drawn from the threads of a wood screw: repeat it vertically and it becomes a thread pattern. Flip the negative space and a bolt appears.</p>
+         </div>
 -- 
 2.43.0
 
