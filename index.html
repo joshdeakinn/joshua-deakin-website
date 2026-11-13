@@ -695,12 +695,12 @@
     </div>
   </div>
   <div class="lead">
-    <!-- Showreel: add showreel.mp4 (and optionally showreel-poster.jpg) to the site folder and it replaces the slideshow automatically -->
+    <!-- Showreel slot: currently the On the Record trailer. Swap the src/poster for a real showreel when one exists. -->
     <figure class="reel" id="reel" hidden>
-      <video id="reelVid" muted loop playsinline preload="metadata" poster="showreel-poster.jpg" aria-label="Joshua Deakin showreel">
-        <source src="showreel.mp4" type="video/mp4">
+      <video id="reelVid" muted loop playsinline preload="metadata" poster="otr-trailer-poster.jpg" aria-label="On the Record season trailer, edited by Joshua Deakin">
+        <source src="otr-trailer.mp4" type="video/mp4">
       </video>
-      <figcaption class="hero-cap"><span>Showreel</span><button type="button" class="reel-sound" id="reelSound" aria-pressed="false">Sound on</button></figcaption>
+      <figcaption class="hero-cap"><span>On the Record &middot; season trailer</span><button type="button" class="reel-sound" id="reelSound" aria-pressed="false">Sound on</button></figcaption>
     </figure>
       <a class="hero-work" id="heroWork" href="?p=bpc" data-p="bpc" onclick="cardNav(event,this.dataset.p)">
         <div class="hero-bg" id="heroBg">
@@ -1092,12 +1092,12 @@
         <div class="proj-stat-l">Attendees - global audience, every year</div>
       </div>
       <div class="proj-stat" style="border-top:2px solid var(--accent);padding:32px 28px;">
-        <div class="proj-stat-n">100%</div>
-        <div class="proj-stat-l">New visual identity created each edition</div>
+        <div class="proj-stat-n">5</div>
+        <div class="proj-stat-l">Event identities - Barcelona to Anaheim, 2024&ndash;2027</div>
       </div>
       <div class="proj-stat" style="border-top:2px solid var(--accent);padding:32px 28px;">
-        <div class="proj-stat-n">4</div>
-        <div class="proj-stat-l">Disciplines - identity, signage, print &amp; digital</div>
+        <div class="proj-stat-n">3</div>
+        <div class="proj-stat-l">Countries - Spain, Ireland and the US</div>
       </div>
     </div>
 
@@ -2650,11 +2650,13 @@
     const reel = document.getElementById('reel'), vid = document.getElementById('reelVid'), snd = document.getElementById('reelSound');
     if (!reel || !vid) return;
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    vid.addEventListener('loadeddata', () => {
+    const show = () => {
+      if (!reel.hidden) return;
       reel.hidden = false;
       reel.parentElement.classList.add('has-reel');
       if (still) vid.controls = true; else vid.play().catch(() => { vid.controls = true; });
-    }, { once: true });
+    };
+    if (vid.readyState >= 2) show(); else vid.addEventListener('loadeddata', show, { once: true });
     snd.addEventListener('click', () => {
       vid.muted = !vid.muted;
       if (!vid.muted && vid.paused) vid.play();
