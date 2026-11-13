@@ -622,6 +622,14 @@
     .ws-go{flex:none;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
     @media(hover:hover) and (pointer:fine){.ws:hover{border-color:var(--accent);box-shadow:0 10px 30px rgba(17,17,17,.12)}}
     @media(max-width:600px){.ws-bar i{display:none}.ws-url{margin-left:0}}
+    /* BPC teaser bento on the APMP page */
+    .bb{display:grid;grid-template-columns:1.6fr 1.15fr .72fr .72fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:2.6/1}
+    .bb img[src="BPCDen.png"]{object-fit:contain;background:#0d1f33}
+    .bb img{width:100%;height:100%;min-height:0;object-fit:cover;display:block;transition:opacity .2s}
+    .bb .a,.bb .b{grid-row:span 2}
+    .bb .b{object-position:top}
+    @media(hover:hover) and (pointer:fine){.bb:hover img{opacity:.92}}
+    @media(max-width:700px){.bb{grid-template-columns:1fr 1fr;grid-template-rows:none;aspect-ratio:auto}.bb img{aspect-ratio:1/1}.bb .a{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}.bb .b{grid-row:auto}.bb img:last-child{display:none}}
   </style>
 </head>
 <body>
@@ -1023,7 +1031,7 @@
         <div><div class="sl" style="margin-bottom:16px">Flagship event</div><h2>Bid &amp; Proposal Con.</h2></div>
         <div><p style="margin-bottom:24px">APMP's annual conference for 1,200+ people. A new identity every year, carried through social, email, web, print and the venue itself.</p><button class="btn solid" onclick="window._navBackPage='apmp';showProj('bpc')">Open the BPC case study &rarr;</button></div>
       </div>
-      <a href="?p=bpc" onclick="window._navBackPage='apmp';cardNav(event,'bpc')" style="display:block"><img src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(2).jpg" loading="lazy" alt="Bid and Proposal Con stage branding, Denver 2026" style="width:100%;aspect-ratio:21/9;object-fit:cover;display:block"></a>
+      <a class="bb" href="?p=bpc" onclick="window._navBackPage='apmp';cardNav(event,'bpc')" aria-label="Open the BPC case study"><img class="a" src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(2).jpg" loading="lazy" alt="BPC attendees at the ribbon wall, Denver 2026"><img class="b" src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig poster"><img class="" src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 identity"><img class="" src="dub-c08.jpg" loading="lazy" alt="BPC Dublin countdown post in Irish"><img class="" src="nash-c11.jpg" loading="lazy" alt="BPC Nashville sold out post"><img class="" src="den-cd4.jpg" loading="lazy" alt="BPC Denver four weeks to go post"></a>
     </section>
 
     <!-- SECTION: Digital events -->
