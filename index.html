@@ -437,6 +437,10 @@
     .hero-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 64px}
     .hero-sub{margin:0;flex:1 1 360px;max-width:520px;font-size:18px;line-height:1.65;color:var(--body)}
     .hero-cta{margin:0}
+.hero-jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:40px;opacity:0;animation:fadeIn 1s ease .9s forwards}
+.hero-jump span{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.hero-jump a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;padding:9px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);transition:border-color .2s,color .2s}
+.hero-jump a:hover,.hero-jump a:focus-visible{border-color:var(--accent);color:var(--accent)}
     .lead{max-width:1100px;margin:0 auto;padding:0 40px}
     .lead .hero-bg{aspect-ratio:16/9}
     .bpc-card-bg{background-color:#111}
@@ -717,6 +721,13 @@
         <p class="hero-sub">Award-winning senior designer working across graphic design, brand identity, print, motion and video.</p>
         <div class="hero-cta"><button class="btn solid" onclick="goSection('apmp-s')">See the work &darr;</button><button class="btn" onclick="goSection('contact')">Get in touch</button></div>
       </div>
+      <div class="hero-jump" role="navigation" aria-label="Jump to work by discipline">
+        <span>Jump to</span>
+        <a href="?p=applewise" onclick="jumpTo(event,'applewise')">Brand identity</a>
+        <a href="?p=bpc" onclick="jumpTo(event,'bpc')">Event branding</a>
+        <a href="?p=apmp" onclick="jumpTo(event,'apmp','apmp-podcast')">Video &amp; motion</a>
+        <a href="?p=apmp" onclick="jumpTo(event,'apmp','apmp-pubs')">Print &amp; editorial</a>
+      </div>
     </div>
   </div>
   <div class="lead">
@@ -910,6 +921,15 @@
     </div>
 
     <!-- SECTION: On the Record -->
+    <div class="bx-tabs apmp-jump" aria-label="Jump to a section">
+      <button data-go="apmp-podcast"><b>Podcast</b>On the Record</button>
+      <button data-go="apmp-bpc"><b>Flagship event</b>BPC</button>
+      <button data-go="apmp-digital"><b>Virtual</b>Digital events</button>
+      <button data-go="apmp-templates"><b>Speakers</b>Templates</button>
+      <button data-go="apmp-brand"><b>Master brand</b>APMP brand</button>
+      <button data-go="apmp-pubs"><b>Editorial</b>Publications</button>
+      <button data-go="apmp-info"><b>Social</b>Infographics</button>
+    </div>
     <section class="bs bx" id="apmp-podcast" style="scroll-margin-top:96px">
       <div class="bs-h">
         <div><div class="sl" style="margin-bottom:16px">Video &middot; Podcast series</div><h2>On the Record.</h2></div>
@@ -1026,7 +1046,7 @@
     </section>
 
     <!-- SECTION: BPC -->
-    <section class="bs">
+    <section class="bs" id="apmp-bpc">
       <div class="bs-h">
         <div><div class="sl" style="margin-bottom:16px">Flagship event</div><h2>Bid &amp; Proposal Con.</h2></div>
         <div><p style="margin-bottom:24px">APMP's annual conference for 1,200+ people. A new identity every year, carried through social, email, web, print and the venue itself.</p><button class="btn solid" onclick="window._navBackPage='apmp';showProj('bpc')">Open the BPC case study &rarr;</button></div>
@@ -1159,7 +1179,7 @@
     </section>
 
     <!-- SECTION: Infographics -->
-    <section class="bs">
+    <section class="bs" id="apmp-info">
       <div class="bs-h">
         <div><div class="sl" style="margin-bottom:16px">Social</div><h2>Infographics.</h2></div>
         <p>A handful of the infographics made for LinkedIn, used to reinforce APMP as the profession's leader. Tap one to view it full size.</p>
@@ -1263,6 +1283,9 @@
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
       :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp-t{position:sticky;top:112px}
+      #apmp .apmp-jump{position:sticky;top:var(--navh,72px);z-index:50;margin:0 0 56px;box-shadow:0 10px 24px -18px rgba(0,0,0,.35)}
+      #apmp section.bs[id]{scroll-margin-top:170px !important}
+      @media(max-width:860px){#apmp .apmp-jump{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}#apmp .apmp-jump::-webkit-scrollbar{display:none}#apmp .apmp-jump button{flex:0 0 auto}}
       .bp-k{font-size:15px;font-weight:600;color:var(--accent);margin:0 0 6px}
       .bp-t .bp-k:not(:first-child){margin-top:36px}
       .dir2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
@@ -2123,6 +2146,13 @@
     else { body.offsetHeight; body.style.maxHeight = '0'; }
   }
 
+  function jumpTo(e, id, anchor) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    window._anchor = anchor || null;
+    showProj(id);
+  }
+
   function cardNav(e, id) {
     if (e.metaKey || e.ctrlKey || e.shiftKey) return; // let new-tab clicks through
     e.preventDefault();
@@ -2602,6 +2632,20 @@ document.addEventListener('click', e => {
   if (img) openLightbox(img.currentSrc || img.src);
 });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+<script>
+(function(){
+  var bar=document.querySelector('#apmp .apmp-jump'); if(!bar) return;
+  var nav=document.querySelector('nav'), btns=[].slice.call(bar.querySelectorAll('button'));
+  function navh(){ bar.style.setProperty('--navh',(nav?nav.offsetHeight:72)+'px'); }
+  navh(); addEventListener('resize',navh);
+  btns.forEach(function(b){ b.addEventListener('click',function(){ var t=document.getElementById(b.dataset.go); if(t) t.scrollIntoView({behavior:'smooth'}); }); });
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return;
+    btns.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.go===e.target.id); });
+    var on=bar.querySelector('[aria-selected="true"]'); if(on) bar.scrollTo({left:on.offsetLeft-24,behavior:'smooth'});
+  }); },{rootMargin:'-40% 0px -55% 0px'});
+  btns.forEach(function(b){ var t=document.getElementById(b.dataset.go); if(t) io.observe(t); });
+})();
 </script>
 </body>
 </html>
