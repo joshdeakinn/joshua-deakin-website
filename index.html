@@ -612,6 +612,7 @@
     /* Campaign player shows each post whole, whatever its shape */
     .cmp .cmp-view{background:none;display:flex;align-items:center;justify-content:center;overflow:visible}
     .cmp .cmp-view img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:var(--r)}
+    .fsn{display:block;width:100%;aspect-ratio:4/3;min-height:420px;border:0;border-radius:var(--r);background:var(--surface)}
   </style>
 </head>
 <body>
@@ -1255,12 +1256,13 @@
           <div class="ev-logo"><img src="BPCDub.png" loading="lazy" alt="BPC Dublin 2025 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">BPC Dublin &middot; 2025</div><h3>Dublin</h3><p>Greens, shamrocks and a bit of Irish humour, carried from the logo through to the social content.</p></div>
         </div>
-        <div class="bx-hint">Dublin in four chapters</div>
+        <div class="bx-hint">Dublin in five chapters</div>
         <div class="bx-tabs sub" role="tablist" aria-label="Dublin chapters">
         <button role="tab" aria-selected="true" data-t="story"><b>01</b>Phrase cards</button>
         <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
         <button role="tab" aria-selected="false" data-t="venue"><b>03</b>The venue</button>
-        <button role="tab" aria-selected="false" data-t="film"><b>04</b>Film</button>
+        <button role="tab" aria-selected="false" data-t="guides"><b>04</b>Guides</button>
+        <button role="tab" aria-selected="false" data-t="film"><b>05</b>Film</button>
       </div>
 
       <div class="bx-panel on" data-t="story">
@@ -1306,6 +1308,14 @@
         </div>
       </div>
 
+      <div class="bx-panel" data-t="guides">
+        <div class="bp" style="margin-bottom:28px">
+          <h3 style="margin:0">Guides for speakers and partners</h3>
+          <p style="margin:0">The printed and digital event programme attendees carried through the conference, and the guide that prepared every speaker. Flip through either one.</p>
+        </div>
+        <div class="bpc-g c2" style="align-items:start"><figure class="bpc-f"><iframe class="fsn" src="https://player.flipsnack.com/index.html?hash=RkZDOTc3RUVGQjUreHA1Nm5jaGJkYw==" title="BPC Dublin event programme" loading="lazy" seamless="seamless" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-read; clipboard-write"></iframe><figcaption>Event programme &middot; 22 pages</figcaption></figure><figure class="bpc-f"><iframe class="fsn" src="https://player.flipsnack.com/index.html?hash=RkZDOTc3RUVGQjUrem4wdnFhbHBtYQ==" title="BPC Dublin speaker guide" loading="lazy" seamless="seamless" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-read; clipboard-write"></iframe><figcaption>Speaker guide &middot; 11 pages</figcaption></figure></div>
+      </div>
+
       <div class="bx-panel" data-t="film">
         <div class="bp">
           <div class="bp-t">
@@ -1325,12 +1335,13 @@
           <div class="ev-logo"><img src="BPCNas.png" loading="lazy" alt="BPC Nashville 2025 event logo" onclick="openLightbox(this.src)"></div>
           <div><div class="ev-meta">BPC Nashville &middot; 2025</div><h3>Nashville</h3><p>Music City: a neon-script mark, and a gig poster that became the talk of the exhibitor hall.</p></div>
         </div>
-        <div class="bx-hint">Nashville in four chapters</div>
+        <div class="bx-hint">Nashville in five chapters</div>
         <div class="bx-tabs sub" role="tablist" aria-label="Nashville chapters">
         <button role="tab" aria-selected="true" data-t="story"><b>01</b>The poster</button>
         <button role="tab" aria-selected="false" data-t="cmp"><b>02</b>Campaign</button>
         <button role="tab" aria-selected="false" data-t="venue"><b>03</b>The venue</button>
-        <button role="tab" aria-selected="false" data-t="film"><b>04</b>Motion</button>
+        <button role="tab" aria-selected="false" data-t="guides"><b>04</b>Guides</button>
+        <button role="tab" aria-selected="false" data-t="film"><b>05</b>Motion</button>
       </div>
 
       <div class="bx-panel on" data-t="story">
@@ -1380,6 +1391,14 @@
             <button class="bento-btn" aria-label="Walk forward" onclick="vwGo(this,1)">&#8594;</button>
           </div>
         </div>
+      </div>
+
+      <div class="bx-panel" data-t="guides">
+        <div class="bp" style="margin-bottom:28px">
+          <h3 style="margin:0">Guides for speakers and partners</h3>
+          <p style="margin:0">Everything exhibitors and speakers needed before they arrived, in the Nashville identity. Flip through either one.</p>
+        </div>
+        <div class="bpc-g c2" style="align-items:start"><figure class="bpc-f"><iframe class="fsn" src="https://player.flipsnack.com/index.html?hash=RkZDOTc3RUVGQjUrdW1xb2k1M3RrNQ==" title="BPC Nashville exhibitor guide" loading="lazy" seamless="seamless" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-read; clipboard-write"></iframe><figcaption>Exhibitor guide &middot; 14 pages</figcaption></figure><figure class="bpc-f"><iframe class="fsn" src="https://player.flipsnack.com/index.html?hash=RkZDOTc3RUVGQjUrdXBmYnNxYWppcQ==" title="BPC Nashville speaker guide" loading="lazy" seamless="seamless" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-read; clipboard-write"></iframe><figcaption>Speaker guide &middot; 16 pages</figcaption></figure></div>
       </div>
 
       <div class="bx-panel" data-t="film">
@@ -1544,13 +1563,13 @@
       <div class="bx-panel" data-t="partners">
         <div class="bp">
           <div class="bp-t">
-            <h3>Made for other people to use</h3>
-            <p>Brand-mark guidelines so sponsors and exhibitors use the identity correctly, an exhibitor guide, shareable "I'm exhibiting" and "I'm speaking" badges, and sponsor-branded on-site pieces.</p>
+            <h3>Toolkits for everyone else</h3>
+            <p>A conference this size runs on other people: 40+ exhibitors, sponsors and speakers all promoting and representing BPC. I built what they needed to do that well and on-brand: a full exhibitor guide, brand-mark guidelines for partners, ready-to-post "I'm exhibiting" and "I'm speaking" graphics, and sponsor-branded pieces for on site.</p>
           </div>
           <div class="bpc-stack">
+            <figure class="bpc-f"><iframe class="fsn" src="https://player.flipsnack.com/index.html?hash=RkZDOTc3RUVGQjUreGpsYjk1OGNqbA==" title="BPC Denver exhibitor guide" loading="lazy" seamless="seamless" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-read; clipboard-write"></iframe><figcaption>Exhibitor guide &middot; flip through it</figcaption></figure>
             <figure class="bpc-f line"><img src="bpc-denver-guidelines.jpg" loading="lazy" alt="BPC Denver brand-mark guidelines for partners and sponsors" onclick="openLightbox(this.src)"><figcaption>Brand-mark guidelines for partners</figcaption></figure>
-            <div class="bpc-g c3 sq fit">
-              <figure class="bpc-f "><img src="bpc-denver-exhibitor.jpg" loading="lazy" alt="BPC Denver exhibitor guide cover" onclick="openLightbox(this.src)"><figcaption>Exhibitor guide</figcaption></figure>
+            <div class="bpc-g c2 sq fit">
               <figure class="bpc-f "><img src="den-expo-badge.jpg" loading="lazy" alt="I am an exhibitor at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Exhibitor badge</figcaption></figure>
               <figure class="bpc-f "><img src="den-speaker-badge.jpg" loading="lazy" alt="I am a speaker at BPC Denver badge" onclick="openLightbox(this.src)"><figcaption>Speaker badge</figcaption></figure>
             </div>
