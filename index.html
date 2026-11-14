@@ -486,7 +486,22 @@
     .stat-grid .ec{margin-bottom:0 !important}
     .stat-grid .edesc{grid-column:3;grid-row:1/3;color:var(--body)}
     /* Contact */
-    .form-done{max-width:560px;margin:0 auto;padding:32px;border:1px solid var(--accent);font-size:18px;line-height:1.6;color:var(--ink)}
+    .form-done{max-width:560px;margin:0 auto;padding:48px 32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:24px;color:var(--ink)}
+.form-done>*{opacity:0;transform:translateY(8px);transition:opacity 400ms ease-out,transform 500ms cubic-bezier(.23,1,.32,1)}
+.form-done.in>*{opacity:1;transform:none}
+.form-done.in>:nth-child(3){transition-delay:900ms}.form-done.in>:nth-child(4){transition-delay:1000ms}.form-done.in>:nth-child(5){transition-delay:1150ms}
+.fd-tag{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.fd-sig{width:240px;max-width:70%;height:auto;margin:18px 0 10px;overflow:visible}
+.fd-sig path{fill:none;stroke:var(--accent)}
+.fd-sig path.f{fill:var(--accent);stroke:none;opacity:0;transition:opacity 300ms ease-out 1050ms}
+.form-done.in .fd-sig path.f{opacity:1}
+.form-done h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,34px);line-height:1.1;margin:0 0 10px}
+.form-done p{margin:0;font-size:16px;line-height:1.65;color:var(--body);max-width:380px}
+.fd-again{margin-top:24px;background:none;border:0;padding:6px 2px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);cursor:pointer;border-bottom:1px solid currentColor}
+#contactForm,#contact .sig-static{transition:opacity 250ms ease-out,transform 250ms ease-out}
+#contactForm.leaving{opacity:0;transform:translateY(-8px)}
+#contact .sig-static.hide{opacity:0}
+@media (prefers-reduced-motion:reduce){.form-done>*,#contactForm{transform:none !important}.form-done.in>*{transition-delay:0s !important}}
     #contact .sh{font-size:clamp(44px,6.2vw,88px)}
     .sig-static{display:block;width:220px;height:auto;margin:48px auto 0}
     .sig-static path{stroke:var(--ink);fill:none}
@@ -2541,10 +2556,34 @@
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(contactForm)).toString() })
       .then(r => { if (!r.ok) throw new Error(r.status); })
       .then(() => {
-        const done = document.createElement('p');
-        done.className = 'form-done'; done.setAttribute('role', 'status');
-        done.textContent = "Thanks, your message is on its way. I'll reply soon.";
-        contactForm.replaceWith(done);
+        const data = new FormData(contactForm);
+        const first = String(data.get('name') || '').trim().split(/\s+/)[0];
+        const sig = document.querySelector('#contact .sig-static');
+        const done = document.createElement('div');
+        done.className = 'form-done'; done.setAttribute('role', 'status'); done.tabIndex = -1;
+        done.style.minHeight = contactForm.offsetHeight + 'px';
+        done.innerHTML = '<div class="fd-tag">Message sent</div>'
+          + sig.outerHTML.replace('class="sig-static"', 'class="fd-sig" aria-hidden="true"').replace('role="img" ', '').replace('<path fill="none"', '<path class="s" fill="none"')
+          + '<h3></h3><p></p><button type="button" class="fd-again">Send another message</button>';
+        done.querySelector('h3').textContent = first ? 'Thanks, ' + first + '.' : 'Thanks.';
+        done.querySelector('p').textContent = "Your message is with me. I'll reply to " + (data.get('email') || 'you') + ' soon.';
+        const stroke = done.querySelector('.fd-sig path.s');
+        contactForm.classList.add('leaving'); if (sig) sig.classList.add('hide');
+        setTimeout(() => {
+          contactForm.replaceWith(done);
+          const len = stroke.getTotalLength();
+          stroke.style.strokeDasharray = len;
+          const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+          stroke.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: calm ? 0 : 1100, delay: calm ? 0 : 150, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'both' });
+          requestAnimationFrame(() => requestAnimationFrame(() => done.classList.add('in')));
+          done.focus({ preventScroll: true });
+        }, 250);
+        done.querySelector('.fd-again').addEventListener('click', () => {
+          contactForm.reset(); contactForm.classList.remove('leaving');
+          btn.disabled = false; btn.innerHTML = 'Send Message &rarr;';
+          done.replaceWith(contactForm); if (sig) sig.classList.remove('hide');
+          contactForm.querySelector('input[name="name"]').focus();
+        });
       })
       .catch(() => contactForm.submit());
   });
