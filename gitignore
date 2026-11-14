@@ -1,0 +1,27 @@
+# Everything in this repo is published on joshuadeakin.co.uk.
+# Anything listed here never gets uploaded, so it can never go live.
+
+# Keys and secrets
+.env
+.env.*
+*.key
+*.pem
+secrets*
+credentials*
+
+# Mac / Windows clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Work in progress and leftovers
+drafts/
+*.patch
+*.bak
+*.tmp
+*~
+
+# Tools
+node_modules/
+.vscode/
+.idea/
