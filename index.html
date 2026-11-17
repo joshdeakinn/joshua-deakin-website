@@ -508,6 +508,19 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
 .dir2-c.in .ba-l li::before{content:"\2713";background:none;width:auto;height:auto;top:9px;color:var(--accent);font-weight:700}
 .ba .dir2{margin-bottom:24px}
 .ba-f{max-width:720px;margin:0;font-size:16px;line-height:1.7;color:var(--body)}
+.cx{margin-bottom:56px}
+.cx-b .bp-t p{font-size:16px;line-height:1.75;color:var(--body);margin:0 0 28px}
+.cx-fig{display:flex;flex-direction:column;align-items:center}
+.cx-deck{position:relative;width:min(100%,400px);aspect-ratio:1200/1049;margin:56px 64px 28px 0}
+.cx-deck img{position:absolute;inset:0;width:100%;height:100%;border-radius:12px;box-shadow:0 22px 40px -22px rgba(0,0,0,.55);transform-origin:50% 100%;transition:transform 650ms cubic-bezier(.23,1,.32,1),opacity 650ms cubic-bezier(.23,1,.32,1);will-change:transform}
+.cx-deck img[data-p="0"]{z-index:4;transform:none;opacity:1}
+.cx-deck img[data-p="1"]{z-index:3;transform:translate(22px,-18px) rotate(4deg) scale(.95);opacity:.85}
+.cx-deck img[data-p="2"]{z-index:2;transform:translate(44px,-36px) rotate(8deg) scale(.9);opacity:.6}
+.cx-deck img[data-p="3"]{z-index:1;transform:translate(66px,-54px) rotate(12deg) scale(.85);opacity:.35}
+.cx-deck img[data-p="out"]{z-index:5;transform:translate(-14px,48px) rotate(-6deg) scale(.96);opacity:0}
+.cx-deck img.cx-snap{transition:none}
+.cx-fig figcaption{align-self:stretch}
+@media(max-width:860px){.cx-deck{width:min(78%,360px);margin:48px 56px 24px 0}}
 .hero-jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:40px;opacity:0;animation:fadeIn 1s ease .9s forwards}
 .hero-jump span{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-right:6px}
 .hero-jump a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;padding:9px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);transition:border-color .2s,color .2s}
@@ -1027,6 +1040,7 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       <i class="rail-fill" aria-hidden="true"></i>
       <button data-go="apmp-podcast"><b>Podcast</b><span>On the Record</span></button>
       <button data-go="apmp-bpc"><b>Flagship event</b><span>BPC</span></button>
+      <button data-go="apmp-connect"><b>New event</b><span>APMP Connect</span></button>
       <button data-go="apmp-digital"><b>Virtual</b><span>Digital events</span></button>
       <button data-go="apmp-templates"><b>Speakers</b><span>Templates</span></button>
       <button data-go="apmp-brand"><b>Master brand</b><span>APMP brand</span></button>
@@ -1155,6 +1169,28 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
         <div><p style="margin-bottom:24px">APMP's annual conference for 1,350 people. A new identity every year, carried through social, email, web, print and the venue itself.</p><button class="btn solid" onclick="window._navBackPage='apmp';showProj('bpc')">Open the BPC case study &rarr;</button></div>
       </div>
       <a class="bb" href="?p=bpc" onclick="window._navBackPage='apmp';cardNav(event,'bpc')" aria-label="Open the BPC case study"><img class="a" src="BPC%20Denver%202026%20Fine%20Focus%20Studios%20(2).jpg" loading="lazy" alt="BPC attendees at the ribbon wall, Denver 2026" style="--ar:1024/683"><img class="b" src="bpc-nash-poster.jpg" loading="lazy" alt="BPC Nashville 2025 gig poster" style="--ar:1000/1410"><img class="" src="BPCDen.png" loading="lazy" alt="BPC Denver 2026 identity" style="--ar:1601/1200"><img class="" src="dub-c08.jpg" loading="lazy" alt="BPC Dublin countdown post in Irish" style="--ar:760/760"><img class="" src="nash-c11.jpg" loading="lazy" alt="BPC Nashville sold out post" style="--ar:760/760"><img class="" src="den-cd4.jpg" loading="lazy" alt="BPC Denver four weeks to go post" style="--ar:760/948"></a>
+    </section>
+
+    <!-- SECTION: APMP Connect -->
+    <section class="bs" id="apmp-connect">
+      <div class="bs-h">
+        <div><div class="sl" style="margin-bottom:16px">New event &middot; Toronto 2026</div><h2>APMP Connect.</h2></div>
+        <div><p>An inaugural event, briefed in July for October, straight after a record BPC. The design started with the problem, not the look.</p></div>
+      </div>
+      <div class="dir2 dir3 cx">
+        <div class="dir2-c"><div class="bp-k">The problem</div><h3>Why go, after BPC?</h3><p>A brand-new event, a few months to launch it, and an audience that had just been to our biggest conference. Connect needed its own reason to exist.</p></div>
+        <div class="dir2-c"><div class="bp-k">The insight</div><h3>Built for first-timers.</h3><p>Big conferences can feel daunting, and a big investment. Connect would be the intimate stepping stone, for people new to APMP events or nervous about walking in alone.</p></div>
+        <div class="dir2-c in"><div class="bp-k">The idea</div><h3>Meet people before you arrive.</h3><p>With the events team, we created the Collaboration Style Quiz: twelve questions about how you work and where you are in your career, sorting you into a house with a graphic to share on LinkedIn.</p></div>
+      </div>
+      <div class="bp cx-b">
+        <div class="bp-t">
+          <div class="bp-k">How it worked</div>
+          <p>People shared their house, connected on LinkedIn, then met at the Network Matchmaking session in Toronto. They arrived already part of a small community, more confident and less alone.</p>
+          <div class="bp-k">What&rsquo;s next</div>
+          <p>Lisbon is next, with the quiz built straight into the event page.</p>
+        </div>
+        <figure class="bpc-f cx-fig"><div class="cx-deck" aria-label="The four Collaboration Style Quiz house graphics"><img src="connect-strategist.webp" alt="APMP Connect quiz share graphic: I am a Strategist. What are you?" loading="lazy" style="--ar:1200/1049" onclick="openLightbox(this.src)"><img src="connect-builder.webp" alt="APMP Connect quiz share graphic: I am a Builder. What are you?" loading="lazy" style="--ar:1200/1049" onclick="openLightbox(this.src)"><img src="connect-analyst.webp" alt="APMP Connect quiz share graphic: I am an Analyst. What are you?" loading="lazy" style="--ar:1200/1049" onclick="openLightbox(this.src)"><img src="connect-connector.webp" alt="APMP Connect quiz share graphic: I am a Connector. What are you?" loading="lazy" style="--ar:1200/1049" onclick="openLightbox(this.src)"></div><figcaption><b>Collaboration Style Quiz</b> &middot; The four shareable house graphics</figcaption></figure>
+      </div>
     </section>
 
     <!-- SECTION: Digital events -->
@@ -2865,6 +2901,24 @@ document.querySelectorAll('img:not(#lightbox-img), video').forEach(function(m){
 (function(){ var b=document.querySelector('#ai .bw-pair'); if(!b) return;
   if(!('IntersectionObserver' in window)){ b.classList.add('play'); return; }
   new IntersectionObserver(function(es){ es.forEach(function(e){ b.classList.toggle('play', e.isIntersecting); }); },{threshold:.35}).observe(b);
+})();
+</script>
+<script>
+(function(){ var d=document.querySelector('.cx-deck'); if(!d) return;
+  var cards=[].slice.call(d.querySelectorAll('img')), calm=matchMedia('(prefers-reduced-motion: reduce)').matches, hover=false, t;
+  cards.forEach(function(c,i){ c.dataset.p=i; });
+  if(calm) return;
+  d.addEventListener('mouseenter',function(){hover=true}); d.addEventListener('mouseleave',function(){hover=false});
+  function next(){
+    if(!hover && document.getElementById('apmp').classList.contains('active')){
+      var front=cards.filter(function(c){return c.dataset.p==='0'})[0];
+      front.dataset.p='out';
+      cards.forEach(function(c){ if(c!==front) c.dataset.p=String(c.dataset.p-1); });
+      setTimeout(function(){ front.classList.add('cx-snap'); front.dataset.p='3'; front.offsetWidth; front.classList.remove('cx-snap'); },650);
+    }
+    t=setTimeout(next,2800);
+  }
+  t=setTimeout(next,2800);
 })();
 </script>
 </body>
