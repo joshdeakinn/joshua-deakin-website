@@ -364,6 +364,7 @@
     .menu-overlay.open .mnl:nth-child(4){animation-delay:.12s}
     .menu-overlay.open .mnl:nth-child(5){animation-delay:.16s}
     .menu-overlay.open .mnl:nth-child(6){animation-delay:.2s}
+    .menu-overlay.open .mnl:nth-child(7){animation-delay:.24s}
     @keyframes mnlIn{from{opacity:0;transform:translateY(12px)}}
 
     /* ---- Design pass ---- */
@@ -711,6 +712,7 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
   <div style="display:flex;align-items:center;gap:20px;">
     <div class="nav-links">
       <button onclick="goSection('apmp-s')">APMP</button>
+      <button onclick="goSection('build-s')">Design + AI</button>
       <button onclick="goSection('projects')">Brand work</button>
       <button onclick="goSection('experience')">Experience</button>
       <button onclick="goSection('about')">About</button>
@@ -724,10 +726,11 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
   <div class="menu-left">
     <button class="mnl" onclick="goSection('home')"><span class="mn-num">01</span>Home</button>
     <button class="mnl" onclick="goSection('apmp-s')"><span class="mn-num">02</span>APMP</button>
-    <button class="mnl" onclick="goSection('projects')"><span class="mn-num">03</span>Brand work</button>
-    <button class="mnl" onclick="goSection('experience')"><span class="mn-num">04</span>Experience</button>
-    <button class="mnl" onclick="goSection('about')"><span class="mn-num">05</span>About</button>
-    <button class="mnl" onclick="goSection('contact')"><span class="mn-num">06</span>Contact</button>
+    <button class="mnl" onclick="goSection('build-s')"><span class="mn-num">03</span>Design + AI</button>
+    <button class="mnl" onclick="goSection('projects')"><span class="mn-num">04</span>Brand work</button>
+    <button class="mnl" onclick="goSection('experience')"><span class="mn-num">05</span>Experience</button>
+    <button class="mnl" onclick="goSection('about')"><span class="mn-num">06</span>About</button>
+    <button class="mnl" onclick="goSection('contact')"><span class="mn-num">07</span>Contact</button>
   </div>
   <div class="menu-right">
     <div id="menu-bg" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;pointer-events:none;transition:opacity .6s ease,background-image .01s;"></div>
