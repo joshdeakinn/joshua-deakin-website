@@ -444,6 +444,35 @@ img.sk,video.sk{background:linear-gradient(100deg,var(--surface) 30%,#FAFAF8 50%
 img.sk.sk-err{animation:none}
 img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
 @media (prefers-reduced-motion:reduce){img.sk,video.sk{animation:none}img.sk-in,video.sk-in{animation-duration:150ms}}
+#build-s{max-width:1100px;margin:0 auto;padding:120px 40px}
+.bld{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+.bld-t .sl{justify-content:flex-start;margin-bottom:24px}
+.bld-t p{font-size:17px;line-height:1.75;color:var(--body);margin:0 0 32px;max-width:440px}
+.bld-t .btn{display:inline-flex;text-decoration:none}
+.bld-v{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bld-v a{display:block;border-radius:var(--r);overflow:hidden;transition:transform 300ms cubic-bezier(.23,1,.32,1)}
+.bld-v a:nth-child(2){margin-top:48px}
+.bld-v video{width:100%;aspect-ratio:4/5;display:block;object-fit:cover}
+@media (hover:hover) and (pointer:fine){.bld-v a:hover{transform:translateY(-4px)}}
+@media(max-width:860px){#build-s{padding:80px 24px}.bld{grid-template-columns:1fr;gap:40px}.bld-v a:nth-child(2){margin-top:24px}}
+.flow{list-style:none;margin:0 0 72px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.flow::before,.flow::after{content:"";position:absolute;left:0;right:0;top:15px;height:2px;border-radius:2px;background:var(--border)}
+.flow::after{background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 1400ms cubic-bezier(.65,0,.35,1) 150ms}
+.flow.in::after{transform:scaleX(1)}
+.flow li{position:relative;padding-top:52px;opacity:.35;transition:opacity 500ms ease-out}
+.flow.in li{opacity:1}
+.flow.in li:nth-child(1){transition-delay:150ms}.flow.in li:nth-child(2){transition-delay:500ms}.flow.in li:nth-child(3){transition-delay:850ms}.flow.in li:nth-child(4){transition-delay:1200ms}
+.flow li::before{content:"";position:absolute;top:8px;left:0;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:var(--bg);border:2px solid var(--border);z-index:1;transition:background-color 300ms ease-out,border-color 300ms ease-out,transform 400ms cubic-bezier(.23,1,.32,1);transition-delay:inherit}
+.flow.in li::before{border-color:var(--accent)}
+.flow.in li.key::before{background:var(--accent);transform:scale(1.5)}
+.fl-n{font-family:"DM Mono",monospace;font-size:12px;color:var(--muted)}
+.flow h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1;letter-spacing:-.02em;margin:6px 0 10px}
+.flow .key h3{color:var(--accent)}
+.fl-who{display:inline-block;margin:0 0 12px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--ink)}
+.flow .key .fl-who{background:var(--accent);border-color:var(--accent);color:#fff}
+.flow p:last-child{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+@media(max-width:860px){.flow{grid-template-columns:1fr;gap:28px;padding-left:36px}.flow::before,.flow::after{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto}.flow::after{transform:scaleY(0);transform-origin:top}.flow.in::after{transform:scaleY(1)}.flow li{padding-top:0}.flow li::before{top:4px;left:-36px}}
+@media (prefers-reduced-motion:reduce){.flow::after,.flow li,.flow li::before{transition:none !important}}
 .hero-jump{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:40px;opacity:0;animation:fadeIn 1s ease .9s forwards}
 .hero-jump span{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-right:6px}
 .hero-jump a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;padding:9px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);transition:border-color .2s,color .2s}
@@ -798,6 +827,20 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       </div>
     </div>
   </div>
+  <section id="build-s">
+    <div class="bld">
+      <div class="bld-t reveal">
+        <div class="sl">Designer-led &middot; AI-assisted</div>
+        <h2 class="sh">Beyond the mockup.</h2>
+        <p>I design every product end to end. AI helps me turn those designs into working products, so more ideas make it off the page, for me and the teams I work with.</p>
+        <a class="btn" href="?p=ai" onclick="cardNav(event,'ai')">See how I build &rarr;</a>
+      </div>
+      <div class="bld-v reveal" style="transition-delay:.12s">
+        <a href="?p=ai" onclick="cardNav(event,'ai')" aria-label="APMP Member Dashboard launch video"><video class="loopv" autoplay muted loop playsinline preload="metadata" poster="ai-dashboard.jpg"><source src="ai-dashboard.mp4" type="video/mp4"></video></a>
+        <a href="?p=ai" onclick="cardNav(event,'ai')" aria-label="APMP 2027 Event Calendar launch video"><video class="loopv" autoplay muted loop playsinline preload="metadata" poster="ai-calendar.jpg"><source src="ai-calendar.mp4" type="video/mp4"></video></a>
+      </div>
+    </div>
+  </section>
   <section id="projects">
     <div class="sl reveal">Brand Identity</div>
     <h2 class="sh reveal" style="transition-delay:.08s">Selected brand work</h2>
@@ -1273,39 +1316,39 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
 
     <!-- BPC Logos -->
     <style>
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs{border-top:1px solid var(--border);padding:72px 0 0;margin:0 0 104px;max-width:none}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:0 0 40px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs button,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button{flex:none;display:block;text-align:left;background:none;border:none;border-radius:11px;padding:14px 16px;min-height:56px;cursor:pointer;font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.25;color:var(--ink);transition:background .2s,color .2s}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button b{display:block;font-family:"DM Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs button[aria-selected="true"],:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs button:active,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button:active{transform:scale(.98)}
-      @media(hover:hover) and (pointer:fine){:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs button:not([aria-selected="true"]):hover,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-logo img{width:100%;height:auto;display:block;border-radius:var(--r);cursor:zoom-in}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-logo.pad{background:var(--surface);border-radius:var(--r);aspect-ratio:4/3;padding:9%;box-sizing:border-box}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-logo.pad img{height:100%;object-fit:contain;border-radius:0}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-meta,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-meta{margin-bottom:14px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-h h3{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs.sub{background:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:20px 0 0;gap:8px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs.sub button{border:1px solid var(--border);font-size:15px;font-weight:600;min-height:52px;padding:11px 14px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs.sub button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs.sub button[aria-selected="true"] b{color:rgba(255,255,255,.7)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs{border-top:1px solid var(--border);padding:72px 0 0;margin:0 0 104px;max-width:none}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:end;margin-bottom:44px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs-h h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--ink)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:0 0 40px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs button,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button{flex:none;display:block;text-align:left;background:none;border:none;border-radius:11px;padding:14px 16px;min-height:56px;cursor:pointer;font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.25;color:var(--ink);transition:background .2s,color .2s}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button b{display:block;font-family:"DM Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs button[aria-selected="true"],:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button[aria-selected="true"] b{color:rgba(255,255,255,.85)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs button:active,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button:active{transform:scale(.98)}
+      @media(hover:hover) and (pointer:fine){:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs button:not([aria-selected="true"]):hover,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button:not([aria-selected="true"]):hover{background:var(--bg)}}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;margin-bottom:56px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-logo img{width:100%;height:auto;display:block;border-radius:var(--r);cursor:zoom-in}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-logo.pad{background:var(--surface);border-radius:var(--r);aspect-ratio:4/3;padding:9%;box-sizing:border-box}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-logo.pad img{height:100%;object-fit:contain;border-radius:0}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-meta,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-sub{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-meta{margin-bottom:14px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-sub{color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-bottom:32px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-h h3{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px;color:var(--ink)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-h p{font-size:16px;line-height:1.7;color:var(--body);margin:0}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs.sub{background:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:20px 0 0;gap:8px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs.sub button{border:1px solid var(--border);font-size:15px;font-weight:600;min-height:52px;padding:11px 14px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs.sub button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs.sub button[aria-selected="true"] b{color:rgba(255,255,255,.7)}
       .bx-hint{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-stage img{inset:9%;width:82%;height:82%}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-stage img{inset:9%;width:82%;height:82%}
       .bx-panel{display:none}
       .bx-panel.on{display:block;animation:bxin .28s cubic-bezier(0.23,1,0.32,1)}
       @keyframes bxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
       @media(prefers-reduced-motion:reduce){.bx-panel.on{animation:none}}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp-t{position:sticky;top:112px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp-t{position:sticky;top:112px}
       /* APMP section nav: slim sticky row on small screens, progress rail on the right on wide screens */
       #apmp #apmpJump{position:sticky;top:var(--navh,72px);z-index:50;margin:0 0 48px;display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 10px 24px -18px rgba(0,0,0,.35)}
       #apmp #apmpJump::-webkit-scrollbar{display:none}
@@ -1343,9 +1386,10 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       .bpc-g.sys>:first-child img,.bpc-g.sys>:last-child:nth-child(even) img{aspect-ratio:16/9}
       .bpc-g.sys .fit img{object-fit:contain;background:#fff}
       @media(max-width:860px){.bpc-g.sys{grid-template-columns:1fr}.bpc-g.sys img{aspect-ratio:4/3}}
-      @media(max-width:860px){.dir2{grid-template-columns:1fr}}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp h3,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp p,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
+      .dir2.dir3{grid-template-columns:repeat(3,1fr)}
+      @media(max-width:860px){.dir2,.dir2.dir3{grid-template-columns:1fr}}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp h3,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .cmp-side h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.12;margin:0 0 14px;color:var(--ink)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp p,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .cmp-side p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 20px}
       .bpc-g{display:grid;gap:20px 12px}
       .bpc-g.c2{grid-template-columns:1fr 1fr}
       .bpc-g.c3{grid-template-columns:repeat(3,1fr)}
@@ -1364,7 +1408,7 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       .cmp-view img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
       .cmp-n{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);margin:28px 0 8px}
       .cmp-t{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.2;margin:0 0 6px;color:var(--ink)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .cmp-side p.cmp-d{min-height:3.4em;margin-bottom:18px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .cmp-side p.cmp-d{min-height:3.4em;margin-bottom:18px}
       .cmp-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:18px}
       .cmp-steps button{padding:0;border:none;background:none;cursor:pointer;aspect-ratio:1/1;overflow:hidden;opacity:.4;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s,outline-color .2s}
       .cmp-steps button img{width:100%;height:100%;object-fit:cover;display:block}
@@ -1392,11 +1436,11 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       .vw-l{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:16px;white-space:nowrap;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#3a3a37}
       .vw-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap}
       .vw-note{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;max-width:560px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-panel .bento-ss{margin:72px 0 0}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
-      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bpc-letters b{color:var(--ink)}
-      @media(max-width:860px){:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs-h,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp.wide,.cmp,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bpc-letters,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-h{grid-template-columns:1fr;gap:24px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ev-h{margin-bottom:40px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bp-t{position:static}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .yr-tabs button,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .bx-tabs button{font-size:14px;padding:12px}}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-panel .bento-ss{margin:72px 0 0}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bpc-letters{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;border-top:1px solid var(--border);padding-top:40px;margin-bottom:96px}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bpc-letters p{margin:0;font-size:16px;line-height:1.7;color:var(--body)}
+      :is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bpc-letters b{color:var(--ink)}
+      @media(max-width:860px){:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs-h,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp.wide,.cmp,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bpc-letters,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-h{grid-template-columns:1fr;gap:24px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ev-h{margin-bottom:40px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bp-t{position:static}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bs{padding:48px 0 0;margin-bottom:72px}.vw{--ft:24px}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .yr-tabs button,:is(#bpc,#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .bx-tabs button{font-size:14px;padding:12px}}
           .br-sw{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
       .br-sw div{border-radius:var(--r);padding:56px 18px 16px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em}
       .br-sw span{display:block;font-family:"Poppins",sans-serif;font-weight:600;font-size:15px;letter-spacing:0;margin-bottom:4px}
@@ -1411,8 +1455,8 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
       .sc-l{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:right;white-space:nowrap}
       @media(hover:hover) and (pointer:fine){a.sc-i:hover{padding-left:12px}a.sc-i:hover .sc-t{color:var(--accent)}}
       @media(max-width:860px){.sc-i{grid-template-columns:36px 1fr}.sc-d,.sc-l{grid-column:2;text-align:left}}
-      :is(#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ptitle{font-family:var(--display);font-weight:800;font-size:clamp(44px,6.9vw,96px);line-height:.95;letter-spacing:-.035em;margin-bottom:44px}
-      :is(#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard) .ptitle span{display:block;color:var(--accent)}
+      :is(#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ptitle{font-family:var(--display);font-weight:800;font-size:clamp(44px,6.9vw,96px);line-height:.95;letter-spacing:-.035em;margin-bottom:44px}
+      :is(#apmp,#murrays,#applewise,#freshbite,#nishikigoi,#rizen,#midgard,#ai) .ptitle span{display:block;color:var(--accent)}
       .ah-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:start;border-top:1px solid var(--ink);padding-top:28px}
       .ah-meta{display:flex;flex-wrap:wrap;gap:16px 40px;margin:0}
       .ah-meta dt{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -2095,6 +2139,37 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
   <footer><span>&copy; <span class="yr">2026</span> Joshua Deakin</span><span>Senior Creative Designer &middot; Glasgow</span></footer>
 </div>
 
+<!-- PROJECT: AI-assisted design -->
+<div id="ai" class="page proj-page">
+  <div class="ph">
+    <div class="phc">
+      <div class="ptag">Designer-led &middot; AI-assisted</div>
+      <h1 class="ptitle">Beyond the <span>mockup.</span></h1>
+      <div class="ah-row"><dl class="ah-meta"><div><dt>Role</dt><dd>Design &amp; build</dd></div><div><dt>Tools</dt><dd>ChatGPT, Claude, Adobe CC</dd></div><div><dt>With</dt><dd>APMP team &amp; leadership</dd></div></dl><p>I'm a designer first. AI helps me take my designs further, into working products, so more ideas make it off the page for the people I work with. Every design here is mine.</p></div>
+    </div>
+  </div>
+  <div class="pbody" style="padding-top:48px;">
+    <ol class="flow" aria-label="How a project moves from idea to launch">
+      <li><span class="fl-n">01</span><h3>Idea</h3><p class="fl-who">Me + ChatGPT</p><p>Directions explored fast, with a sparring partner.</p></li>
+      <li class="key"><span class="fl-n">02</span><h3>Design</h3><p class="fl-who">Me</p><p>Every layout, type choice and detail. This part is all mine.</p></li>
+      <li><span class="fl-n">03</span><h3>Build</h3><p class="fl-who">Me + Claude</p><p>My designs turned into working code.</p></li>
+      <li><span class="fl-n">04</span><h3>Live</h3><p class="fl-who">With APMP&rsquo;s team</p><p>Refined with feedback from the team and leadership, then launched.</p></li>
+    </ol>
+    <figure class="bpc-f"><img src="ai-my-badge.webp" alt="The My APMP Badge page, where members turn on verification and choose their badge" loading="lazy" style="--ar:1600/1293" onclick="openLightbox(this.src)"><figcaption><b>My APMP Badge</b> &middot; Where members switch on verification and choose their badge</figcaption></figure>
+
+    <section class="bs"><div class="bs-h"><h2>01 &middot; The problem</h2><p>APMP runs its website on a platform with strict technical limits. For a designer, that's usually where ideas stop: at the mockup.</p></div><div class="bp"><div class="bp-t"><div class="bp-k" style="color:var(--muted)">How it used to work</div><h3>Some ideas stayed on the page.</h3><p>Interactive features needed time and budget the team didn&rsquo;t always have, so good ideas often stopped at a static design.</p><div class="bp-k">How it works now</div><h3>Design it, then build it.</h3><p>AI helps me turn my designs into working pages. Web and event pages that used to take days upon days now take a fraction of the time, which frees up time for the whole team.</p></div><div class="bpc-stack"><figure class="bpc-f"><video class="loopv" style="width:100%;display:block;aspect-ratio:4/5" autoplay muted loop playsinline preload="metadata" poster="ai-calendar.jpg"><source src="ai-calendar.mp4" type="video/mp4"></video><figcaption><b>2027 Event Calendar</b> &middot; Launch motion</figcaption></figure></div></div></section>
+
+
+    <section class="bs"><div class="bs-h"><h2>02 &middot; APMP Verified</h2><p>Membership is APMP's core offer, but members had no simple way to prove it. APMP Verified changes that.</p></div><div class="bp"><div class="bp-t"><div class="bp-k">What it is</div><h3>Proof of membership, built in.</h3><p>A badge members add to their email signature, LinkedIn or website. One click opens a public page where APMP confirms their membership, certifications and leadership roles live, without ever showing their email or member ID. It covers Individual and Corporate Members, Sponsors, ATOs, Board members and Fellows.</p><div class="bp-k">The design call</div><h3>Evergreen, not dated.</h3><p>The badge carries no year. Membership years don't run January to December, and a dated badge on someone else's website can't be policed.</p><div class="bp-k">How it came together</div><h3>Designed, built and refined together.</h3><p>I designed the badges and both pages and built the system with AI, shaping it with feedback from APMP&rsquo;s team and leadership along the way.</p></div><div class="bpc-stack"><figure class="bpc-f"><img src="ai-verify.webp" alt="The public APMP Verified page confirming a member’s certifications" loading="lazy" style="--ar:1400/1747" onclick="openLightbox(this.src)"><figcaption><b>Verify page</b> &middot; Membership and certifications, confirmed live</figcaption></figure></div></div></section>
+
+    <section class="bs"><div class="bs-h"><h2>03 &middot; Member Dashboard</h2><p>The same approach, applied to the first page members see after signing in.</p></div><div class="bp"><div class="bp-t"><div class="bp-k">What it is</div><h3>Your membership, your dashboard.</h3><p>A personalised home for every member: quick links, live membership details and upcoming events, in a layout each member can customise and save.</p><div class="bp-k">Built, then launched</div><h3>Product and promo, joined up.</h3><p>I designed and built the dashboard, then made the motion piece that introduces it to members.</p></div><div class="bpc-stack"><figure class="bpc-f"><video class="loopv" style="width:100%;display:block;aspect-ratio:4/5" autoplay muted loop playsinline preload="metadata" poster="ai-dashboard.jpg"><source src="ai-dashboard.mp4" type="video/mp4"></video><figcaption><b>Member Dashboard</b> &middot; Launch motion</figcaption></figure></div></div></section>
+
+    <div class="proc-call" style="border-radius:var(--r);margin-bottom:96px;"><div class="proc-call-bg">"</div><div class="proc-call-tag">The Call</div><div class="proc-call-quote">AI didn't replace my design skills. It <em>removed the ceiling</em> on them.</div><p class="proc-call-body">I'm not a coder. AI bridges that gap, so I can bring more ideas to life for the people I work with. The design thinking is still mine.</p></div>
+  </div>
+  <div class="pnav"><button class="pnb" onclick="showProj('apmp')"><div class="pnl">&larr; Previous</div><div class="pnt">APMP</div></button><button class="pnb r" onclick="showProj('bpc')"><div class="pnl">Next &rarr;</div><div class="pnt">Bid &amp; Proposal Con</div></button></div>
+  <footer><span>&copy; <span class="yr">2026</span> Joshua Deakin</span><span>Senior Creative Designer &middot; Glasgow</span></footer>
+</div>
+
 <!-- PROJECT: Midgard -->
 <div id="midgard" class="page proj-page">
   <div class="ph">
@@ -2127,7 +2202,8 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
     rizen: 'Rizen',
     midgard: 'Midgard Greenhouse & Nursery',
     apmp: 'APMP - Multimedia Designer',
-    bpc: 'BPC - Bid & Proposal Con'
+    bpc: 'BPC - Bid & Proposal Con',
+    ai: 'Beyond the mockup: designer-led, AI-assisted'
   };
 
   const homeTitle = document.title;
@@ -2140,7 +2216,8 @@ img.sk-in,video.sk-in{animation:sk-in 400ms ease-out}
     freshbite: "Brand identity for Freshbite, a meal-kit company, by Joshua Deakin: organic warmth with enough restraint to feel premium.",
     nishikigoi: "YouTube channel branding for Nishikigoi with Oliver by Joshua Deakin: logo, thumbnail templates and channel art from one system.",
     rizen: "eSports mascot logo for Rizen by Joshua Deakin: a hand-illustrated phoenix built for stream overlays, merchandise and social.",
-    midgard: "Brand identity for Midgard Greenhouse & Nursery by Joshua Deakin: a Norse-rooted mark built for uniforms, bags and flags."
+    midgard: "Brand identity for Midgard Greenhouse & Nursery by Joshua Deakin: a Norse-rooted mark built for uniforms, bags and flags.",
+    ai: "Designer-led, AI-assisted: how Joshua Deakin takes his designs beyond the mockup into working products, featuring APMP Verified and the Member Dashboard."
   };
   function setMeta(id) {
     document.querySelector('link[rel="canonical"]').href = 'https://www.joshuadeakin.co.uk/' + (id ? '?p=' + id : '');
@@ -2738,6 +2815,13 @@ document.querySelectorAll('img:not(#lightbox-img), video').forEach(function(m){
   m.addEventListener(img?'load':'loadeddata',function(){ m.classList.remove('sk'); m.classList.add('sk-in'); },{once:true});
   m.addEventListener('error',function(){ m.classList.add('sk-err'); },{once:true});
 });
+</script>
+<script>
+(function(){ var f=document.querySelector('#ai .flow'); if(!f) return;
+  if(!('IntersectionObserver' in window)){ f.classList.add('in'); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ f.classList.add('in'); io.disconnect(); } }); },{threshold:.4});
+  io.observe(f);
+})();
 </script>
 </body>
 </html>
